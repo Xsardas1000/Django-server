@@ -1,0 +1,1025 @@
+6
+1
+0
+2
+
+ 
+
+v
+o
+N
+0
+3
+
+ 
+
+ 
+ 
+]
+h
+p
+-
+p
+e
+h
+[
+ 
+ 
+
+1
+v
+9
+0
+0
+0
+0
+
+.
+
+2
+1
+6
+1
+:
+v
+i
+X
+r
+a
+
+Package-X 2.0: A Mathematica package for the analytic calculation of one-loop
+
+integrals
+
+Hiren H. Patel1, ∗
+
+1Particle and Astro-Particle Physics Division
+Max-Planck Institut fuer Kernphysik (MPIK)
+Saupfercheckweg 1, 69117 Heidelberg, Germany
+
+This arXiv post announces the public release of Package-X 2.0, a Mathematica package for the
+analytic calculation of one-loop integrals. Package-X 2.0 can now generate analytic expressions for
+arbitrarily high rank dimensionally regulated tensor integrals with up to four distinct propagators,
+each with arbitrary integer weight, near an arbitrary even number of spacetime dimensions, giving
+UV divergent, IR divergent, and ﬁnite parts at (almost) any real-valued kinematic point. Addition-
+ally, it can generate multivariable Taylor series expansions of these integrals around any non-singular
+kinematic point to arbitrary order. All special functions and abbreviations output by Package-X 2.0
+supports Mathematica’s arbitrary precision evaluation capabilities to deal with issues of numerical
+stability. Finally, tensor algebraic routines of Package-X have been polished and extended to support
+open fermion chains both on and oﬀ shell. The documentation (equivalent to over 100 printed pages)
+is accessed through Mathematica’s Wolfram Documentation Center and contains information on all
+Package-X symbols, with over 300 basic usage examples, 3 project-scale tutorials, and instructions
+on linking to FeynCalc and LoopTools.
+
+I.
+
+INTRODUCTION
+
+Package-X is a Mathematica package with the principal
+purpose of generating analytic results for dimensionally
+regulated one-loop rank-P tensor integrals of the form
+
+T µ1...µP
+N
+
+= (cid:16) ie−γEǫ
+
+(4π)d/2(cid:17)−1
+
+µ2ǫZ ddk
+
+(2π)dnkµ1 · · · kµP
+
+× [(k − p0)2 −m2
+
+0+iε]−ν0 [(k+p1)2 −m2
+· · · [(k+pN )2 −m2
+
+1+iε]−ν1
+N +iε]−νNo ,
+
+(1)
+
+with up to N = 4 denominator factors, each with in-
+teger weights νi, for arbitrary conﬁgurations of external
+momenta pi and real-valued internal masses mi.
+
+While many packages are publicly available to numer-
+ically evaluate one loop integrals [1–6] with the aim of
+automatizing the calculation of cross sections with full
+kinematic dependence, none exist to the author’s knowl-
+edge that provides complete analytic expressions. Pack-
+age-X serves to ﬁll this gap with the aim of obtaining
+results for quantum ﬁeld theory calculations where com-
+pact analytic expressions exist (e.g. pole masses, elec-
+troweak oblique parameters, particle moments, decay
+rates, cross sections at threshold, counterterms, Wilson
+coeﬃcients, etc). The application ﬁles along with an in-
+troductory tutorial are hosted at the Hepforge [7] project
+page http://packagex.hepforge.org.
+
+The original release of Package-X in 2015 suﬀered from
+several limitations, which are listed in Section IX of the
+accompanying publication [8]. In addition to addressing
+all these limitations, Package-X 2.0 features many new
+features and enhancements described below. Familiarity
+
+∗ hiren.patel@mpi-hd.mpg.de
+
+with the use of the package is assumed. Furthermore,
+since the underlying algorithms and program structure
+is already detailed at length in the original publication,
+only a brief description of updates to Package-X is pro-
+vided in the sections to follow. The interested reader is
+encouraged to consult the original Package-X publication
+and the references in the text below for details.
+
+The most prominent features of version 2.0 that are
+described below are the ability to compute one-loop inte-
+grals with four distinct denominator factors (Sections II,
+III and IV) construct Taylor series expansion of one-loop
+integrals (Section V), and compute integrals with open
+fermion lines (Section VI). Finally, a listing of new func-
+tions/symbols introduced in version 2.0 are collected in
+the Appendix.
+
+II. UPDATES TO LOOPINTEGRATE
+
+The evaluation of a one-loop integral is initiated with
+LoopIntegrate and performs its covariant tensor decom-
+position in terms of Passarino-Veltman coeﬃcient func-
+tions. As of version 2.0, LoopIntegrate supports in-
+tegrands with up to four distinct propagator factors,
+each with arbitrary integer powers ν1, . . . , νN . The ten-
+sor covariant decomposition follows the basic property of
+Lorentz covariance of dimensionally regulated loop inte-
+grals [9], and generates an expression in terms of coeﬃ-
+cient functions PVA, PVB, PVC, PVD as described in section
+III of [8].
+
+In the original version of Package-X, the syntax of
+LoopIntegrate was such that the user had to put the in-
+tegral in a form such that p0 = 0 in (1). This meant that
+the user either had to strategically route the momenta
+through the one-loop diagram so that at least one denom-
+inator factor had no external momenta ﬂowing thorough
+it, or had to shift the integration variable before using
+
+LoopIntegrate to evaluate the integral. As of version
+2.0, LoopIntegrate accepts a new syntax accommodat-
+ing nonzero p0 which means that any momentum routing
+is possible.
+
+For integrals involving denominator factors with lin-
+early dependent momenta, it is standard practice to per-
+form a partial fraction expansion of the denominator fac-
+tors before making a covariant decomposition as it leads
+to a sum of integrals with fewer number of denomina-
+tor factors. As of version 2.0, LoopIntegrate has an
+option Apart that toggles whether to expand linearly de-
+pendent denominator factors into partial fractions. The
+algorithms are based on [10], but are speciﬁcally tailored
+to eﬃciently process one-loop integrals.
+
+Additionally, if the numerator of the loop integral con-
+tains dot products involving the loop momentum (k2 or
+k.pi), it is proﬁtable to write them as diﬀerences of prop-
+agator factors so that they may be cancelled against the
+denominator. This procedure simultanesouly lowers the
+rank of tensor integrals and reduces the number of de-
+nominator factors. As of version 2.0, LoopIntegrate
+has an option Cancel that controls whether to expand
+and cancel these factors before making a covariant de-
+composition. This, along with expanding in partial frac-
+tions, generally leads to substantially increased perfor-
+mance and quality of the output of LoopRefine.
+
+covariant
+
+decomposition
+
+for
+
+Finally,
+
+in version 2.0, LoopIntegrate can now
+inte-
+perform the
+and
+grands
+FermionLineProduct objects, enabling it to process
+integrands with open fermion lines. This capability is
+described in Section VI below.
+
+involving DiracMatrix,
+
+FermionLine,
+
+III. UPDATES TO LOOPREFINE
+
+After the covariant decomposition of a loop integral
+is carried out with LoopIntegrate and kinematic condi-
+tions are supplied, the ﬁnal step is to apply LoopRefine,
+which replaces the coeﬃcient functions with explicit an-
+alytic expressions.
+
+In version 2.0, LoopRefine can convert four-point coef-
+ﬁcient functions PVD to elementary functions. In the most
+general case, the standard Passarino-Veltman reduction
+[9] is used. To handle cases with vanishing Grammian
+determinant, the algorithms described in [11] are used,
+and are direct generalizations of Cases 1, 3, 5 and 6 ap-
+pearing in section IV C of [8] to four propagator factors.
+These algorithms are not applicable if the determinant
+of the modiﬁed Cayley matrix vanishes. For further (but
+still incomplete) coverage, two new reduction formulae,
+valid when certain elements of the adjugate Grammian
+matrix vanish, were derived by explicitly integrating over
+Feynman parameters. When appropriate, Package-X ap-
+plies these formulae. However, further research is needed
+to provide complete kinematic coverage.
+
+In the original release of Package-X, only integrals with
+unit weight were supported (ν0 = . . . = νN = 1). As of
+
+2
+
+version 2.0, LoopRefine can convert integrals of arbi-
+trary integer weight to analytic expressions. Weighted
+loop integrals can arise when Feynman diagrams with
+massless gauge bosons in general covariant gauge are con-
+sidered, or when the small momentum approximation is
+applied at the level of the integrand. They are also in-
+dispensable for the construction of series expansions as
+described in Section V below. Conventionally, integra-
+tion by parts methods [12] together with recurrence re-
+lations in d dimensions [13, 14] are used to reduce these
+functions. However, Package-X uses a slightly diﬀerent
+method derived as follows: by comparing Feynman pa-
+rameter integral representations, the weighted coeﬃcient
+functions can be related to linear combinations of un-
+weighted coeﬃcient functions with fewer number of 00
+index pairs. Then one of the existing reduction formu-
+lae can be used to convert them to analytic expressions.
+However, weighted scalar functions in this scheme are re-
+lated to coeﬃcient functions with formally negative num-
+ber of 00 pairs. But since their Feynman parameter in-
+tegral representations imply that they are analytic func-
+tions of “number of 00 pairs”, a reduction based on Cay-
+ley determinants presented in Section 5.3 of [11] is used
+to raise the number of 00 index pairs, thereby making it
+possible to convert them to known basis functions.
+
+Similar to weighted coeﬃcient functions, coeﬃcient
+functions arising from the decomposition of integrals near
+an even number of spacetime dimensions other than 4 can
+also be related to those deﬁned near 4 with a diﬀerent
+number of 00 index pairs by equating Feynman param-
+eter integral representations. Therefore, it is possible to
+convert these functions to analytic expressions by using
+the same strategy.
+
+In addition to the aforementioned major changes,
+LoopRefine has also received a number of minor fea-
+tures. Among them is the ability for LoopRefine to test
+for the presence of power infrared divergences in loop in-
+tegrals in some cases. These integrals have the feature
+that their Feynman parameter integrals do not converge
+for genuinely small dimensional regulator parameter ǫ.
+Their presence is detected in Package-X by retaining, in
+all basis functions that feature the power divergence, the
++iε term as a ﬁnite quantity which acts like a mass regu-
+lator. Then, upon converting its entire input to analytic
+expressions, LoopRefine checks whether the +iε → 0
+limit in the total is well-behaved. This accommodates
+the possibility that the power infrared divergence cancels
+among various terms in the input expression. Further-
+more, LoopRefine takes an additional option Analytic,
+which when set to True, generates a result with the pa-
+rameter ǫ analytically continued to large and negative
+values, rending power infrared divergences formally con-
+vergent.
+
+Finally LoopRefine can restrict its computation to
+just the infrared or ultraviolet divergent parts by ap-
+propriately setting the option Part to UVDivergent or
+IRDivergent, respectively.
+In addition to providing a
+quick way to obtain the 1/ǫ pole parts of loop integrals,
+
+3
+
+this new feature also enables one to identify their origin
+as either ultraviolet or infrared. The calculation of the
+ultraviolet divergent part is fast owing to the existence of
+an iterative formula applicable to an arbitrary coeﬃcient
+function [15]. The calculation of the IR divergent part is
+sped up by setting to zero all coeﬃcient functions with
+at least one pair of 00 indices since they are known to be
+infrared ﬁnite [11].
+
+sponding analytic formula from Package-X’s library. The
+simpler expressions are adapted from [22] and [23], and
+the most general and complicated cases are derived from
+[17]. In order to minimize the size of the output, the an-
+alytic expressions are given compactly as RootSums over
+four Denner-Beenakker continued dilogarithms Li2(x, y)
+deﬁned originally in [24] and implemented in Package-X
+as ContinuedDiLog.
+
+IV. THE SCALAR D0 FUNCTION: ANALYTIC
+
+EXPRESSIONS AND NUMERICAL
+
+IMPLEMENTATION
+
+LOOPREFINESERIES: TAYLOR SERIES
+V.
+EXPANSIONS OF LOOP INTEGRALS
+
+The reduction algorithm for converting coeﬃcient D-
+functions, PVD, in the case of non-vanishing Grammian
+determinant ends with the UV-ﬁnite scalar function D0.
+To complete the computation of the one-loop integral,
+LoopRefine replaces this scalar function.
+
+In order for LoopRefine to faithfully display the 1/ǫ
+poles in the ﬁnal output, all IR divergent cases are substi-
+tuted. Expressions with massive internal lines are drawn
+from [16] and [17], and those with massless internal lines
+are adapted from [18]. Care has been taken to ensure
+that all analytic expressions are consistent with the +iε
+prescription so that their numerical evaluation yields the
+correct sign for their imaginary parts.
+
+The situation for the IR ﬁnite four-point functions is
+unlike the case of the three- and lower- point scalar func-
+tions in that no reasonably compact analytic expressions
+are known unless the Grammian determinant vanishes.
+For these cases, LoopRefine simply outputs ScalarD0,
+with the function itself implemented numerically. The
+principle behind the numerical implementation of the
+scalar four-point function follows that of the three-point
+function outlined in Section V of [8].
+In the region of
+positive modiﬁed Cayley determinant (which covers the
+physical region), the imaginary part is obtained by ap-
+plying Cutkosky’s rule, and requires the evaluation of a
+single logarithm for each channel above normal thresh-
+old. The real part is based on a representation [19, 20] in
+terms of sixteen numerically evaluated dilogarithm func-
+tions [21]. Outside this region, the separation of the real
+and imaginary parts is not used since the application of
+Cutkosky’s rule is more complicated. For rapid numer-
+ical evaluation, the code for ScalarD0, is compiled to
+the Wolfram Virtual Machine for rapid machine preci-
+sion evaluation.
+
+Additionally, as of version 2.0, every special numerical
+function available in Package-X (including ScalarD0) is
+written in terms of native Wolfram Kernel functions so
+that the user may take advantage of Mathematica’s arbi-
+trary precision evaluation capabilities. This new feature
+of Package-X allows one to obtain numerically stable re-
+sults for kinematic conﬁgurations that would otherwise
+lead to severe loss of precision.
+
+If an analytic expression is desired, ExpandD0 can be
+applied to ScalarD0, which replaces it with the corre-
+
+Calculations within the standard model and its ex-
+tensions usually involves integrals with widely separated
+scales. In these cases, an exact analytic representation
+of these integrals are too verbose to be of any value, and
+their numeric evaluation usually suﬀers from loss of pre-
+cision due to large numerical cancellations. As a result,
+one usually desires an approximate expression obtained
+from the ﬁrst few terms of its series expansion.
+
+Package-X 2.0 provides a way to obtain Taylor se-
+ries expansions of loop integrals with a new routine
+LoopRefineSeries, which is to be used in place of
+LoopRefine. Internally, the algorithm for constructing
+a series is as follows:
+
+1. Diﬀerentiate
+
+the Passarino-Veltman coeﬃcient
+functions as needed to generate the necessary terms
+in the Taylor expansion.
+
+2. Express the diﬀerentiated coeﬃcient functions in
+terms of undiﬀerentiated ones with fewer number
+of 00 index pairs.
+
+3. Apply the appropriate reduction formula on the
+functions to convert the expression to analytic
+form.
+
+In step 2, the conventional practice is to relate the diﬀer-
+entiated coeﬃcient functions to those deﬁned in a lower
+number of spacetime dimensions [14]. But as described in
+Section III, it is more convenient to use the standard coef-
+ﬁcient functions with fewer pairs of 00 indices, and apply
+the reduction formula based on Cayley determinants in
+step 3 for negative pairs. This method of constructing
+series expansions easily generalizes to multiple series ex-
+pansions, and to arbitrarily high order, constrained only
+by memory and computation time.
+
+A major limitation of this method is that it is unable
+to construct expansions around Landau singularities be-
+cause the necessary derivatives at those points usually
+do not exist. Therefore, it is not possible to construct
+small mass, threshold, or other asymptotic expansions
+with LoopRefineSeries alone. While one can still cir-
+cumvent this problem in limited circumstances by ap-
+plying Mathematica’s Series function on the output of
+LoopRefine, a fully automated routine to construct such
+expansions is absent.
+
+VI. SUPPORT FOR OPEN FERMION LINES
+
+Although the primary task of Package-X is to assist
+in the analytic calculation of one-loop integrals of the
+form given in (1), the kinds of integrals one encounters
+when calculating in physical theories are those involv-
+ing fermions. The original release of Package-X included
+the function Spur to calculate traces of Dirac matrices,
+and satisfactorily handled Feynman integrals involving a
+closed fermion loop. However, no direct support for eval-
+uating integrals with open fermion lines was provided.
+In order to evaluate these integrals, the integrals had to
+be projected onto form factors one at a time. For cal-
+culations involving several Feynman integrals, projecting
+onto separate form factors for each one is laborious. In
+order to alleviate this problem, version 2.0 now provides
+direct support for open fermion lines.
+
+The object DiracMatrix represents a product of Dirac
+matrices, arising from an oﬀ shell fermion line in a
+Feynman diagram. Additionally, two new algebraic ob-
+jects are introduced in version 2.0: FermionLine rep-
+resents a product of Dirac matrices sandwiched on ei-
+ther side by on shell spinors, and FermionLineProduct
+represents the direct product of FermionLine objects.
+These new objects can be used for integrals involving
+one or more open fermion lines in a given diagram. They
+are algebraically manipulated by LoopIntegrate and
+FermionLineExpand to bring them to canonical form, by
+following a series of steps:
+
+1. Expand the product of Dirac matrices by distribut-
+
+ing multiplication over addition.
+
+2. Relate products of gamma matrices with repeated
+Lorentz indices (such as γµγνγργµ) to products
+with fewer gamma matrices.
+
+3. Apply the Dirac algebra bringing /p to either end of
+the fermion line in order to apply the Dirac equa-
+tion.
+
+4. Apply the Sirlin identities
+
+to doubly-
+contracted direct products of Dirac matrices
+(FermionLineProduct only).
+
+[25]
+
+5. Resolve remaining products of Dirac matrices into
+
+SVTAP basis [26].
+
+6. Apply the Gordon identities [27] to express the vec-
+tor and axial-vector convective transition currents
+in terms of Dirac/Pauli and Anapole/EDM transi-
+tion currents.
+
+relations
+
+The on shell
+in step 3 and 5 are not
+used for manipulating DiracMatrix objects since they
+are not applicable. Additionally, when manipulating
+FermionLineProduct objects, the entire algorithm is re-
+peated until the identities can be longer be applied. Note
+that since γ5 is implemented naively in dimensional reg-
+ularization, any algebraic manipulations involving γ5 is
+
+4
+
+valid in exactly 4 dimensions only. Likewise, the identi-
+ties used in steps 4 and 5 are valid in exactly 4 dimen-
+sions. Therefore, care should be taken to ensure that the
+integrals are either manifestly ﬁnite, or have been prop-
+erly regulated to ensure correctness of the ﬁnite part of
+the result.
+
+VII. EXPANSION OF THE DOCUMENTATION
+
+Included with the package software is a set of documen-
+tation ﬁles accessible from within Mathematica. The doc-
+umentation contains information for all front end func-
+tions and available options in Package-X. In version 2.0,
+the documentation is expanded to include more details
+and usage examples for greater clarity. Additionally,
+three project-scale tutorials are included illustrating how
+Package-X may be used in research, brieﬂy summarized
+below:
+
+• Ward Identities and γ5 in Dimensional Regular-
+ization – In Package-X, γ5 is naively deﬁned to
+anti-commute with all other gamma matrices, and
+may lead to incorrect results for logarithmically di-
+vergent integrals. This tutorial illustrates, with
+the Z ∗γγ Green function as an example, how chi-
+ral Ward identities can be enforced using Alder’s
+method [28, 29].
+
+• Extracting Form Factors from the µ → eγ ampli-
+tude – This tutorial explains the use of Projector
+in detail, while also explaining how Package-X can
+be used to verify the decoupling theorem, gauge
+invariance, and Ward identities.
+
+• Scattering of Light by Light – This tutorial explains
+how to compute the light-by-light scattering matrix
+element at leading order, and illustrates the capa-
+bilities and limitations of covariant methods used
+in Package-X.
+
+The documentation also contains instructions on link-
+ing Package-X to two other publicly available packages:
+FeynCalc [30, 31] (through FeynHelpers [32]) and to
+LoopTools [2].
+
+VIII. SUMMARY AND AVENUES FOR
+
+FURTHER DEVELOPMENT
+
+In this paper, new features of Package-X in the most
+recent major release is described. Version 2.0 signiﬁ-
+cantly expands the scope of the software by supporting
+four point integrals, Taylor expansions, and open fermion
+lines. However, there are still many limitations of Pack-
+age-X which continue to guide its development summa-
+rized below:
+
+1. Currently, Package-X is unable to automatically
+construct asymptotic expansions of loop integrals
+
+around Landau singularities. Since such expansions
+are very relevant in quantum ﬁeld theory calcula-
+tions (e.g.
+for mass regularization, threshold ex-
+pansions, eikonal expansions), an update including
+this feature is desirable.
+
+2. Additionally, the reduction algorithms for the four-
+point functions do not completely cover the case
+when the Cayley determinant vanishes. These cases
+become physically relevant when the Grammian de-
+terminant also vanishes, since they can correspond
+to IR divergent scattering amplitudes at physical
+threshold.
+It would be ideal to provide complete
+kinematic coverage for these singular cases as well.
+
+3. As Package-X is applied to larger problems, manual
+input of all integrals required for a speciﬁc calcu-
+lation becomes increasingly tedious and prone to
+input errors. It would be desirable to have a way,
+e.g. by linking to the FeynArts package [33], to
+generate all the needed integrals in Package-X au-
+tomatically.
+
+4. For large problems, it may not be possible to sim-
+plify the integrals to obtain compact analytic ex-
+pression. Although not its primary purpose,
+it
+would be convenient to be able to directly eval-
+uate the coeﬃcient functions numerically, without
+needing their analytic expressions. While linking to
+LoopTools [2] is described in the documentation,
+linking to more modern packages like Collier [6]
+is desirable.
+
+5. Package-X is limited to the calculation of Lorentz
+covariant Feynman integrals.
+However, non-
+covariant integrals are also frequently encountered,
+for example, when one is working in Coulomb or
+Axial gauges, or within eﬀective ﬁeld theories like
+NRQED, HQET and SCET. The ability to au-
+tomatically obtain analytic results for these cases
+would be convenient.
+
+ACKNOWLEDGMENTS
+
+I would like to thank the numerous testers who par-
+ticipated during the alpha and beta phases of devel-
+opment.
+In particular, I thank Michael Duerr, Feder-
+ica Giacchino, Matthew Kirk, Fatima Machado, Pedro
+Malta, Kevin Max, Johannes Welter, and Yibo Yang
+for checking results, exposing bugs, and reporting typos
+in the program.
+In addition I thank Sebastian Ohmer
+and Moritz Platscher for proof-reading the tutorial, and
+Jiang-Hao Yu for proof-reading this manuscript. Spe-
+cial thanks goes to Josh Ellis, Julian Heeck, and Tanja
+Geib for providing truly extensive feedback that helped
+made Package-X better. I am especially grateful to Vla-
+dyslav Shtabovenko, the lead developer of FeynCalc,
+for stimulating discussions while Package-X was being
+
+5
+
+developed, and for providing helpful information about
+FeynHelpers.
+
+I also thank Ansgar Denner and Stefan Dittmaier for
+clarifying discussions regarding their work, and I am in-
+debted to Ulrich Nierste for providing me with his Mas-
+ter’s thesis and explaining his method of analytic con-
+tinuation of the scalar four-point function in detail. Fi-
+nally, I thank Jakub Kuczmarski, a member of the Math-
+ematica StackExchange community, for answering count-
+less questions about Wolfram Workbench and his add-on
+WWBCommon, which helped to make the built-in doc-
+umentation possible.
+
+Appendix A: Convention and package structure
+
+changes between versions 1.0 and 2.0
+
+• pvA, pvB, pvC, pvC0 and pvC0IR6 are now named
+PVA, PVB, PVC, ScalarC0 and ScalarC0IR6, respec-
+tively, consistent with Mathematica’s naming con-
+vention of capitalizing the ﬁrst letter of pre-deﬁned
+symbols. Dimensional regularization ’t Hooft scale
+µR is renamed to µ ([\Micro]).
+
+Γ(1−2ǫ)
+
+• LoopIntegrate now normalizes its integration
+measure so that eγE ǫ is factored out instead of
+rγ = Γ2(1−ǫ)Γ(1+ǫ)
+. This was done to prepare Pack-
+age-X for computing two loop integrals in the fu-
+ture. With respect to version 1.0, this change in
+version 2.0 only modiﬁes the output of LoopRefine
+exhibiting 1/ǫ2 poles, arising from overlapping soft
+and collinear IR divergences, by an amount propor-
+tional to −π2/12 to the ﬁnite part.
+
+• The order of arguments of Passarino-Veltman C
+functions have been changed to match that of
+other popular packages such as FeynCalc, Loop-
+Tools, Collier, etc, including other authors in
+the literature. The relations are
+
+PVC[r, n1, n2, s1, s12, s2, m0, m1, m2] =
+
+pvC[r, n1, n2, s1, s2, s12, m2, m1, m0]
+
+and
+
+ScalarC0[s1, s12, s2, m0, m1, m2] =
+
+pvC0[s1, s2, s12, m2, m1, m0].
+
+• Contexts X‘IndexAlg‘, X‘Spur‘, X‘OneLoop‘ are dep-
+recated; all package symbols now belong to a com-
+mon context X‘.
+
+• Auxiliary Passarino-Veltman function pvb is now
+obsolete, and is covered by by higher weight PVB
+functions.
+
+• Oﬀ shell fermion self energy form factor C(p2) has
+been redeﬁned in Projector without a factor of i
+in front.
+
+Appendix B: New functions/symbols introduced in
+
+version 2.0
+
+[34] (the Grammian determinant associated with
+four particle processes).
+
+• LoopRefineSeries
+
+• ContinuedDiLog
+
+generates a (multiple) Taylor series expansion of
+one loop tensor integrals.
+
+gives the Beenakker-Denner continued dilogarithm
+function Li2(x, y) [24].
+
+• PVD
+
+• MandelstamRelations
+
+6
+
+represents the Passarino-Veltman tensor coeﬃcient
+, and substituted with
+function D 0...0
+
+1...1
+
+2...2
+
+|{z}2r
+
+|{z}n1
+
+|{z}n2
+
+3...3
+
+|{z}n3
+
+an analytic expression by LoopRefine
+
+• ScalarD0,
+
+ScalarD0IR12,
+
+ScalarD0IR13,
+
+ScalarD0IR16
+
+gives the ﬁnite parts of the scalar four point
+function D0 for real external invariants and real
+positive masses, as classiﬁed in [16].
+
+• C0Expand and D0Expand
+
+expands out scalar functions ScalarC0, ScalarD0
+and related functions in terms of analytic expres-
+sions.
+
+• Kibbleφ
+
+gives the Kibble kinematic polynomial φ(s1, . . . , s6)
+
+[1] G.
+
+J.
+
+van
+
+Oldenborgh,
+
+Comput. Phys. Commun. 66, 1 (1991).
+
+[2] T.
+
+Hahn
+
+and
+
+M.
+
+Perez-Victoria,
+
+Comput. Phys. Commun. 118, 153 (1999),
+arXiv:hep-ph/9807565 [hep-ph].
+
+[3] S. Carrazza,
+
+R. K. Ellis,
+
+Zan-
+Comput. Phys. Commun. 209, 134 (2016),
+
+and G.
+
+derighi,
+arXiv:1605.03181 [hep-ph].
+
+gives a list of replacement rules expressing Lorentz
+scalar products in terms of Mandelstam invariants
+and masses.
+
+• LScalarQ
+
+allows declaring symbols as being Lorentz scalars.
+
+• FermionLine and FermionLineProduct
+
+represents products of Dirac matrices sandwiched
+between on shell u and v spinors, and their direct
+products.
+
+• FermionLineExpand
+
+expands out and performs the Dirac algebra on
+FermionLine, and FermionLineProduct objects to
+put them in canonical SVTAP form.
+
+[12] K.
+
+G.
+
+and
+Nucl. Phys. B192, 159 (1981).
+
+Chetyrkin
+
+F.
+
+V.
+
+Tkachov,
+
+[13] A. I. Davydychev, Phys. Lett. B263, 107 (1991).
+[14] O.
+
+Phys. Rev. D54, 6479 (1996),
+
+Tarasov,
+
+V.
+
+arXiv:hep-th/9606018 [hep-th].
+
+[15] G. Sulyok, (2006), arXiv:hep-ph/0609282 [hep-ph].
+[16] R. K. Ellis and G. Zanderighi, JHEP 02, 002 (2008),
+
+arXiv:0712.1851 [hep-ph].
+
+[4] A. van Hameren, Comput. Phys. Commun. 182, 2427 (2011),
+
+[17] A.
+
+Denner
+
+and
+
+S.
+
+Dittmaier,
+
+arXiv:1007.4716 [hep-ph].
+
+[5] G. Cullen, J. P. Guillet, G. Heinrich, T. Klein-
+and M. Rodgers,
+
+schmidt, E. Pilon, T. Reiter,
+Comput. Phys. Commun. 182, 2276 (2011),
+arXiv:1101.5595 [hep-ph].
+
+[6] A. Denner, S. Dittmaier,
+arXiv:1604.06792 [hep-ph].
+
+and L. Hofer,
+
+(2016),
+
+[7] A. Buckley, M. R. Whalley, W. J. Stirling, J. M.
+Butterworth, E. Nurse,
+in 15th
+International Conference on Computing in High En-
+(CHEP 2006) Mumbai,
+ergy and Nuclear Physics
+Maharashtra,
+(2006)
+arXiv:hep-ph/0605046 [hep-ph].
+
+India, February 13-17,
+
+and B. Waugh,
+
+2006
+
+[8] H. H. Patel, Comput. Phys. Commun. 197, 276 (2015),
+
+arXiv:1503.01469 [hep-ph].
+
+Nucl. Phys. B844, 199 (2011),
+arXiv:1005.2076 [hep-ph].
+
+[18] G.
+
+Duplancic
+
+and
+
+B.
+
+Nizic,
+
+Eur. Phys. J. C20, 357 (2001),
+arXiv:hep-ph/0006249 [hep-ph].
+
+[19] U. Nierste, Skalare Einschleifen-Integrale der Relativis-
+tischen Quantenfeldtheorie, Master’s thesis, W¨urzburg
+(1991).
+
+[20] A. Denner,
+
+U. Nierste,
+Nucl. Phys. B367, 637 (1991).
+
+and R.
+
+Scharf,
+
+[21] C. Os´acar, J. Palaci´an, and M. Palacios, Celes. Mech.
+
+Dyn. Astro. 62, 93 (1995).
+
+[22] A. I. Davydychev, in International Seminar on Quarks
+(Quarks 92) Zvenigorod, Russia, May 11-17, 1992 (1993)
+pp. 260–270, arXiv:hep-ph/9307323 [hep-ph].
+
+[9] G. Passarino and M. Veltman, Nucl.Phys. B160, 151
+
+[23] G.
+
+Duplancic
+
+and
+
+B.
+
+Nizic,
+
+(1979).
+
+[10] F. Feng, Comput. Phys. Commun. 183, 2158 (2012),
+
+arXiv:1204.2314 [hep-ph].
+
+[11] A. Denner and S. Dittmaier, Nucl.Phys. B734, 62 (2006),
+
+Eur. Phys. J. C24, 385 (2002),
+arXiv:hep-ph/0201306 [hep-ph].
+and
+Nucl. Phys. B338, 349 (1990).
+
+Beenakker
+
+[24] W.
+
+A.
+
+Denner,
+
+arXiv:hep-ph/0509141 [hep-ph].
+
+[25] A. Sirlin, Nucl. Phys. B192, 93 (1981).
+
+[26] J. S. R. Chisholm, J. Comput. Phys. 8, 1 (1971).
+[27] W. Gordon, Z. Phys. 50, 630 (1928).
+[28] F.
+
+Jegerlehner,
+
+Eur. Phys. J. C18, 673 (2001),
+
+arXiv:hep-th/0005255 [hep-th].
+
+[29] S. Adler, in Lectures on Elementary Particles and Quan-
+tum Field Theory, Vol. 1, edited by S. Deser, M. Grisaru,
+H. Pendleton (M.I.T. Press, Cambridge, 1970) p. 1.
+
+[30] R. Mertig, M. Bohm,
+
+and A. Denner,
+
+Comput. Phys. Commun. 64, 345 (1991).
+
+7
+
+[31] V.
+
+Shtabovenko, R. Mertig,
+
+and F. Orel-
+Comput. Phys. Commun. 207, 432 (2016),
+
+lana,
+arXiv:1601.01167 [hep-ph].
+Shtabovenko,
+
+[32] V.
+
+arXiv:1611.06793 [physics.comp-ph].
+
+[33] T. Hahn, Comput. Phys. Commun. 140, 418 (2001),
+
+arXiv:hep-ph/0012260 [hep-ph].
+
+[34] T. W. B. Kibble, Phys. Rev. 117, 1159 (1960).
+
+(2016),
+
+

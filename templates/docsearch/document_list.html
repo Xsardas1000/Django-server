@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Documents. {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+<div class="col-md-8 col-md-offset-2">
+    <div class="page-header">
+        <h1>Documents</h1>
+    </div>
+</div>
+
+
+<div class="grid">
+    {% for document in documents %}
+    <div class="grid-itm">
+        <ul class="list-group">
+            <li class="list-group-item active">{{ document.title }}</li>
+            {% url 'document_detail' document.id as doc_url %}
+            {% if doc_url %}
+            <li class="list-group-item"><a href="{{ doc_url }}">Here you can find the detail of the dicumment</a></li>
+            {% endif %}
+            <li class="list-group-item">Date of publish: {{ document.published_at }}</li>
+            <li class="list-group-item">Topic: {{ document.topic }}</li>
+            <li class="list-group-item"><span class="badge">{{ document.count }}</span>
+                Number of authors
+            </li>
+
+        </ul>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

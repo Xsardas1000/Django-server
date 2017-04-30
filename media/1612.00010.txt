@@ -1,0 +1,2686 @@
+7
+1
+0
+2
+
+ 
+
+b
+e
+F
+6
+
+ 
+
+ 
+ 
+]
+
+.
+
+A
+G
+h
+p
+-
+o
+r
+t
+s
+a
+[
+ 
+ 
+
+3
+v
+0
+1
+0
+0
+0
+
+.
+
+2
+1
+6
+1
+:
+v
+i
+X
+r
+a
+
+PUBLISHED AS APJ, 836, 8
+Preprint typeset using LATEX style emulateapj v. 04/20/08
+
+ALMA OBSERVATIONS SHOW MAJOR MERGERS AMONG THE HOST GALAXIES OF FAST-GROWING,
+
+HIGH-REDSHIFT, SUPERMASSIVE BLACK HOLES
+
+BENNY TRAKHTENBROT1,8, PAULINA LIRA2, HAGAI NETZER3, CLAUDIA CICONE1,4, ROBERTO MAIOLINO5,6, OHAD SHEMMER7
+
+Published as ApJ, 836, 8
+
+ABSTRACT
+
+We present new ALMA band-7 data for a sample of six luminous quasars at z (cid:39) 4.8, powered by fast-
+growing supermassive black holes (SMBHs) with rather uniform properties: the typical accretion rates and
+black hole masses are L/LEdd (cid:39) 0.7 and MBH (cid:39) 109 M(cid:12). Our sample consists of three “FIR-bright” sources
+which were individually detected in previous Herschel/SPIRE observations, with star formation rates of SFR >
+1000M(cid:12) yr−1, and three “FIR-faint” sources for which Herschel stacking analysis implies a typical SFR of
+∼400 M(cid:12) yr−1. The dusty interstellar medium in the hosts of all six quasars is clearly detected in the ALMA
+data and resolved on scales of ∼2 kpc, in both continuum (λrest ∼ 150 µm) and [C II] λ 157.74 µm line emission.
+The continuum emission is in good agreement with the expectations from the Herschel data, conﬁrming the
+intense SF activity in the quasar hosts. Importantly, we detect companion sub-millimeter galaxies (SMGs)
+for three sources – one FIR-bright and two FIR-faint, separated by ∼ 14 − 45kpc and < 450kms−1 from
+the quasar hosts. The [C II]-based dynamical mass estimates for the interacting SMGs are within a factor of
+∼3 of the quasar hosts’ masses, while the continuum emission implies SFRquasar ∼ (2− 11)× SFRSMG. Our
+ALMA data therefore clearly support the idea that major mergers are important drivers for rapid early SMBH
+growth. However, the fact that not all high-SFR quasar hosts are accompanied by interacting SMGs and the
+gas kinematics as observed by ALMA suggest that other processes may be fueling these systems. Our analysis
+thus demonstrates the diversity of host galaxy properties and gas accretion mechanisms associated with early
+and rapid SMBH growth.
+Subject headings: galaxies: active — quasars: general — galaxies: high-redshift — galaxies: star formation
+
+— galaxies: interactions
+
+1. INTRODUCTION
+
+Several lines of evidence suggest that the growth histories
+of Supermassive Black Holes (SMBHs) are closely linked to
+that of their host galaxies. These include the well-known
+scaling relations between the SMBH mass (MBH) and sev-
+eral properties of the (bulge component of the) hosts, ob-
+served in local relic systems (see Kormendy & Ho 2013 for
+a recent review). and the coincidence of intense star forma-
+tion (SF) and SMBH growth, at higher redshifts. Indeed, for
+systems dominated by accretion onto the SMBH – identiﬁed
+as active galactic nuclei (AGN) – the luminosities associated
+with SMBH accretion (LAGN) and with star formation (LSF)
+are correlated over several orders of magnitude (e.g., Netzer
+2009; Lutz et al. 2010; Shao et al. 2010; Rosario et al. 2013,
+but see also Page et al. 2012). This suggests that the phase of
+fast SMBH growth occurs in tandem with intense SF activity,
+
+Electronic address: benny.trakhtenbrot@phys.ethz.ch
+
+1 Institute for Astronomy, Department of Physics, ETH Zurich,
+
+Wolfgang-Pauli-Strasse 27, CH-8093 Zurich, Switzerland
+2 Departamento de Astronomia, Universidad de Chile,
+
+Camino del Observatorio 1515, Santiago, Chile
+
+3 School of Physics and Astronomy and the Wise Observatory,
+
+The Raymond and Beverly Sackler Faculty of Exact Sciences,
+Tel-Aviv University, Tel-Aviv 69978, Israel
+
+4 INAF-Osservatorio Astronomico di Brera,
+
+via Brera 28, I-20121, Milano, Italy
+
+5 Cavendish Laboratory, University of Cambridge,
+19 J. J. Thomson Avenue, Cambridge CB3 0HE, UK
+
+6 Kavli Institute for Cosmology, University of Cambridge,
+
+Madingley Road, Cambridge CB3 0HA, UK
+
+7 Department of Physics, University of North Texas,
+
+Denton, TX 76203, USA
+
+8 Zwicky Postdoctoral Fellow
+
+reaching star formation rates (SFRs) of ∼1000 M(cid:12) yr−1 for
+SMBHs with ˙MBH ∼ 15M(cid:12) yr−1 (i.e. LAGN ∼ 1047 ergs−1).
+All this supports a general idea that both processes (SF and
+AGN) are fed by a common reservoir of cold gas that col-
+lapses, forms stars, and (eventually) reaches the central region
+of the host galaxy to be accreted by the SMBH.
+
+A particularly popular framework for the co-evolution of
+SMBHs and their hosts focuses on major mergers between
+massive, gas-rich galaxies. Theoretical studies highlight the
+ability of such mergers to account for both the observed prop-
+erties of AGN and SF galaxies, and for the SMBH-host rela-
+tions in relic systems (see, e.g., Sanders et al. 1988; Di Matteo
+et al. 2005; Hopkins et al. 2006 and the review by Alexan-
+der & Hickox 2012). In particular, many simulations of such
+mergers show a relatively short episode (of order 100 Myr)
+of parallel intense SF and AGN activity, with SFRs reach-
+ing several hundred M(cid:12) yr−1 (or exceeding ∼ 1000M(cid:12) yr−1
+in some simulations; see, e.g., Blecha et al. 2011; DeBuhr
+et al. 2011; Sijacki et al. 2011; Capelo et al. 2015; Volon-
+teri et al. 2015; Gabor et al. 2015). Observationally, however,
+the relevance of mergers to fast SMBH growth, and indeed
+to the co-evolutionary framework, is not yet well established.
+While some studies of low-z luminous AGN have reported a
+high occurrence of mergers (e.g., Bahcall et al. 1997; Veilleux
+et al. 2009; Koss et al. 2011), several other studies have
+demonstrated that interacting AGN hosts are relatively rare at
+1 <∼ z <∼ 2 and their occurrence rate does not exceed what was
+found for non-active galaxies (e.g., Gabor et al. 2009; Ben-
+nert et al. 2011; Cisternas et al. 2011; Mainieri et al. 2011;
+Schawinski et al. 2011, 2012; Kocevski et al. 2012). A possi-
+ble explanation for these apparently contradictory results, as
+
+2
+
+Trakhtenbrot et al.
+
+put forward by Treister et al. (2012), is that the merger-driven
+scenario may only be relevant for the epochs of fastest growth
+of the most massive BH (that is, highest LAGN), and at z > 2
+– when the overall rate of major mergers is expected to be
+higher (e.g., Genel et al. 2009; Hopkins et al. 2010) and the
+amount of gas in the relevant halos is considerably larger (but
+see also Dubois et al. 2015).
+
+emission line, which is among the most efﬁcient ISM coolants
+(e.g., Stacey et al. 1991, 2010; Carilli & Walter 2013, and ref-
+erences therein). These studies have provided additional sup-
+port for the coexistence of fast-growing SMBHs and intense
+SF activity in their hosts, but mostly could not address the
+questions related to the merger-driven scenario, due to lim-
+ited sensitivity, resolution, and/or ﬁeld of view. Indeed, no
+major mergers were identiﬁed in the aforementioned studies
+of high-redshift AGN.
+In this study, we focus on a sample of quasar hosts at
+z (cid:39) 4.8, for which we have accumulated a wealth of multi-
+wavelength data.
+In our previous studies, we have shown
+that
+the SMBHs powering these quasars trace an epoch
+of fast, Eddington-limited growth from massive BH seeds,
+which is expected to form the most massive BHs known
+by z ∼ 4 (Trakhtenbrot et al. 2011, T11 hereafter). Our
+Herschel/SPIRE campaign (Mor et al. 2012; Netzer et al.
+2014, M12 and N14 hereafter) showed that these fast-growing
+SMBHs are hosted by SF galaxies, with ∼ 1/4 of the systems
+exceeding SFR ∼ 1000M(cid:12) yr−1, while a stacking analysis of
+the other ∼ 3/4 of the systems suggested a typical SFR of
+∼400 M(cid:12) yr−1(see also Netzer et al. 2016). The extremely
+high SFRs found for the FIR-bright sources were interpreted
+as tracing major merger activity, while the lower SFRs found
+for most systems were thought to be tracing the early stages
+of SF suppression by AGN-driven “feedback”. The poor spa-
+tial resolution of the Herschel data (∼ 18(cid:48)(cid:48), or (cid:38) 100kpc)
+was, however, insufﬁcient to test these ideas, which can be
+now addressed directly with the ALMA FIR continuum and
+[C II] λ 157.74 µm emission line observations presented in
+this study. In Section 2 we describe the sample, the ALMA
+observations, data reduction, and analysis. In Section 3 we
+compare the ISM properties and the occurrence of close (in-
+teracting) companions to those found in other samples of
+high-redshift AGN. We summarize our main ﬁndings in Sec-
+tion 4. Throughout this work, we assume a cosmological
+model with ΩΛ = 0.7, ΩM = 0.3, and H0 = 70kms−1 Mpc−1,
+which provides an angular scale of about 6.47kpc/(cid:48)(cid:48) at z = 4.7
+- the typical redshift of our sources. We further assume the
+stellar initial mass function (IMF) of Chabrier (2003).
+
+2. SAMPLE, ALMA OBSERVATIONS, AND DATA
+
+ANALYSIS
+
+2.1. Sample Selection and Properties
+
+Our targets are drawn from a ﬂux-limited sample of 40 lu-
+minous, unobscured quasars at z (cid:39) 4.8, which we have studied
+in detail in a series of previous publications. Here, we only
+brieﬂy mention the sample selection and the ancillary data
+available for our targets and refer the reader to our previous
+papers (T11, M12, N14) for additional details. This z (cid:39) 4.8
+quasar sample was originally selected from the sixth data re-
+lease of the Sloan Digital Sky Survey (SDSS/DR6; York et al.
+2000; Adelman-McCarthy et al. 2008). The sample spans a
+narrow redshift range of z ∼ 4.65 − 4.92, to enable follow-
+up near-IR spectroscopy of the broad Mg II λ 2798 emission
+line. Such near-IR spectroscopy was indeed performed using
+the VLT/SINFONI and Gemini-North/NIRI instruments and
+has provided reliable estimates of the masses (MBH) and nor-
+malized accretion rates (L/LEdd) of the quasars (T11). These
+clearly showed that the z (cid:39) 4.8 quasars are powered by fast-
+growing SMBHs with typical masses of MBH (cid:39) 8× 108 M(cid:12)
+and accretion rates of L/LEdd (cid:39) 0.6 (median values), repre-
+senting the epoch of fastest growth for the most massive BHs.
+
+As the relevance of mergers to SMBH growth is still de-
+bated, several recent studies have highlighted the importance
+of alternatives to the merger scenario. Direct ﬂows of cold gas
+from the intergalactic medium (IGM; e.g., Dekel et al. 2009;
+Di Matteo et al. 2012; Dubois et al. 2012), which may also
+trigger “secular” instabilities of the gas or the stars in the close
+environment of the SMBH (e.g., Springel et al. 2005; Bour-
+naud et al. 2011, 2012), are claimed to be most relevant for the
+early and fast growth of high-redshift SMBHs. Such mod-
+els, however, usually produce SFRs of only a few hundred
+M(cid:12) yr−1. All this suggests that the best way to test and under-
+stand the relevance of the merger-driven scenario for SMBH
+growth is to focus on well-deﬁned samples of fast-growing
+SMBHs, preferably at early cosmic epochs (z > 4), when the
+most massive BHs were growing at maximal rates (Trakhten-
+brot et al. 2011; Trakhtenbrot & Netzer 2012; De Rosa et al.
+2014). Another consequence of the aforementioned scenar-
+ios is that such fast-growing SMBHs would be predominantly
+found in signiﬁcantly over-dense large-scale environments,
+where the rate of mergers is yet higher and where cold gas
+streams are expected to converge and provide ample gas sup-
+ply to the SMBHs (e.g., Di Matteo et al. 2008; Sijacki et al.
+2009; Dubois et al. 2012; Costa et al. 2014).
+
+Testing these ideas observationally is, however, extremely
+challenging. The AGN-related emission dominates over most
+of the optical-NIR spectral regime, signiﬁcantly limiting the
+prospects of determining the host properties. The cosmic en-
+vironments of the SMBHs are often characterized by search-
+ing for nearby (rest-frame) UV-bright galaxies, without pre-
+cise redshift determinations, and possibly missing dusty ob-
+scured SF galaxies. Indeed, several studies provided ambigu-
+ous evidence for over-densities around some, but deﬁnitely
+not all z (cid:38) 5 quasars (e.g., Willott et al. 2005; Overzier et al.
+2006; Kim et al. 2009; Utsumi et al. 2010; Ba˜nados et al.
+2013; Husband et al. 2013; Simpson et al. 2014, and refer-
+ences therein).
+
+The advent of large and sensitive sub-millimeter (sub-
+mm) interferometric arrays, such as the IRAM Plateau de
+Bure interferometer (now NOEMA) and the Atacama Large
+Millimeter/sub-millimeter Array (ALMA), has enabled the
+direct observation of the hosts of high-redshift quasars in a
+spectral regime that is mostly uncontaminated by the AGN
+emission. The early study of Iono et al. (2006, using the
+SMA) demonstrated the ability of such data to reveal ma-
+jor mergers among quasar hosts, presenting a close merger
+between two z = 4.7 SF galaxies powering a pair of AGN,
+one of which is a luminous quasar. The ALMA study of the
+same system (Wagg et al. 2012) showcased the revolution-
+ary increase of spatial resolution and sensitivity provided by
+ALMA. In recent years, a growing number of z (cid:38) 5 quasars
+were studied with various sub-mm facilities (e.g., Maiolino
+et al. 2005; Walter et al. 2009; Gallerani et al. 2012; Vene-
+mans et al. 2012, 2016; Wang et al. 2013; Willott et al. 2013,
+2015; Cicone et al. 2015), focusing on the continuum emis-
+sion, which originates from SF-heated dust in the interstel-
+lar medium (ISM) of the hosts, and the [C II] λ 157.74 µm
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+3
+
+TABLE 1
+
+OBSERVATIONS LOG
+
+sub-sample
+
+Target
+
+ID
+
+NAnt
+
+a
+
+Texp
+sec
+
+Beam Size
+
+(cid:117)(cid:116)(cid:48)(cid:48)
+
+Pixel Size
+
+(cid:48)(cid:48)
+
+ALMA Companions
+
+Bright
+
+Faint
+
+SDSS J033119.67-074143.1
+SDSS J134134.20+014157.7
+SDSS J151155.98+040803.0
+SDSS J092303.53+024739.5
+SDSS J132853.66-022441.6
+SDSS J093508.49+080114.5
+
+792
+697
+729
+2978
+2852
+3230
+a Number of antennae used, averaging after antennae ﬂagging.
+b Flux densities, averaging over the three continuum (line-free) spectral windows. CLEAN performed with weighting=“natural”.
+
+...
+...
+1 SMG (w/ [C II]) and 1 “blob” (w/o [C II])
+1 SMG (w/ [C II])
+1 SMG (w/ [C II])
+...
+
+0.06
+0.06
+0.06
+0.06
+0.06
+0.06
+
+29
+35
+30
+38
+36
+
+35-33
+
+Fν rms b
+mJy/beam
+9.2× 10−2
+5.6× 10−2
+8.7× 10−2
+4.3× 10−2
+4.2× 10−2
+5.1× 10−2
+
+0.41× 0.31
+0.38× 0.30
+0.53× 0.31
+0.51× 0.29
+0.48× 0.31
+0.54× 0.29
+
+A follow-up Herschel/SPIRE campaign targeted these
+quasars, probing the peak of the SF-heated dust continuum
+emission (M12, N14). These data provided robust contin-
+uum detections for ∼1/4 of the quasars, with FIR luminosi-
+ties of LFIR ∼ 2.4 × 1013 L(cid:12), suggesting SFRs in the range
+∼ 1000−4000M(cid:12) yr−1. A stacking analysis of the remaining
+∼3/4 of the quasars revealed a median SFR of ∼ 400M(cid:12) yr−1
+(see the reﬁned stacking analysis in Netzer et al. 2016).
+Importantly, these “FIR-bright” and “FIR-faint” sources are
+highly uniform in terms of the SMBH-related properties that
+drive the AGN emission (i.e., LAGN, MBH, and hence L/LEdd),
+with a tendency of the FIR-bright sources to have somewhat
+higher MBH and LAGN (by (cid:46)0.4 dex). Thus, the Herschel data
+presented in M12 and N14 suggests a wide variety of SF activ-
+ity among an almost uniform sample of fast-growing SMBHs
+in the early universe, with SFRs that range over an order of
+magnitude, compared with a signiﬁcantly narrower range of
+basic SMBH properties. The N14 study also presented the re-
+sults of a dedicated Spitzer/IRAC campaign targeting almost
+all of the T11 quasars, at observed-frame 3.6 and 4.5 µm.
+These data were used to derive positional priors that allowed
+us to de-blend the low-resolution Herschel/SPIRE data.
+
+A comparison of the FIR luminosities of the quasar hosts
+(implied from the Herschel data) to the AGN-related lumi-
+nosities (i.e., the bolometric luminosities from T11), implies
+that the FIR-bright sources are so FIR-luminous, that they
+reach LSF (cid:39) LAGN. The FIR-faint systems, on the other hand,
+have LAGN (cid:38) 5× LSF, making them “AGN dominated”.
+The current study focuses on six objects selected from our
+parent T11 quasar sample, split equally between three FIR-
+bright and three FIR-faint objects. We chose to focus on the
+lower-redshift sources among our parent sample (z < 4.8) to
+avoid the [C II] emission line to be redshifted into the low-
+atmospheric transmission region near 325 GHz. The redshifts
+of the selected targets are in the range z = 4.658−4.729, with
+a median of zmedian = 4.6703 (as determined from the Mg II
+lines; see Section 3.2 for more details). We will nonetheless
+refer to them here as “z (cid:39) 4.8 quasars”, following our previ-
+ous studies. The targets are all equatorial, so to allow efﬁ-
+cient ALMA observations. In practice, this implies that the
+NIR data for all the six quasars studied here were obtained
+with the VLT/SINFONI. These redshift and declination re-
+strictions leave only 4 of the 10 Herschel-detected, FIR-bright
+quasars reported in N14, of which we ﬁnally chose 3. As for
+the 3 FIR-faint targets, we focused on those with higher qual-
+ity Mg II ﬁts, as assessed in T11.1 We stress that all these
+
+1 In terms of both ﬂux calibration and spectral ﬁt quality; corresponding to
+
+“L-quality” and “FWHM(Mg II)-quality” ﬂags of 1 or 2 in Table 2 of T11.
+
+selection criteria do not introduce any biases, in terms of the
+a-priori known SMBH- and host-related properties of the sys-
+tems under study. In particular, the MBH values of the two
+sub-groups are consistent, within the errors (except for the
+relatively high-mass object J1341; see Table 4).
+
+2.2. Observations, Data Reduction and Analysis
+
+2.2.1. ALMA Observations
+
+The six targets were observed in ALMA band-7, as part
+of cycle-2 (project code 2013.1.01153.S), during the period
+2014 July 18 to 2015 June 13. As the capabilities of ALMA
+were expanded during this period, the data presented here
+were collected with a varying number of 12m antennas, be-
+tween 29-38. The observations were set up to use the ex-
+tended C34-4 conﬁguration, which provides a resolution of
+about 0.(cid:48)(cid:48)3 at 330 GHz (corresponding to about 2 kpc at
+z (cid:39) 4.8). We aimed at spectrally resolving the [C II] emission
+line, which is expected to have a width of several hundred
+km s−1 and also to cover a wide spectral range that includes
+line-free continuum regions.
+
+We chose to use the TDM correlator mode, providing four
+spectral windows, each covering an effective bandwidth of
+1875 MHz, corresponding to ∼ 1650kms−1 at the observed
+frequencies. This spectral range is sampled by 128 channels,
+providing a spectral resolution of ∼ 30kms−1. One such
+spectral window was centered on the frequency correspond-
+ing to the expected peak of the [C II] line, given the Mg II-
+based redshifts of our targets (as determined in T11). The
+other three bands extended to higher frequencies, with the ﬁrst
+being adjacent to the [C II]-centered band and the other two
+separated from this ﬁrst pair by about 12 GHz. Each of these
+two pairs of bands included a small overlapping spectral re-
+gion, of roughly 50 MHz. In addition, the rejection of a few
+of the channels at the edge of the spectral bands, due to di-
+vergent ﬂux values (a common ﬂagging procedure in ALMA
+data reduction), implies that in some cases a small gap is seen
+between windows. Given this spectral setup of four bands,
+the ALMA observations could in principle probe [C II] line
+emission over a spectral region with a width corresponding to
+roughly ∆z (cid:39) 0.06.
+
+Additional details regarding the ALMA observations, in-
+cluding the full object names of our sources, are given in Ta-
+ble 1. For clarity, we use abbreviated object names (i.e., “JH-
+HDD”) throughout the rest of the paper.
+The ALMA band-7 ﬂux densities reach a depth of Fν (cid:39)
+(4.2− 9.2) × 10−2 mJy/beam (rms). This ﬂux limit can be
+translated to a limit on our ability to detect dusty, SF galaxies,
+at the redshift range of interest. If we assume the same gray-
+
+4
+
+Trakhtenbrot et al.
+
+FIG. 1.— Large-scale continuum emission maps derived from the new ALMA data, for the six quasar systems in our sample: the three FIR-bright sources (top
+row), and the three FIR-faint sources (bottom row). In each panel, the quasar and any accompanying sub-millimeter galaxies are marked as “QSO” and “SMG”,
+respectively. The gray-scale map shows the continuum emission, determined from the line-free ALMA spectral windows. Cyan and blue contours trace emission
+levels at different positive and negative signiﬁcance levels, respectively, with the ﬁrst contour tracing the region where the continuum emission exceeds 2.5σ, and
+consecutive contours plotted in steps of 2.5σ. The ALMA beams are shown as red ellipses near the bottom-right of each panel. Red crosses mark the locations of
+the quasars’ optical emission (taken from the SDSS). Interacting companions, i.e. sources that have clear detections of [C II] with redshifts consistent with those
+of the quasars, are marked as “SMG”. The continuum source accompanying J1511 that lacks signiﬁcant [C II] emission is marked as “B”.
+
+body FIR spectral energy distribution (SED) as we do in our
+analysis of the quasars hosts’ – a dust temperature of Td =
+47K and a power-law exponent of β = 1.6, and the scaling
+between FIR luminosity and SFR appropriate for our chosen
+IMF (see Section 3.3), this corresponds to 3σ upper limits on
+the SFR in the range ∼ 20 − 50M(cid:12) yr−1, per beam. Given
+the beam sizes of our ALMA observations (Table 1), these
+translate to ∼ 4− 11M(cid:12) yr−1/kpc2.
+
+2.2.2. Data Reduction and Spectral Measurements
+
+Data reduction was performed using CASA package, ver-
+sion 4.5.0 (Mcmullin et al. 2007). The scripts provided by the
+observatory were used to generate the visibilities. We then ap-
+plied the CLEAN algorithm, using a “natural” weighting to de-
+termine the noise level for each observation by averaging over
+the three line-free spectral windows. The resulting ﬂux den-
+sity sensitivities and synthesized beam sizes are presented in
+Table 1. We note that self calibration for the brightest sources
+did not improve the signal-to-noise ratios and therefore was
+not implemented.
+
+Both continuum and emission line images were created
+by applying the CLEAN algorithm using a “briggs” weighting
+(with robustness parameter set to 0.5), to obtain images with
+the best possible spatial resolution. Continuum emission im-
+ages were constructed using the two highest frequency, line-
+free spectral windows. [C II] emission line images were con-
+structed by subtracting the continuum emission from the other
+
+two, lower frequency spectral windows, in the UV space (us-
+ing standard CASA procedures). We veriﬁed that the resulting
+[C II] emission line images have no residual continuum signal
+in them. The sizes of the continuum- and line-emitting re-
+gions were determined from the respective images by ﬁtting
+two-dimensional Gaussians. These sizes are given in Table 2.
+Velocity and velocity dispersion maps (i.e., second- and third-
+moment maps) were obtained from the line images using the
+standard CASA procedure.
+
+The properties of the [C II] emission lines were mea-
+sured from the two lower frequency spectral windows of the
+continuum-subtracted “briggs” weighted cubes. The inte-
+grated line ﬂuxes were measured through two different pro-
+cedures.
+In the ﬁrst (“spatial”) approach, we created zero-
+moment images (i.e., integrated over the spectral axes) for all
+sources and ﬁtted the spatial distribution of line emission with
+2D Gaussian proﬁles, which are characterized by a peak line
+ﬂux, semi-major and semi-minor axes, and a position angle.
+The line ﬂuxes were measured by integrating over these spa-
+tial 2D Gaussians. In the second (“spectral”) approach, we
+extracted 1D spectra of the [C II] line from the continuum-
+subtracted cubes. We used apertures that are based on the
+aforementioned spatial 2D Gaussian proﬁles, with varying
+radii ranging 1.5− 2× σ, where σ is the width (i.e., equiv-
+alent to standard deviation) of the spatial 2D ﬁtted Gaussian
+proﬁles. We then ﬁtted the emission line proﬁles with a sim-
+ple model of a single Gaussian, from which we obtained the
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+5
+
+FIG. 2.— Large-scale [C II] line emission maps derived from the new ALMA data for the six quasar systems in our sample: the three FIR-bright sources (top
+row), and the three FIR-faint sources (bottom row). In each panel, the quasar and any accompanying sub-millimeter galaxies are marked as “QSO” and “SMG”,
+respectively. The gray-scale map shows the continuum emission, determined from the line-free ALMA spectral windows. Cyan and blue contours trace emission
+levels at different positive and negative signiﬁcance levels, respectively, with the ﬁrst contour tracing the region where the line emission exceeds 2.5σ, and
+consecutive contours plotted in steps of 2.5σ. For each source, the line ﬂuxes used for the contours were extracted from a spectral band spanning ±500kms−1
+around the [C II] line peak, for the three quasars lacking a robust companion (i.e., J0331, J1341, and J0935). For systems with a companion SMGs, the spectral
+band spans ± (500 +|∆v|) kms−1 around the mean [C II] peak frequency of the quasar and the SMG, where ∆v is the velocity separation between the line peaks.
+The ALMA beams are shown as red ellipses near the bottom-right of each panel. Red crosses mark the locations of the quasars’ optical emission (taken from the
+SDSS). Interacting companions, i.e. sources that have clear detections of [C II] with redshifts consistent with those of the quasars, are marked as “SMG”. The
+continuum source accompanying J1511 that lacks signiﬁcant [C II] emission is marked as “B”.
+
+integrated line ﬂux. The [C II] line ﬂuxes obtained using the
+two methods are in good agreement, with differences of no
+more than 0.1 dex for the six quasar hosts (median difference
+of 0.05 dex). We eventually chose to adopt the line ﬂuxes
+measured through the former, “spatial” approach, as it is less
+sensitive to the low-S/N regions in the outer extended regions
+of the sources and/or the wings of the line proﬁles, and since
+it provides more realistic uncertainties. These line ﬂuxes are
+reported in Table 2.
+
+The best-ﬁt emission line proﬁles obtained through the lat-
+ter (“spectral”) approach allow us to obtain the [C II] line cen-
+ters, and therefore [C II]-based redshifts, as well as the line
+widths (see Table 2 and Table 3). We stress that the centers
+of the [C II] line proﬁles were treated as free parameters and
+not constrained to reﬂect the previously known redshifts of
+the quasars. We also note that for four of the quasar hosts, the
+[C II] line is observed near the edge of the spectral band, due
+to the differences between the redshifts based on AGN-line-
+and host-ISM-related emission regions (see Section 3.2). The
+line widths we measure for the quasar hosts are in the range
+FWHM [C II] ∼ 240−510kms−1, with a tendency for broader
+lines among the FIR-bright sources (see discussion in Section
+3.3). The formal uncertainties on line width measurements
+are of order of 10% (i.e., ∼ 10− 40kms−1).
+
+3. RESULTS AND DISCUSSION
+
+3.1. Source detection and identiﬁcation
+
+Figure 1 presents the full-scale continuum emission maps
+of the sources, extending to about 6.(cid:48)(cid:48)8 (∼45 kpc) from the
+quasars’ locations, and Figure 2 shows the equivalent [C II]
+line emission maps. All six quasar hosts are clearly detected
+in our new ALMA data, both in continuum and in [C II] line
+emission, with the least signiﬁcant [C II] detection having
+S/N∼4.5 (for J0935; see Table 2). The [C II] spectra of the
+quasar hosts are shown in Figure 3 (together with the compan-
+ions we discuss below). We note that the central frequencies
+of the [C II] lines are shifted, by several hundreds of km s−1,
+from the redshifts determined using the quasars’ broad UV
+emission lines (i.e., Hewett & Wild 2010). We discuss this in
+more detail in Section 3.2 below.
+
+For one of the FIR-bright sources, J1511,
+
+the ALMA
+data reveal two faint sub-mm-emitting apparent companions,
+which are detected at the 7-8σ level in continuum emission.
+Their centers are spatially separated from the quasar host by
+about 2.(cid:48)(cid:48)1 and 3.(cid:48)(cid:48)9, which corresponds to 14 and 25 kpc (see
+Table 2). These two sources are fainter than the quasar host,
+in the ALMA continuum data, by at least a factor of 5. Most
+importantly, we detect signiﬁcant [C II] line emission from
+
+6
+
+Trakhtenbrot et al.
+
+FIG. 3.— Spectra of the [C II] λ 157.74 µm emission line for all the sources with clear line detections: the three “FIR-bright” sources in our sample (top row),
+the three “FIR-faint” sources (middle row), and the accompanying SMGs (bottom row). The upper x-axes denote the velocity offsets with respect to the quasars
+systemic redshifts, derived from the Mg II broad emission lines (T11). Red lines show the Gaussian ﬁts to the line proﬁles.
+
+the companion closer to the quasar host, as seen in Figures 2
+and 4. The integrated [C II] line ﬂux suggests that the detec-
+tion is signiﬁcant at the ∼ 3.5σ level. The spectrum we ex-
+tract for this companion (Figure 3) demonstrates that the line
+emission, if associated with a redshifted [C II] transition, is
+shifted by ∼75 km s−1 from the [C II] line of the correspond-
+ing quasar host (see Table 2). We do not detect any signiﬁcant
+[C II] line emission from the other, more distant continuum
+source accompanying J1511. Moreover, we do not detect any
+other signiﬁcant emission in the multi-wavelength data avail-
+able for the z (cid:39) 4.8 quasars, for any of these two companions
+of J1511. This may suggest that the most distant source seen
+in the ALMA maps of J1511 is a projected companion source,
+not physically related with the J1511 system. However, given
+the low probability of observing such a (second) faint sub-mm
+source within a single ALMA pointing (see below), it may be
+indeed tracing a faint, low-mass, and/or low-SFR galaxy that
+
+is associated with the quasar host. In such a case, the observed
+properties suggest that it would be a minor merger. This lat-
+ter interpretation is further justiﬁed by our ﬁndings of clearly
+interacting companions, both for J1511 and two of the FIR-
+faint quasar systems, as described below.
+In particular, we
+note that the interacting companions show clear [C II] emis-
+sion, while the distant companion of J1511 does not, despite
+having comparable FIR continuum ﬂuxes.
+
+We identify two additional emission sources in the maps of
+two of the FIR-faint sources, J0923 and J1328 – one around
+each of these quasars – which are clearly detected in the
+ALMA continuum maps. These sources are detected at signif-
+icance levels of ∼ 3− 4σ, and have continuum ﬂux densities
+of 1.2 and 0.7 mJy (for the companions of J0923 and J1328,
+respectively). The centers of these accompanying sources
+are located 5.(cid:48)(cid:48)6 and 6.(cid:48)(cid:48)8 from the quasars hosts, correspond-
+ing to about 36.5 and 44.5 kpc. These two accompanying
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+7
+
+TABLE 2
+
+SPECTRAL MEASUREMENTS
+
+sub-sample
+
+Target
+
+Bright
+
+Faint
+
+ID
+comp.
+J0331 QSO
+J1341 QSO
+J1511 QSO
+SMG
+B
+
+J0923 QSO
+SMG
+J1328 QSO
+SMG
+J0935 QSO
+
+Cont. Flux
+
+mJy
+
+4.3± 0.2
+18.5± 0.5
+10.4± 0.3
+1.6± 0.2
+2.0± 0.3
+3.0± 0.1
+1.2± 0.3
+1.7± 0.1
+0.7± 0.2
+1.6± 0.1
+
+(cid:117)(cid:116)(cid:48)(cid:48)
+
+Cont. size a
+
+ν
+GHz
+0.18× 0.11
+344.47
+0.23× 0.21
+346.84
+0.22× 0.19
+347.99
+0.43× 0.11
+347.99
+0.52× 0.28
+347.99
+0.28× 0.24
+348.65
+0.57× 0.36
+348.65
+0.40× 0.21
+348.74
+348.74 < 0.56× 0.26
+0.26× 0.16
+347.93
+
+F[C II]
+
+Jy km s−1
+5.2± 0.5
+6.1± 0.8
+5.3± 0.4
+2.4± 0.7
+4.1± 0.3
+4.1± 0.7
+3.1± 0.3
+2.0± 0.3
+0.9± 0.2
+
+...
+
+FWHM[C II]
+
+km s−1
+495± 31
+384± 16
+507± 36
+313± 38
+363± 11
+214± 10
+221± 14
+423± 43
+338± 42
+
+...
+
+ν0,[C II]
+GHz
+
+[C II] size a
+
+(cid:117)(cid:116)(cid:48)(cid:48)
+
+0.25× 0.15
+331.29± 0.006
+333.41± 0.006
+0.47× 0.28
+334.69± 0.011 < 0.39× 0.12
+334.61± 0.021 < 0.94× 0.16
+336.09± 0.005
+0.45× 0.34
+335.82± 0.004
+0.60× 0.31
+0.35× 0.31
+336.59± 0.008
+337.07± 0.020
+0.71× 0.44
+334.49± 0.016
+0.44× 0.25
+
+...
+
+...
+
+L[C II]
+109 L(cid:12)
+3.58
+4.51
+3.42
+1.53
+...
+3.21
+2.16
+1.63
+2.01
+0.80
+
+∆d b
+kpc
+...
+...
+...
+13.9
+25.2
+...
+36.5
+...
+44.5
+...
+
+∆v c
+km s−1
+
+...
+...
+...
++75
+...
+...
+
++246
+...
+−432
+...
+
+a Note that the deconvolved sizes of the [C II] emitting regions are smaller than those reported in Table 1. CLEAN performed with weighting=“briggs”.
+b Distances between the companions and the quasar hosts, calculated based on the centroids of the ALMA continuum emission, and assuming the redshifts of the
+quasar hosts’ [C II] emission lines.
+c Velocity offsets of the accompanying SMGs with respect to the quasar hosts, calculated from the central frequencies of the [C II] emission lines.
+
+sources show associated [C II] line emission, as seen in the
+bottom panels of Figure 2 (and also of Figure 4). Similarly
+to the companion of J1511 described above, the spectra we
+extract for these two companions (Figure 3) demonstrate that
+the [C II] line emission is shifted by less than ∼450 km s−1
+from the [C II] lines of the corresponding quasar hosts. We
+ﬁnally note that, similarly to the aforementioned companion
+of J1511, these two sources are not associated with any other
+(signiﬁcant) emission in the multi-wavelength dataset we have
+available for the z (cid:39) 4.8 quasars, particularly the Spitzer data
+(at observed-frame 3.6 and 4.5 µm; N14). The (projected)
+spatial and velocity offsets of all companions are given in Ta-
+ble 2.
+
+Figure 4 presents smaller-scale continuum and line emis-
+sion maps of all the spectroscopically conﬁrmed systems we
+identify. The regions where the continuum and line emission
+is signiﬁcantly detected are resolved by a few synthesized
+beams, in all sources. As can be clearly seen, the peaks of
+the [C II] line emission coincides with the peaks of the dust-
+dominated continuum emission. In the quasars hosts, these
+peaks of continuum and [C II] emission are also consistent
+with the locations of the quasars, to within 0.(cid:48)(cid:48)1, as determined
+from the SDSS optical imaging.
+
+Before moving on with our analysis of the properties of our
+quasar hosts and companions and our interpretation of these
+detections in the context of major galaxy mergers (Section
+3.4), we would like to emphasize that the sheer detection of
+three (and possibly four) faint sub-mm companion sources
+within our ALMA data are, by itself, highly surprising. The
+faintest continuum sources in our data (regardless of [C II] de-
+tection) have ﬂux densities on the order of ∼0.5 mJy. Based
+on recent deep (ALMA) sub-mm surveys (e.g., Karim et al.
+2013; Carniani et al. 2015; Aravena et al. 2016a; Fujimoto
+et al. 2016, and references therein), we would expect on or-
+der of ∼0.1 such sources per ALMA pointing (i.e., a circu-
+lar ﬁeld of view of 18(cid:48)(cid:48)). UV-selected, z ∼ 4.8 SF galaxies
+are yet more rare. The most recent measurements of areal
+densities in deep ﬁelds imply that on the order of 0.01 galax-
+ies with SFR ∼ 100M(cid:12) yr−1 would be observed within a sin-
+gle ALMA band-7 pointing (Stark et al. 2009; Bouwens et al.
+2015). Most, but not all such galaxies would have [C II] detec-
+tions (e.g., Capak et al. 2015; Aravena et al. 2016b) Number
+counts of purely [C II]-emitting z (cid:38) 5 galaxies are highly un-
+certain, but would probably amount to roughly 0.06 galaxy
+
+per each ALMA pointing (e.g., Aravena et al. 2016b). Thus,
+based on deep (sub-mm) surveys that are designed to detect
+high-redshift SF galaxies – our robust detection of continuum-
+emitting companions in the ﬁelds surrounding three of the
+quasar hosts cannot be attributed to chance coincidence. Ob-
+viously, the robust detection of [C II] in three of these com-
+panions further strengths this conclusion.
+
+We conclude that the host galaxies of all six quasars are
+clearly detected in the new ALMA data, in both continuum
+and [C II] line emission. We identify three sub-mm galax-
+ies (SMGs hereafter) accompanying three of the quasar sys-
+tems - one FIR-bright and two FIR-faint (one SMG accom-
+panying each of these quasars). The companion SMGs are
+located between roughly 14 and 45 kpc (projected) from
+the quasars, with relatively small velocity offsets, |∆v| <
+450kms−1. The three companion [C II]-emitting SMGs –
+detected solely through the new ALMA data – are therefore
+physically related to, and interacting with the quasar systems.
+We ﬁnally note that no additional line-emitting sources were
+found in our ALMA data.
+
+3.2. [C II] emission line properties
+
+As clearly seen in Figure 3, the [C II] lines we measure in
+our sample are often offset towards the lower frequency edge
+of the observed bands - redshifted with respect to the rest-
+frame UV emission lines of the quasars. Table 3 compares the
+redshifts determined from the [C II] line to those determined
+from the Mg II line and also the enhanced SDSS-based red-
+shift determinations published in Hewett & Wild (2010). The
+Mg II line is believed to be among the best redshift indica-
+tors for unobscured AGN, with a scatter of about 200 km s−1
+compared to the systemic redshift (e.g., Richards et al. 2002;
+Shen et al. 2016, and references therein). We note that for
+our z (cid:39) 4.8 quasars the SDSS-based redshift determinations
+rely solely on the (rest-frame) UV lines Lyα and C IV λ 1549,
+both of which may be problematic for the purpose of redshift
+determinations. The C IV line is known to present signiﬁcant
+blueshifts with respect to systemic redshifts (e.g., Shang et al.
+2007; Richards et al. 2011; Shen et al. 2016, and references
+therein), while the proﬁle of the Lyα line, and particularly the
+blue wing, is affected by IGM absorption (e.g., Becker et al.
+2013).
+
+All quasar hosts present signiﬁcant shifts of the [C II] lines,
+compared to the broad UV emission lines of the quasars. The
+
+8
+
+Trakhtenbrot et al.
+
+FIG. 4.— Small-scale continuum and [C II] line emission maps derived from the new ALMA data, for all the sources with clear detection of [C II] line emission:
+the three “FIR-bright” sources in our sample (top row), the three “FIR-faint” sources (middle row), and the accompanying SMGs (bottom row). For each source,
+the gray-scale map traces the continuum emission, while the contours trace the [C II] line emission (i.e., surface brightness) at signiﬁcance levels of 3, 6, 9, 12,
+and 15−σ. For each source, the line ﬂuxes used for the contours were extracted from a spectral window spanning ±500kms−1 around the [C II] line peak. Red
+crosses mark the locations of the quasars’ optical emission (taken from the SDSS). The ALMA beams are shown as red ellipses near the bottom-right of each
+panel.
+
+three FIR-bright hosts and one of the FIR-faint ones (J0935)
+show [C II] emission redshifted by ∼ 390− 580kms−1. In-
+terestingly, the only sources presenting [C II] blueshifts, of
+∼ 220 and 630kms−1, are the two FIR-faint sources, J0923
+and J1328 respectively, which have interacting SMGs. Such
+signiﬁcant positive velocity shifts of ISM lines, such as [C II],
+with respect to the quasar’s broad emission lines, such as
+Mg II– which probe the close vicinity of the SMBHs, are not
+uncommon in high-redshift quasars. For example, the recent
+
+study of Venemans et al. (2016) shows [C II] velocity shifts of
+∼ 370− 1690kms−1 in a compilation of seven z > 6 quasars.
+Willott et al. (2015) found a shift of ∼ 1150kms−1 for one
+z (cid:39) 6 quasar, but no signiﬁcant shift for another. Negative
+velocity shifts of several hundred km s−1 were also observed
+among other high-redshift quasars (e.g., Wang et al. 2013;
+Willott et al. 2013).
+
+Figure 5 shows the [C II] velocity maps of the six quasar
+hosts and the three SMGs accompanying J1511, J0923 and
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+9
+
+FIG. 5.— [C II] velocity maps for the three “FIR-bright” sources in our sample (top row), the three “FIR-faint” sources (middle row), and the companion SMGs
+(bottom row). Black contours trace the [C II] emission line surface brightness at signiﬁcance levels of 3, 6, 9, 12, and 15−σ. Crosses mark the locations of the
+quasars’ optical emission (taken from the SDSS). Gray circles mark the locations of the peak of the dust (ALMA) continuum emission. Black circles mark the
+locations of the peak of the [C II] emission. The ALMA beams are shown as hatched gray ellipses near the bottom-right of each panel.
+
+J1328. The relatively smooth gradients suggest that the [C II]
+emission originates from a kiloparsec scale, rotating gas struc-
+ture, with a rotation axis that coincides with the centers of
+the galaxies and with the quasars themselves (as shown by
+the centroid markers). The only obvious outlier is the host
+of J0935, where the [C II] emission is weaker. For the FIR-
+bright quasar hosts, the velocity maps reach maximal velocity
+values of |vmax| (cid:39) 200kms−1, while for the FIR-faint hosts
+and their accompanying SMGs the corresponding values are
+signiﬁcantly lower, |vmax| (cid:39) 100kms−1. This may suggest
+
+that the FIR-bright quasar hosts are more massive, or gas rich,
+than the FIR-faint ones.
+
+The velocity dispersion maps, presented in Figure 6, show
+increased velocity dispersions in the centers of all [C II]-
+emitting systems, reaching σv ∼ 100kms−1. Given the beam
+sizes of our ALMA data, this trend is probably mostly driven
+by the effects of beam smearing, as demonstrated in several
+detailed studies of the kinematics of high-redshift, sub-mm
+sources (e.g., De Breuck et al. 2014). A clear signature of
+this effect is a centrally peaked velocity dispersion, elongated
+along the minor axis of rotation - which is similar to what is
+
+10
+
+Trakhtenbrot et al.
+
+FIG. 6.— [C II] velocity dispersion maps for the the three “FIR-bright” sources in our sample (top row); the three “FIR-faint” sources (middle row); and the
+companion SMGs (bottom row). Black contours trace the [C II] emission line surface brightness at signiﬁcance levels of 3, 6, 9, 12, and 15−σ. Crosses mark the
+locations of the quasars’ optical emission. Gray circles mark the locations of the peak of the dust (ALMA) continuum emission. Black circles mark the locations
+of the peak of the [C II] emission. The ALMA beams are shown as hatched gray ellipses near the bottom-right of each panel.
+
+seen in some of our sources (e.g., J1341, J1511 and J0923).
+Thus, the real underlying central velocity dispersions may be
+signiﬁcantly lower than what is seen in Figure 6, resulting
+in generally more uniform or ﬂatter velocity dispersion pro-
+ﬁles, and thus implying rotation-dominated kinematics with
+v/σv (cid:38) 1. We note that even in such a situation, of v/σv on the
+order of a few, the kinematics may be signiﬁcantly affected by
+a turbulent component, as demonstrated in several recent stud-
+ies of resolved ISM kinematics in high-redshift galaxies (e.g.,
+Gnerucci et al. 2011; Williams et al. 2014). With these limi-
+tations in mind, we cautiously conclude that the outer parts of
+
+the [C II]-emitting regions in all sources are dominated by ro-
+tation, with v/σv > 1. In particular, this is the case in the outer
+high-velocity regions of the FIR-bright systems, where one
+could have expected to see evidence for dispersion-dominated
+gas kinematics in the case these systems were driven by major
+mergers.
+
+We next turn to the relative [C II] line strength, traced by
+the ratio between [C II] line luminosity and the continuum
+(rest-frame) FIR luminosity, L[C II]/LFIR. Figure 7 shows
+L[C II]/LFIR vs. LFIR for the six quasar hosts and the three
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+11
+
+TABLE 3
+
+REDSHIFTS AND [C II] LINE SHIFTS
+
+sub-sample
+
+Target
+
+z[C II]
+
+zSDSS
+
+a
+
+Bright
+
+Faint
+
+J0331
+J1341
+J1511
+J0923
+J1328
+J0935
+
+4.73678
+4.70030
+4.67850
+4.65485
+4.64644
+4.68189
+
+4.73186
+4.68172
+4.67683
+4.65001
+4.64998
+4.69920
+
+∆vSDSS
+km s−1
++257
++981
++88
++257
+−188
+−911
+
+b
+
+zMg II
+
+∆vMg II
+km s−1
+4.72890 +412
+4.68944 +573
+4.66988 +456
+4.65887 −213
+4.65815 −621
+4.67078 +588
+
+a SDSS-based redshifts taken from Hewett & Wild (2010).
+b Mg II λ 2798-based redshifts taken from T11.
+
+interacting SMGs in our sample, as well as a large compila-
+tion of other galaxies where the [C II] line was detected. The
+compilation, adapted from Cicone et al. (2015), includes in-
+active star forming galaxies at low and intermediate redshifts
+(from Stacey et al. 2010; D´ıaz-Santos et al. 2013) and SMGs
+and quasar hosts at z > 4 (from Maiolino et al. 2009; Ivison
+et al. 2010; Wagg et al. 2010; Cox et al. 2011; Valtchanov
+et al. 2011; Swinbank et al. 2012; Venemans et al. 2012,
+2016; Carniani et al. 2013; Riechers et al. 2013, 2014; Wang
+et al. 2013; Willott et al. 2013; De Breuck et al. 2014; Neri
+et al. 2014). For the purpose of this comparative analysis, we
+calculated the FIR luminosities assuming a gray-body SED
+with a dust temperature of Td = 47K and a power-law ex-
+ponent of β = 1.6, scaled to match the continuum emission
+of each of the ALMA-detected sources. These scaled SEDs
+are then used to calculate the integrated luminosity between
+42.5 − 122.5 µm, LFIR (42.5− 122.5). As mentioned in Ci-
+cone et al. (2015), the measurements of the sources in the
+compilation were also scaled, to provide consistent estimates
+of LFIR (42.5− 122.5). We present a more detailed analysis
+of the FIR SEDs of our sources in Section 3.3.1 below.
+For the quasar hosts, the L[C II]/LFIR ratio is in the range of
+(2.1− 9.4)× 10−4, spanning a factor of roughly 4.5. As Fig-
+ure 7 shows, the FIR-bright and FIR-faint quasar hosts form a
+trend of decreasing L[C II]/LFIR with increasing LFIR, although
+the range of L[C II]/LFIR for the two sub-samples overlaps.
+Since all quasar hosts have comparable L[C II], this trend of de-
+creasing L[C II]/LFIR is mostly driven by the increase in LFIR.
+The three interacting SMGs follow the same trend, extend-
+ing to lower LFIR and higher L[C II]/LFIR. We further veriﬁed
+that the trend of decreasing line-to-continuum ratio with in-
+creasing FIR luminosity is also reﬂected in the [C II] equiva-
+lent widths (EWs; instead of L[C II]/LFIR; see, e.g., Sargsyan
+et al. 2014). The EWs of our quasar hosts are in the range
+EW[C II] (cid:39) 0.2−0.9 µm (∼ 370−1700kms−1) and follow the
+same trend with (continuum) FIR luminosity as that found for
+L[C II]/LFIR – dropping by about 0.65 dex in EW for a 1 dex
+increase in (monochromatic) FIR luminosity. The companion
+SMGs extend this trend to EW[C II] (cid:39) 2.4 µm..
+Several recent studies have demonstrated the wide range of
+possible L[C II]/LFIR in z (cid:38) 5 (UV-selected) SF galaxies, cov-
+ering L[C II]/LFIR ∼ 0.0002 − 0.02 - similar to the range ob-
+served at lower redshifts (e.g., Capak et al. 2015; Knudsen
+et al. 2016). Thus, the so-called “[C II] deﬁcit” observed in
+high-redshift SMGs and quasar hosts is most probably not re-
+lated to simple observational selection effects in the FIR or
+sub-mm regime, but rather to the morphology of the SF ac-
+
+FIG. 7.— The [C II] line luminosity ratio, L[C II]/LFIR, vs. LFIR for our sam-
+ple of z (cid:39) 4.8 AGN and their SMG companions (red symbols) and several
+reference samples. The quasar hosts under study are marked as red stars (fur-
+ther split to FIR-bright and -faint objects), and their interacting companion
+SMGs are marked as red circles, connected to the respective quasar hosts by
+dashed lines. Note that the host galaxy of J1328 and the SMG accompanying
+J1511 have very similar L[C II] and LFIR, therefore their data points overlap in
+the parameter space we plot. Symbols for reference samples follow those in
+Cicone et al. (2015, see their Fig. 13), including local LIRGs (open circles;
+D´ıaz-Santos et al. 2013); star-forming and/or active galaxies at 1 < z < 2 (tri-
+angles; Stacey et al. 2010); and a compilation of higher-redshift SMGs and
+quasars, taken from a variety of studies (large circles and stars, respectively;
+see details in the text). The crosses at the top-right corner illustrate represen-
+tative measurement (black) and systematic (gray) uncertainties related to LFIR
+and L[C II]. We plot LFIR systematics of 0.15 dex, reﬂecting the range covered
+by the different FIR SEDs we use (i.e., gray-body and template-based; see
+Section 3.3.1 for details). We note that the ratios we measure for the FIR-
+bright quasar hosts are among the lowest measured to date, particularly at
+high redshifts. The interacting quasar hosts have lower L[C II]/LFIR than what
+is found for the companion SMGs of the same systems.
+
+tivity. Speciﬁcally, high-redshift quasar hosts exhibit more
+compact starburst-like SF activity, with L[C II]/LFIR ratios as
+low as observed in lower-redshift ULIRGs.
+
+Interestingly, our measurements show that the L[C II]/LFIR
+ratio in the three interacting quasar hosts is signiﬁcantly lower
+than that found in their companion SMGs. Speciﬁcally, we
+ﬁnd that the L[C II]/LFIR ratio in the quasar hosts of J1511,
+J0923, and J1328 is lower by factors of about 1.7, 3 and 2.9,
+respectively, compared with the companion SMGs. As can
+be clearly seen in Figure 7, this is consistent with the general
+trend of decreasing L[C II]/LFIR with increasing LFIR, observed
+for our entire sample of quasar hosts and SMGs. Moreover,
+this demonstrates that the [C II]-deﬁcit in high-redshift quasar
+hosts is driven by local properties of the ISM and the UV ra-
+diation ﬁeld within the host galaxies, and not by larger scale
+effects. Indeed, several studies have emphasized that lower
+L[C II]/LFIR ratios are expected to be found in regions with
+higher SF densities, similar to starbursts – consistent with
+what is observed (e.g., D´ıaz-Santos et al. 2013; see discussion
+in Cicone et al. 2015). However, the ALMA data for some
+of our sources do not seem to support this explanation.
+In
+particular, the hosts of J1328 and J0935 have virtually identi-
+cal LFIR and [C II]-emitting region sizes, but L[C II] (and there-
+
+log(LFIR=L-)891011121314log(LCII=LFIR)-4-3.5-3-2.5-2local LIRGs1<z<2 galaxies2<z<5 SMGsz>5 SMGs4<z<5 quasarsz>5 quasarsJ1148 (z=6.4)z~4.8 FIR-bright quasarsz~4.8 FIR-faint quasarsz~4.8 interacting SMGs12
+
+Trakhtenbrot et al.
+
+FIG. 8.— FIR SEDs for the six quasar host systems in our sample, with the FIR-bright and -faint sources in the top and bottom rows, respectively. The new
+ALMA continuum measurements are marked in red. Blue symbols show the Herschel/SPIRE measurements, scaled to represent the relative contribution of the
+quasar host, when necessary (i.e., in systems with multiple resolved components). In such cases, the black symbols represent the original, un-scaled Herschel
+measurements. For all three FIR-faint systems (bottom row), we adopted the measurements of the stacked Herschel signal (N14). For each source, the different
+lines represent FIR SEDs, normalized by the single ALMA continuum measurements. Solid thin lines represent a gray-body SED with Td = 47K and β = 1.6.
+Thin dotted lines trace alternative SEDs with Td = 50, 55, and 60 K (and for J0331 also 65 K; all with β = 1.6). Thick dashed lines illustrate the best-ﬁtting FIR
+templates from Chary & Elbaz (2001), as well as the two adjacent templates (typically separated by ∼0.1 dex in LTIR).
+
+fore L[C II]/LFIR) in J1328 is twice as high as in J0935. Simi-
+larly, the hosts of J0331 and J0923 have very similar LFIR, and
+L[C II]/LFIR in the latter is higher than in the former by merely
+30%. However, the [C II]-emitting region in J0923 is larger
+by a factor of roughly four than the one in J0331. Thus, our
+ALMA data do not seem to support a simple scenario where
+L[C II]/LFIR is mainly controlled by the size of the [C II] emit-
+ting region, however, higher resolution data are needed to crit-
+ically address this idea.
+
+3.3. Host galaxy properties
+3.3.1. FIR SEDs and SFRs
+
+The (rest-frame) FIR continuum emission observed within
+the new ALMA data can be used to estimate the total FIR
+emission and therefore the SFR of the quasar hosts and the
+accompanying SMGs. This obviously requires additional as-
+sumptions regarding the shape of the FIR SED. We expect
+that the AGN-related contribution to the FIR SED is small, on
+the level of 10%, at most. This assumption is based on sev-
+eral detailed studies of the mid-to-far IR SEDs of luminous
+AGN across a wide luminosity range (e.g., Schweitzer et al.
+2006; Netzer et al. 2007; Mor & Netzer 2012; Rosario et al.
+2012; Netzer et al. 2014, 2016; Lutz et al. 2016), although we
+
+note that other studies have suggested a higher AGN contribu-
+tion at FIR wavelengths, particularly at high AGN luminosi-
+ties (e.g., Leipski et al. 2014; Schneider et al. 2015; Syme-
+onidis et al. 2016; Symeonidis 2017). Given the uncertainties
+related to the SED shape (see below) and in order to be consis-
+tent with other ALMA studies of high-redshift quasar hosts,
+we choose to neglect the (small) possible AGN contribution
+to the FIR SEDs of our sources.
+
+We have reconstructed the FIR SEDs of our sources follow-
+ing two different approaches. First, we adopted the procedure
+used in several recent studies of FIR emission in high-redshift
+quasar hosts (e.g., Willott et al. 2015; Venemans et al. 2016,
+and references therein) and have assumed a gray-body SED
+with dust temperature Td = 47K and β = 1.6. This single
+temperature dust model is a crude approximation to the more
+realistic case where dust with a range of temperatures con-
+tribute to the observed emission (for a detailed discussion see,
+e.g., Beelen et al. 2006; Magnelli et al. 2012, and references
+therein). Second, we have used the grid of FIR SEDs pro-
+vided by Chary & Elbaz (2001, CE01 hereafter). This grid in-
+cludes 105 templates spanning a wide range in IR luminosity.
+As the templates have no free parameters2, we have simply
+
+2 That is, each template SED is unique in shape and scaling.
+
+1010101110121013J0331-0741(FIR-bright)J1341+0141(FIR-bright)1010101110121013J1511+0408(FIR-bright)10100Luminosity,8L8[L-]1010101110121013J0923+0247(FIR-faint)Rest-framewavelength,6rest[7m]10100J1328-0224(FIR-faint)101001010101110121013J0935+0801(FIR-faint)Merger-Driven Growth of High-z SMBHs with ALMA
+
+13
+
+identiﬁed the template that best matches the ALMA contin-
+uum measurement (i.e., monochromatic luminosity) for each
+source. This also provides a speciﬁc value of total IR (TIR)
+luminosity, LTIR (8− 1000 µm). In the FIR luminosity regime
+of interest, the uncertainties on the ALMA continuum mea-
+surements are typically consistent with, or smaller than, the
+differences between adjacent FIR templates. The main lim-
+itation of this approach is that the template library was con-
+structed to account for low-redshift SF galaxies. However, the
+small number of available data points does not warrant the use
+of other sets of templates.
+
+In Figure 8 we present the ALMA continuum measure-
+ments and the Herschel data from N14, along with the two
+previously mentioned types of FIR SEDs. The low spatial
+resolution of the Herschel data means that these ﬂux mea-
+surements also include the emission from any accompanying
+continuum sources for the systems where these are resolved
+by ALMA. We therefore also show in Figure 8 a scaled-down
+version of the Herschel data points, assuming the relative ﬂux
+densities of the different neighboring sources follow those of
+the ALMA measurements. As Figure 8 shows, the gray-body
+SEDs are generally in good agreement with the previous Her-
+schel data. In particular, in the observed-frame 350 µm band
+(rest-frame wavelength of roughly 60 µm), the ALMA-based
+SEDs for two of the FIR-bright systems (J1341 and J1511)
+differ from the Herschel data by less than 0.05 dex (for either
+the gray-body or CE01 SEDs). For the third FIR-bright ob-
+ject, J0331, the luminosities expected from the ALMA-based
+SEDs are signiﬁcantly lower, by factors of about 2 and 3, than
+the ﬂuxes observed with Herschel for the gray-body and CE01
+SEDs, respectively.3 Since this source has no detectable com-
+panions in the ALMA data, we suggest that this discrepancy
+can only be attributed to the uncertainty on the exact shape of
+the SED, and perhaps to the limited quality of the Herschel
+data. Below we investigate how a gray-body SED with a dif-
+ferent (higher) temperature may account for this discrepancy.
+the comparison between the
+ALMA-based SEDs and the Herschel data is obviously less
+straightforward, as the Herschel data represent the stacked
+signal coming from a much larger sample of sources for which
+the existence of companions that may contribute to the FIR
+ﬂuxes is unclear. Nonetheless, the agreement between the
+new ALMA data and the Herschel stacking measurements
+is respectable. For two of the sources (J1328 and J0935),
+the ALMA-based gray-body SEDs are consistent within 0.13
+dex of the Herschel data (again at observed-frame 350 µm).
+For the third source (J0923), the gray-body SED over-predicts
+the luminosity at 350 µm by 0.37 dex, while the CE01 SED
+agrees with the Herschel data to within less than 0.1 dex. As
+a sanity check, if one ignores the scaling factors related to the
+companions (in J0923 and J1328), that is - assume that the
+stacked Herschel signal was not signiﬁcantly affected by com-
+panions, then the differences between the ALMA-based gray-
+body SEDs and the Herschel data become somewhat smaller.
+We have also experimented with both colder and warmer
+gray-body SEDs, always “anchored” to the new ALMA data.
+The colder SEDs, with Td = 40K and β = 1.5, identical
+to those used in N14, systematically under-predict the Her-
+schel data, by 0.1-0.3 dex (at 350 µm; the discrepancies ob-
+viously decrease at observed-frame 500 µm). Among the
+warmer SEDs, shown as dotted lines in Figure 8, we note
+
+For the FIR-faint sources,
+
+3 Similarly, the CE01 template that ﬁts the Herschel data alone (as reported
+
+in N14) over-predicts the ALMA ﬂux by a factor of 2.4.
+
+that an extremely warm gray-body with Td = 65K provides
+a better agreement between the ALMA and the Herschel data
+for J0331. However, this high temperature is beyond what
+is typically observed, even among the most luminous FIR
+sources (e.g., Lee et al. 2013; Magnelli et al. 2014, and ref-
+erences therein). This may suggest that, in this source, the
+radiation emerging from the vicinity of the SMBH does con-
+tribute to heating of galaxy-scale dust, which is not associ-
+ated with SF regions in the host (e.g., Schneider et al. 2015).
+We also note that choosing a higher-luminosity template from
+the CE01 grid would not resolve the discrepancy between
+the ALMA and Herschel data for this source, as the highest-
+luminosity CE01 template that closely matches the Herschel
+data would signiﬁcantly over-predict the ALMA continuum
+measurement. We conclude that both the CE01 and ﬁducial
+gray-body FIR SEDs (i.e., with Td = 47K and β = 1.6) pro-
+vide generally good agreement between the ALMA and Her-
+schel data. We therefore chose to use these sets of SEDs in
+what follows.
+We next use the two types of FIR SEDs to calculate the to-
+tal IR luminosities between 8−1000 µm, LTIR (8− 1000 µm)
+for all sources – both quasar hosts and accompany-
+ing SMGs.4
+From these, we estimate SFRs following
+SFR/M(cid:12) yr−1 = LTIR (8− 1000 µm) /1010 L(cid:12) (following the
+assumed Chabrier IMF). Importantly, we note that the agree-
+ment between the integrated TIR luminosities obtained with
+the two types of SEDs is remarkably good. For the six quasar
+hosts, the LTIR estimates based on the CE01 template SEDs
+are lower than those based on gray-body SEDs by merely
+0.1 dex (median value). For the three interacting SMGs, the
+difference is only slightly larger, ∼0.13 dex. The SFRs we
+obtain for the quasar hosts following this procedure span a
+wide range of ∼ 260− 3040M(cid:12) yr−1 for the gray-body SEDs
+or ∼ 190− 3530M(cid:12) yr−1 for the CE01 SEDs (see Table 4).
+The SFRs of the FIR-faint sources, ∼ 260− 490M(cid:12) yr−1 (or
+190 − 360M(cid:12) yr−1 using CE01), are in excellent agreement
+with the value found from stacking analysis performed in
+N14, using all the Herschel-undetected sources in the parent
+z (cid:39) 4.8 sample, of roughly 440M(cid:12) yr−1 (see also Netzer et al.
+2016 for a slightly lower value). As noted above, the low
+spatial resolution Herschel stack included the FIR emission
+from both the quasar hosts and the accompanying SMGs. The
+total SFRs of the different sub-components in the FIR-faint
+systems (∼ 680, 390, and 260M(cid:12) yr−1) are, again, consistent
+with the stacking result. For the FIR-bright sources, the SFRs
+we derive based on the ALMA data are high, ranging from
+∼ 710− 3040M(cid:12) yr−1 for the ﬁducial gray-body FIR SEDs
+or ∼ 630− 3530M(cid:12) yr−1 for the CE01 ones. We note that the
+lowest SFRs among this sub-sample are those of J0331, where
+an extremely warm gray-body SED is required to match the
+Herschel data. Using the Td = 65K gray-body SED we ob-
+tain log (LTIR/L(cid:12)) = 13.35 and SFR = 2225M(cid:12) yr−1. These
+SFRs are in excellent agreement with those derived in N14,
+when comparing similar SEDs. The differences between the
+CE01-based IR luminosities (and therefore SFRs) among the
+FIR-bright quasar hosts are of 0.1 dex, at most. If we instead
+consider the gray-body SEDs used in N14, which assumed
+Td = 40K and β = 1.5, and employ these SED parameters to
+our ALMA data, then the resulting SFRs are, again, in ex-
+cellent agreement with the N14 ones for two of the systems
+4 We also use these SEDs to calculate LFIR (42.5− 122.5), as mentioned
+
+in Section 3.2.
+
+14
+
+Trakhtenbrot et al.
+
+(cid:18) M∗
+
+(cid:19)0.8
+
+(J1341 and J1511). As mentioned above, such a cold SED is
+inconsistent with the data available for J0331, and the ALMA-
+based LFIR for this source is lower than the one obtained in
+N14 by 0.4 dex.
+
+We conclude that the new ALMA continuum measurements
+are broadly consistent with the Herschel-based ones (pre-
+sented in N14) and indicate that all quasar hosts and accom-
+panying SMGs harbor signiﬁcant SF activity. The exact val-
+ues of SFR obviously depend on the assumed shape of the
+FIR SED, but are in good agreement with the ones derived
+from the Herschel data. The only outlier is the FIR-bright
+system J0331, where the ALMA-based FIR SED and SFR es-
+timates are found to be considerably lower than the Herschel-
+based ones. Despite these systematic uncertainties, the new
+ALMA data strongly support the picture that the FIR-bright
+sources among the T11 sample of z (cid:39) 4.8 quasars have ex-
+treme SFRs, exceeding ∼ 1000M(cid:12) yr−1, while the FIR-faint
+sources have lower, though still intense SFRs, on the order of
+∼ 200− 400M(cid:12) yr−1.
+Most star-forming galaxies are found to populate the so-
+called “main sequence of star formation” on the SFR-M∗
+plane (SF-MS hereafter). Although this relation is not yet
+well established at z > 4, the most recent results from deep
+surveys suggest a relation of roughly
+
+M(cid:12) yr−1 ,
+
+SFR (cid:39) 300
+
+1011 M(cid:12)
+
+(1)
+with an intrinsic scatter of ∼ 0.2 − 0.3 dex (e.g., Lee et al.
+2012; Speagle et al. 2014; Steinhardt et al. 2014). The SFRs
+we ﬁnd for the FIR-faint quasar hosts, and for the companion
+SMGs, are therefore consistent with those of typical massive,
+high-redshift SF galaxies, with M∗ (cid:39) 1011 M(cid:12). Several recent
+studies have highlighted the fact that such SFRs can be sus-
+tained without invoking major mergers and instead be driven
+by the accretion of cold gas onto these galaxies (e.g., Bouch´e
+et al. 2010; Lilly et al. 2013). On the other hand, it is challeng-
+ing to account for the extremely high SFRs found for the FIR-
+bright sources by assuming MS hosts. Such an assumption
+would require stellar masses in excess of ∼ 5×1011 M(cid:12). This
+would imply that the quasar hosts are among the most mas-
+sive and rarest galaxies ever observed, at any redshift (e.g.,
+Baldry et al. 2012; Ilbert et al. 2013), with number densities
+on the order of Φ <∼ 10−6 − 10−5 Mpc−3 at z ∼ 5 (e.g., Dun-
+can et al. 2014; Stefanon et al. 2015). In this context, we note
+that the quasars we study here are among the most luminous
+in the universe (by selection) and therefore also represent a
+population of rare objects, with number densities on the or-
+der of Φ <∼ 10−8 Mpc−3 (e.g., Richards et al. 2006; McGreer
+et al. 2013). Alternatively, it is possible that the FIR-bright
+sources are hosted in galaxies with masses that are compara-
+ble to those of the FIR-faint systems, but located well above
+the SF-MS. Such systems are typically associated with short
+periods of intense starburst activity.
+In particular, SFRs on
+the order of > 1000M(cid:12) yr−1 are often observed in “classical”
+(i.e., luminous) SMGs, where they are attributed to late stages
+of major mergers of massive gas-rich galaxies (see, e.g., the
+recent review by Casey et al. 2014, and references therein).
+In the next section we use the available [C II] data to con-
+strain the (dynamical) masses of the quasar hosts, and of their
+companions, and return to the question of their location in
+the SFR-mass plane. We discuss the relevance of the major
+merger interpretation for our sample in Section 3.4.
+
+3.3.2. Host and companion galaxy masses
+
+The [C II] measurements may be used to estimate the dy-
+namical masses (Mdyn) of the quasar host galaxies and the
+companion SMGs. For this purpose, we employ the same
+prescription as used in several recent studies of [C II] (and
+CO) emission in high-redshift sources, which assumes the
+ISM is arranged in an inclined, rotating disk (e.g., Wang et al.
+2013; Willott et al. 2015; Venemans et al. 2016, and refer-
+ences therein):
+
+(cid:18) D[C II]
+
+(cid:19)(cid:20)FWHM [C II]
+
+(cid:21)2
+
+kpc
+
+(cid:1),
+
+Mdyn = 9.8× 108
+
+100 kms−1
+
+sin2 (i) M(cid:12) .
+(2)
+In this prescription, D[C II] is the size (deconvolved major axis)
+of the [C II]-emitting region (as tabulated in Table 2). The
+sin (i) term reﬂects the inclination angle between the line of
+sight and the polar axis of the hosts’ gas disks, in which the
+circular velocity is given by vcirc = 0.75 × FWHM/sin (i).
+Practically, under the assumption of an inclined disk, the incli-
+nation angle is often derived from the (resolved) morphology
+
+of the line-emitting region, following cos (i) =(cid:0)amin/amaj
+
+where amin and amaj are the semi-minor and semi-major axes
+of the [C II] emitting regions, respectively.
+
+Such dynamical mass estimates carry signiﬁcant uncertain-
+ties due to the different assumptions required to derive them
+and given the kind of data available for our systems. In partic-
+ular, our ALMA data may not be able to detect the more ex-
+tended lower surface brightness [C II]-emitting regions, thus
+underestimating D[C II], and consequently Mdyn. In this sense,
+the Mdyn estimates derived from our ALMA data would only
+trace the very central [C II]-emitting regions, on scales of a
+few kiloparsecs. Faint extended [C II] emission may also af-
+fect the inclination corrections, though this would probably be
+a subtle effect. More importantly, the inclination corrections
+for marginally resolved extended sources are somewhat sen-
+sitive to non-circular beam shapes, as is the case with some
+of our data. On the other hand, deeper and higher resolu-
+tion data may also reveal non-rotating ISM components, thus
+signiﬁcantly altering the Mdyn estimates. As noted in Sec-
+tion 3.2, the high central velocity dispersions we observe in
+our sources are most probably driven by the limited spatial
+resolution of our ALMA data and not by such non-rotating
+components. Even if the ISM is indeed mostly found in a ro-
+tating disk, then determining the underlying (central) veloc-
+ity dispersion would result in lower vcirc, and therefore lower
+Mdyn. Some of these effects are clearly demonstrated when-
+ever increasingly deeper observations were obtained for some
+z (cid:38) 5 sub-mm sources (e.g., Maiolino et al. 2012; Cicone et al.
+2015 for J1148 at z = 6.4; Gallerani et al. 2012 for BRI 0952-
+0115 at z = 4.4; and Carniani et al. 2013 for BR 1202-0725 at
+z = 4.7). A more detailed discussion of these, and other un-
+certainties related to Mdyn estimates, is also given in Valiante
+et al. (2014).
+
+Notwithstanding these uncertainties and caveats, we pro-
+ceed to estimate the dynamical masses of the sources in our
+sample, using the prescription given in Equation 2. For
+the quasar hosts, the dynamical masses are in the range of
+Mdyn sin2 (i) (cid:39) (1− 4.4)× 1010 M(cid:12) (see Table 4). The three
+companion SMGs have Mdyn sin2 (i) = 5.8 × 1010, 1.57 ×
+1010, and 6.6× 1010 M(cid:12) for the SMGs accompanying J1511,
+J0923, and J1328, respectively. We further derive rough es-
+timates of the inclination angles based on the observed mor-
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+15
+
+TABLE 4
+
+GALAXY PROPERTIES
+
+a
+
+logLTIR
+(L(cid:12))
+12.85f
+13.48
+13.23
+12.42
+12.51
+12.69
+12.29
+12.44
+12.06
+12.42
+
+logLTIR
+(L(cid:12))
+12.80
+13.55
+13.34
+12.28
+12.39
+12.56
+12.16
+12.31
+11.86
+12.28
+
+(M(cid:12))
+10.58
+10.67
+10.80
+10.77
+
+...
+
+10.51
+10.20
+10.12
+10.82
+10.40
+
+c
+
+logMdyn
+(M(cid:12))
+10.78
+10.86
+10.85
+10.78
+
+logMBH
+(M(cid:12))
+8.83
+9.82
+8.42
+...
+...
+8.68
+...
+9.08
+...
+8.82
+
+sub-sample
+
+Target
+
+comp.
+
+ID
+
+b
+
+SFR a
+(M(cid:12) yr−1)
+
+SFR b
+(M(cid:12) yr−1)
+
+logMdyn sin2 i
+
+d Mdyn/MBH
+
+˙M∗/ ˙MBH
+
+e
+
+Faint
+
+Bright
+
+J0331 QSO
+J1341 QSO
+J1511 QSO
+SMG
+Bg
+
+J0923 QSO
+SMG
+J1328 QSO
+SMG
+J0935 QSO
+
+715†
+3035
+1696
+261
+326
+488
+195
+277
+114
+261
+a Calculated assuming a gray-body SED with Td = 47K and β = 1.6.
+b Calculated from the best-ﬁt template SED of Chary & Elbaz (2001).
+c Calculated using the inclination-angle corrections derived from the sizes of the [C II]-emitting regions.
+d Black hole masses taken from T11.
+e Calculated assuming the CE01-based SFRs, ˙MBH = (1− η)Lbol/ηc2, and η = 0.1.
+f For J0331 the Herschel data suggest a signiﬁcantly hotter gray-body SED with Td = 65K. This would result in log (LTIR/L(cid:12)) = 13.35 and SFR =
+2225M(cid:12) yr−1.
+g The FIR luminosities for the faint companion of J1511 that lacks [C II] detection assume the same [C II]-derived redshift as the quasar host.
+
+625
+3529
+2180
+191
+246
+361
+144
+206
+73
+191
+
+32
+122
+191
+...
+...
+48
+...
+20
+...
+16
+
+88
+11
+264
+...
+...
+158
+...
+50
+...
+56
+
+...
+
+10.87
+10.33
+10.78
+11.03
+10.57
+
+phology of the [C II] emission in all [C II]-emitting systems
+(given in Table 2). For the quasar host of J1511 and the
+accompanying SMG, where the [C II]-emitting regions are
+not formally resolved, we use the upper limits on amin and
+amax. The inclination angles we deduce for our sources are
+in the range i ∼ 28 − 80deg. Taking these inclination cor-
+rections into account, we obtain dynamical masses of Mdyn (cid:39)
+(3.7− 7.5)×1010 M(cid:12) for the quasar hosts, while for the com-
+panion SMGs we have Mdyn = 6 × 1010, 2.1 × 1010, and
+10.7× 1010 M(cid:12) (for the SMGs accompanying J1511, J0923,
+and J1328, respectively). We ﬁnd no signiﬁcant difference
+between the dynamical masses of FIR-bright and FIR-faint
+systems. In what follows, we use these inclination-corrected
+estimates of Mdyn.
+We ﬁrst note that the dynamical masses of the quasar hosts
+cover a very narrow range, ∼ (3.7− 7.5) × 1010 M(cid:12) (i.e.,
+spanning roughly a factor of 2), and ﬁve of the six systems
+have Mdyn ∼ (6− 7.5)× 1010 M(cid:12) (i.e., spanning less than 0.1
+dex). Interestingly, the latter mass is in excellent agreement
+with the observed “knee” of the stellar mass function in SF
+galaxies (M∗), which is known to show very limited evolu-
+tion up to at least z ∼ 3.5 (e.g., Ilbert et al. 2013; Muzzin et al.
+2013). We also note that the dynamical masses of the interact-
+ing SMGs differ from those of the corresponding quasar hosts
+by factors of about 0.85, 0.3, and 1.8 (for the J1511, J0923,
+and J1328 systems, respectively). Given the uncertainties on
+our Mdyn estimates mentioned above, these mass ratios are
+consistent with our interpretation of these interacting systems
+being major galaxy mergers (see Section 3.4 below).
+
+To complement our estimates of dynamical masses, we also
+derive rough estimates of the dust and gas masses in our
+sources. Dust masses are estimated assuming that the FIR
+continuum ﬂuxes measured from our ALMA data are emit-
+ted by optically thin dust, following an SED with Td = 47K
+and β = 1.6, and further assuming an opacity coefﬁcient
+of κλ = 0.77 (850 µm/λrest)β (following Dunne et al. 2000,
+for consistency with Venemans et al. 2016; see also, e.g.,
+Beelen et al. 2006). The dust masses we derive are in the
+range Mdust ∼ (0.4− 4.8)× 108 M(cid:12) for the quasar hosts and
+(0.2− 0.4)× 108 M(cid:12) for the companion SMGs. Importantly,
+
+the dust masses of the quasar hosts comprise < 1% of the
+dynamical masses. This qualitative result is virtually inde-
+pendent of the signiﬁcant uncertainties involved in the dust
+mass estimates (due to the assumptions on the SEDs and on
+κλ ). Rough estimates of gas masses can then be inferred
+by assuming a (uniform) gas-to-dust ratio of 100. These are
+rather conservative estimates, as several recent studies have
+shown that the gas-to-dust ratio in high-redshift hosts may be
+signiﬁcantly lower (e.g., as low as ∼ 20 − 60; Ivison et al.
+2010; Banerji et al. 2017, and references therein). For most of
+the systems, and particularly the quasar hosts, the gas masses
+comprise < 20% of Mdyn and reach ∼ 60% in only one quasar
+host (J1341). Adopting the aforementioned lower gas-to-dust
+ratios would obviously result in yet lower gas-to-dynamical
+mass ratios. We conclude that the Mdyn estimates of our
+sources are dominated, to a large degree, by the stellar com-
+ponents within the galaxies.
+
+Using our estimates of Mdyn as proxies for M∗, we again
+ﬁnd that all the FIR-bright systems are found well above the
+SF-MS, offset from the relation in Equation 1 by at least 0.5
+dex (J0331) and by up to 1.2 dex (J1341). On the other hand,
+all the FIR-faint quasar hosts, as well as two of the three ac-
+companying SMGs (those of J1511 and J0923), are consistent
+with the SF-MS, being within about 0.2 dex of the aforemen-
+tioned relation, which is consistent with the intrinsic scatter
+associated with it.
+
+3.3.3. SMBH-host galaxy relations
+
+We now turn to compare the mass growth rates and the
+masses of the SMBHs powering our quasars relative to those
+of the stellar populations in their host galaxies.
+
+For the quasar host galaxies, we assume that the mass
+grows only due to the formation of new stars at a rate de-
+termined by the CE01-based SFRs (see Section 3.3.1 above).
+For the SMBHs, the growth rates are calculated assuming
+˙MBH = (1− η)Lbol/ηc2, where Lbol is the bolometric lumi-
+nosity, estimated from the rest-frame UV continuum emission
+(see T11), and the radiative efﬁciency is assumed to be η =
+0.1. We ﬁnd that all systems have ˙MBH/ ˙M∗ > 1/200 (see Ta-
+ble 4), with the highest SFR systems J1341 and J1511 having
+˙MBH/ ˙M∗ (cid:39) 1/190 and 1/120, respectively. The lower-SFR
+
+16
+
+Trakhtenbrot et al.
+
+The mass and growth-rate ratios we derive can be com-
+pared to the typical ratios between the masses of galaxies
+and their central SMBHs, as observed in the local universe.
+In the MBH regime of our quasars, these are in the range
+MBH/M∗ (cid:39) 1/300 − 1/200 (see Figure 9; e.g., Marconi &
+Hunt 2003; Haring & Rix 2004; Sani et al. 2011; Kormendy
+& Ho 2013). As Figure 9 shows, this is broadly consistent
+only with the lower end of the MBH/Mdyn range we ﬁnd in
+our quasars. Moreover, for four of the six quasar hosts we
+ﬁnd MBH/Mdyn >∼ 1/90, which is signiﬁcantly higher than the
+locally observed value. We stress that the BH-to-stellar mass
+ratios of our sources would be even higher, thus increasing the
+discrepancy with the local value, recalling the alternative MBH
+calibration mentioned above and recalling that M∗ < Mdyn
+(Section 3.3.2). At the same time, we have shown that Mdyn
+itself may be overestimated. Similarly high BH-to-host mass
+ratios were derived for other luminous z (cid:38) 5 quasars using
+similar data and methods (see, e.g., Walter et al. 2009; Ven-
+emans et al. 2012; Willott et al. 2015; Venemans et al. 2016,
+and references therein, but also Lyu et al. 2016). This adds
+to the evidence for a general trend of increasing MBH/Mhost
+with increasing redshift, out to z ∼ 2− 3, that is supported by
+several studies with direct estimates of MBH/M∗ (e.g., Decarli
+et al. 2010; Merloni et al. 2010; Bennert et al. 2011; Bon-
+giorno et al. 2014; Trakhtenbrot et al. 2015, and references
+therein), as well as indirect arguments (Netzer 2003; Trakht-
+enbrot & Netzer 2010; Caplar et al. 2015). It should be noted,
+however, that the high AGN luminosities of our quasars (i.e.,
+above the break in the quasar luminosity function) may mean
+that the high MBH/Mhost values we ﬁnd do not represent the
+general (active) SMBH population at z ∼ 5 (see, e.g., Willott
+et al. 2005; Lauer et al. 2007; Caplar et al. 2015).
+Turning back to the ˙MBH/ ˙M∗ ratios, the high-SFR systems
+in our sample are broadly consistent with what is expected if
+one assumes that SMBHs and their hosts grow “in tandem”,
+obeying the BH-to-stellar mass ratio observed in high-mass
+systems in the local universe at all times. On the other hand,
+the high ˙MBH/ ˙M∗ ratios found for the rest of the sample (four
+of six quasars) suggests that in these systems the SMBHs
+are bound to overgrow the stellar populations. To illustrate
+the possible evolutionary scenarios for our SMBHs and host
+galaxies, we plot in Figure 9 the expected mass growth in both
+the BH and stellar components, assuming the observed (lin-
+ear) growth rates are sustained for a short period of 50 Myr
+(as in Venemans et al. 2016). Within this short timespan, most
+systems will remain broadly consistent with the local range of
+MBH/M∗ ratios. If the SMBHs would stop growing within a
+comparably short time-scale, at about MBH ∼ 109 M(cid:12), then
+their host galaxies would have to experience only a slightly
+longer period of SF activity to reach the corresponding lo-
+cal mass ratios (MBH/M∗ ∼ 1/300− 1/200). However, if the
+BH growth rates are maintained over longer periods, and/or
+if the SMBHs are instead assumed to be growing exponen-
+tially (i.e., at constant L/LEdd, instead of constant Lbol), then
+the SMBHs would signiﬁcantly overgrow their hosts while
+approaching the highest BH masses known, MBH ∼ 1010 M(cid:12),
+and moving away from the local BH-host relation.
+In this
+mass regime, the corresponding local mass ratios are on the
+order of MBH/M∗ ∼ 1/100, which would still require signiﬁ-
+cant SF activity in our objects.
+Our conclusions regarding the relative growth rates are in
+line with the recent results of Netzer et al. (2016). This study
+used Herschel data for a large sample of some of the most
+
+FIG. 9.— Black hole masses, MBH, vs. host galaxy dynamical masses,
+Mdyn, for our sample of z (cid:39) 4.8 quasars (red stars), compared with a sample
+of z (cid:39) 0 elliptical galaxies (taken from Kormendy & Ho 2013, black cir-
+cles). The dotted diagonal lines trace different constant BH-to-host mass ra-
+tios. The crosses at the top-left corner illustrate representative measurement
+uncertainties (black) on both properties, and systematic uncertainties (gray)
+uncertainties on MBH (of 0.4 dex). The signiﬁcant systematic uncertainties
+on Mdyn (not shown) are more complicated, involving the poorly-constrained
+[C II] emission sizes and inclinations (see Section 3.3.2 for details). Arrows
+indicate the possible evolution in both the BH and stellar components, assum-
+ing constant mass growth rates over a period of 50 Myr. We note that all BH
+masses would increase by 0.24 dex if the calibration of Trakhtenbrot & Net-
+zer (2012) is adopted (see text for details). Our quasars cover a wide range,
+with most systems being consistent with the ratio observed in the local uni-
+verse and some exceeding MBH/Mdyn ∼ 1/100. The extreme object J1341,
+which has MBH/Mdyn (cid:39) 1/10 at z (cid:39) 4.8, is expected to evolve towards the
+locally observed ratio.
+
+systems have growth-rate ratios as high as ˙MBH/ ˙M∗ (cid:39) 1/30
+(median value). These growth-rate ratios are consistent with
+those derived in N14 (and in Netzer et al. 2016), which is ex-
+pected given the consistency between the new ALMA data
+and the previous Herschel measurements.
+
+As for the mass comparison, we rely on the dynamical
+mass estimates derived above and the Mg II-based BH masses
+available from T11. These MBH estimates used the calibra-
+tion by McLure & Dunlop (2004). The more recent cal-
+ibration by Trakhtenbrot & Netzer (2012) would have in-
+creased MBH by a factor of 1.75 (∼0.24 dex), but we chose
+not to use it for the sake of consistency with our own previ-
+ous work and with other samples of z >∼ 5 quasars (see also
+Shen et al. 2011; Mej´ıa-Restrepo et al. 2016). Table 4 lists
+MBH and the BH-to-host mass ratios, which are in the range
+MBH/Mdyn ∼ 1/260 − 1/10. Figure 9 shows our estimates
+of Mdyn and MBH, along with some similar estimates in lo-
+cal galaxies. For this, we use the subset of elliptical galax-
+ies tabulated in Kormendy & Ho (2013), for which we take
+Mhost = Mbulge.5 We note that Mbulge itself, which is indeed
+the focus of many studies of various types of local galaxies
+(see an extensive discussion in Kormendy & Ho 2013), is not
+accessible with our data.
+
+5 Excluding NGC 4486B.
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+17
+
+luminous quasars at z (cid:38) 2 (including all of our sources) and
+found that the vast majority of systems has ˙MBH/ ˙M∗ >∼ 1/100,
+while a small fraction had ˙MBH/ ˙M∗ ∼ 1/200 − 1/100. As-
+suming that the most luminous quasars at z (cid:38) 2 form a con-
+tinuously evolving population, the Netzer et al. (2016) study
+also suggested that the epoch of fast SMBH growth traced by
+our sources would extend to z ∼ 2− 3, perhaps at low duty
+cycles (see T11), while the intense SF activity seen in some
+of the quasar hosts may decrease shortly after z ∼ 5. In the
+context of the z (cid:39) 4.8 quasars we study here, this may indeed
+mean that our SMBHs would reach the high end of the known
+MBH range, with MBH ∼ 1010 M(cid:12). The (decreasing) SF activ-
+ity is still required to sufﬁce to reach MBH/M∗ ∼ 1/100.
+We ﬁnally highlight the exceptional properties of the J1341
+system, which has a high of MBH = 6.6 × 109 M(cid:12), an ex-
+tremely high BH-to-host mass ratio of MBH/M∗ ∼ 1/10 and a
+low mass-growth ratio of ˙MBH/ ˙M∗ ∼ 1/190. All this suggests
+that the SMBH is approaching its ﬁnal mass, while the host
+galaxy is forming stars at an intense rate and the system would
+likely expected to approach the high mass end of the z ∼ 0
+mass ratio (see Figure 9). This is similar to the over-massive
+BH CID-947, recently identiﬁed at z (cid:39) 3.3, and speculated
+to have experienced an earlier episode of fast Eddington-
+limited growth, to reach the observed MBH (cid:39) 7× 109 M(cid:12) and
+MBH/M∗ (cid:39) 1/10 (Trakhtenbrot et al. 2015).6
+J1341 may
+therefore be illustrative of the scenario of early, fast SMBH
+growth to the highest known mass well before z ∼ 4.5, with
+somewhat longer timescale stellar growth, to eventually reach
+MBH/M∗ ∼ 1/100.
+
+3.4. Major mergers among hosts of fast-growing SMBHs
+Given the results of Herschel analysis available prior to the
+new ALMA observations, the naive expectation for the sam-
+ple under study was that the FIR-bright sources are powered
+by major mergers between gas-rich galaxies, while the FIR-
+faint sources are evolving secularly or, perhaps, are related to
+a later evolutionary phase, where the accreting SMBHs may
+have already affected the SF in their hosts (see N14 for a de-
+tailed discussion). Moreover, there is strong evidence that the
+occurrence rate of mergers among AGN increases with in-
+creasing AGN luminosity and redshift (Treister et al. 2012).
+Based on these trends, a high occurrence rate of mergers, in
+excess of 50% and perhaps as high as 80%, is expected for
+our z (cid:39) 4.8, high-LAGN (and high-L/LEdd) quasars. The new
+high-resolution ALMA data allow us to critically revisit these
+ideas. The small size of our sample naturally limits the scope
+of our interpretation, however we note that most of the pre-
+vious studies addressing these questions at comparably high
+redshifts included yet fewer objects and/or relied on lower-
+quality data.
+At face value, our new ALMA data clearly show that a sig-
+niﬁcant fraction of z (cid:39) 4.8 luminous quasars – 50% in our
+small sample – are interacting with companion galaxies of
+comparable mass, thus supporting the idea that major merg-
+ers are a dominant driver of the intense BH and SF activity.
+Moreover, we note that this may constitute a lower limit on
+the real fraction of interacting quasar hosts, when considering
+the possibility that additional companions are locate just out-
+side of the ALMA ﬁelds (i.e., separated by (cid:38) 50 kpc); that
+
+6 It is, however, worth bearing in mind that the two systems (J1341 at
+z (cid:39) 4.8 and CID-947 at z (cid:39) 3.3) are drawn from parent samples of markedly
+different number densities.
+
+additional close companions are too faint to be detected in
+our ALMA data (i.e., have SFR (cid:28) 100M(cid:12) yr−1) and/or that
+some of the isolated quasars are actually in the ﬁnal stages of
+a merger with interaction signatures that can only be detected
+with higher resolution data.
+
+However, the properties of the SMBHs in our sample, their
+hosts and companion galaxies under study, highlight sev-
+eral shortcomings of the simplistic merger-driven growth sce-
+nario. First, two of the three quasars with robust detections
+of physically interacting companions (i.e., SMGs) are actu-
+ally among the FIR-faint sources, while only one of the FIR-
+bright sources has an interacting companion (J1511). Second,
+the velocity maps of all the FIR-bright systems, and particu-
+larly those that lack companions, show evidence for ordered
+rotation, around an axis that coincides with the centroids of
+the host galaxies (and quasars’ locations; see Section 3.2 and
+Figure 5). The coincidence of the region of zero velocity with
+the centroids of the SF activity in the hosts suggests that the
+redshifted and blueshifted [C II] emitting regions are not trac-
+ing (smaller) coalescing galaxies. Moreover, as noted in Sec-
+tion 3.2, the outer parts of the ISM in the FIR-bright systems
+appear to be rotation dominated. This is also seen among the
+FIR-faint systems, although to a lesser extent.
+
+We also note that the speculation made in N14 that the FIR-
+faint systems are found in a later evolutionary stage is disfa-
+vored by the new ALMA data, as (two of) the FIR-faint sys-
+tems are seen to be in a rather early stage of a major merger.
+Their lower SFRs will therefore likely increase as the interact-
+ing galaxies coalesce. In principle, a possible interpretation
+for our new ALMA data may have been that the SMBH ac-
+tivity in the FIR-faint sources is driven by the “ﬁrst passage”
+of the interacting quasar hosts with their SMG companions.
+Indeed, the high SFRs of the interacting galaxies in the J1511
+system may be indicative of what the FIR-faint systems would
+undergo in later stages of the interaction. However, most sim-
+ulations of major mergers suggest that the SMBH would pro-
+duce a luminous quasar, with high L/LEdd, at the ﬁnal coales-
+cence phase, and not in the ﬁrst passage phase. These same
+simulations also suggest that the ﬁrst passage enhances SFR
+in the interacting hosts, to levels comparable to those found
+in the later, ﬁnal coalescence phase (see, e.g., Blecha et al.
+2011; DeBuhr et al. 2011; Sijacki et al. 2011; Van Wassen-
+hove et al. 2012, but also Volonteri et al. 2015 and Gabor
+et al. 2015). Our sample, on the other hand, shows simi-
+larly intense SMBH growth, with LAGN (cid:39) 1047 ergs−1 and
+L/LEdd ∼ 0.5 − 1, for both high- and low-SFR quasar hosts
+and among systems with and without an interacting compan-
+ion.
+
+Any direct comparison with merger simulations is further
+complicated by the possibility that the companion SMGs we
+detect at larger separations of ∼ 40kpc may have already ex-
+perienced a much closer passage to the quasar hosts and are
+observed close to their apocenter. The intense SMBH growth
+may have been triggered during this pericenter passage, when
+tidal forces were maximal. In this context, we note that any
+observations of interacting galaxies would be biased toward
+large separations, due to the longer periods spent at increas-
+ingly larger separations. Indeed, an inspection of several of
+the aforementioned simulations suggests that the interacting
+galaxies are separated by (cid:38) 20kpc for over 80% of the simu-
+lated merger. First and second passages are extremely short,
+
+18
+taking up ∼ 5% of the time.7
+
+Trakhtenbrot et al.
+
+To conclude the discussion of major mergers, we recall that
+our SMBHs – as well as the other z (cid:38) 5 quasars mentioned
+above – had to grow continuously and at high rates since very
+early epochs to account for their high masses (see T11, and
+references therein). Given the number of interacting compan-
+ions we ﬁnd and their separations from the quasars’ hosts, it
+seems unlikely that this kind of mergers can be the only driver
+of such a prolonged period of fast growth. All of the above
+suggests the epoch of fastest growth of the most massive BHs
+is driven, at least in part, by mechanisms that are not related
+to major mergers - such as direct accretion of IGM gas (e.g.,
+Dekel et al. 2009; Di Matteo et al. 2012; Dubois et al. 2012),
+minor mergers, and/or galaxy-scale instabilities of the gas or
+stellar components (e.g., Springel et al. 2005; Bournaud et al.
+2011, 2012).
+
+Finally, we note that even if the companion SMGs we ﬁnd
+are not directly related to the fueling of the fast-growing
+z (cid:39) 4.8 SMBHs, their presence seems to support the idea
+that rapid early BH growth preferentially takes place in dense
+large-scale environments (e.g., Di Matteo et al. 2008; Sijacki
+et al. 2009; Costa et al. 2014; Dubois et al. 2012). To date,
+such evidence has been highly elusive, with several obser-
+vational campaigns looking for over-densities of (rest-frame)
+UV-bright galaxies around luminous high-redshift quasars
+yielding highly ambiguous results (see, e.g., Overzier et al.
+2006; Kim et al. 2009; Utsumi et al. 2010; Husband et al.
+2013 for several examples of such over-dense environments,
+but also Willott et al. 2005; Ba˜nados et al. 2013; Simpson
+et al. 2014 and some of the systems in Kim et al. 2009 for the
+contrary). Our analysis demonstrates that such studies may
+be signiﬁcantly biased against dust-obscured high-redshift
+SF galaxies, thus underestimating the real (over-)density of
+galaxies around high-redshift quasars. Indeed, the three in-
+teracting companions we identify were not identiﬁed in the
+Spitzer images of the respective quasars (N14). A com-
+plete census of the cosmic environments of high-redshift, fast-
+growing SMBHs would therefore require a multi-wavelength
+approach, covering scales of up to a few arc-minutes, and
+in spectral regimes that are not affected by dust obscuration.
+This can be done, for example, using compact sub-mm arrays.
+
+4. SUMMARY AND CONCLUSIONS
+
+We have presented ALMA band-7 observations of six lu-
+minous quasars at z (cid:39) 4.8, drawn from a sample of 40, UV-
+selected SDSS quasars with a wealth of supporting multi-
+wavelength data. The data probe the rest-frame far-IR contin-
+uum emission that arises from cold dust, heated by SF in the
+host galaxies of the quasars, as well as the [C II] λ 157.74 µm
+emission line that originates from the cold phase of the hosts’
+ISM. The ALMA observations resolve the continuum- and
+line-emitting regions on scales of ∼ 2 kpc. Our main ﬁnd-
+ings are as follows.
+
+1. All quasar hosts are clearly detected and resolved, in
+both continuum and [C II] line emission. The con-
+tinuum emission suggests intense SF, with the FIR-
+bright sources reaching ∼ 1000 − 3000M(cid:12) yr−1, con-
+sistent with Herschel observations of these systems.
+The quasar hosts exhibit evidence for massive, rotation-
+dominated gas structures.
+
+2. Three quasar hosts – one FIR-bright and two FIR-faint
+systems – are accompanied by spectroscopically con-
+ﬁrmed, interacting companions, with separations in the
+
+We therefore conclude that our ALMA data provide com-
+pelling evidence for signiﬁcant galaxy–galaxy interactions
+(major mergers) in some, but not all, quasar hosts. Moreover,
+the links between these interactions and the intense accretion
+onto the SMBHs remains unclear. For the FIR-bright sources,
+we caution that even with the new ALMA data, we cannot
+completely disprove the possibility that all these systems are
+indeed observed in the advanced stages of a major merger. In
+particular, the evidence for rotation in the ISM of some quasar
+hosts does not by itself disprove a merger scenario, as several
+studies of low-redshift mergers (i.e., ULIRGs) have identi-
+ﬁed nuclear structures of rotating molecular gas, on scales of
+a few kiloparsecs (see, e.g., Downes & Solomon 1998; Tac-
+coni et al. 1999; Ueda et al. 2014 and the discussion in Hodge
+et al. 2012). Simulations of (low-redshift) major mergers have
+demonstrated that such gas disks may indeed form several
+hundreds of Myr after the “peak” of the merger, once the co-
+alesced nucleus has relaxed (e.g., Barnes 2002; Springel &
+Hernquist 2005). On the other hand, the interacting compan-
+ions we identify among the FIR-faint systems cannot be re-
+lated to the SF and SMBH activity in a straightforward way,
+given their large separations. The only way in which all the
+quasars in our sample can be explained as triggered by ma-
+jor merger is if the FIR-bright systems that lack an interact-
+ing companion (namely J0331 and J1341) are observed in the
+ﬁnal coalescence stage, while the two interacting FIR-faint
+quasar hosts have already experienced a close ﬁrst passage
+that triggered the SMBH growth and are observed close to
+their apocenter. Even this scenario fails to account for one of
+the FIR-faint systems (J0935), which has no companions out
+to ∼ 50kpc.
+
+Several sub-mm studies published in recent years have
+probed the existence of SF galaxies that are accompanying,
+or indeed interacting with, the hosts of z (cid:38) 4.5 quasars. A
+prominent example is the interacting system BR1202-0725 at
+z = 4.7, which was shown to consist of a pair of interacting
+SMGs, separated by 25 kpc, one of which hosting a luminous
+quasar, with an additional (marginal) detection of a faint AGN
+in the other one (Iono et al. 2006; Wagg et al. 2012; Carniani
+et al. 2013). However, such close interactions are found to
+be quite rare among high-redshift quasars. Several deep opti-
+cal imaging campaigns in the ﬁelds around the known z (cid:39) 6
+quasars provide no or little robust evidence for physically as-
+sociated companions (e.g., Willott et al. 2005). Moreover,
+the sub-mm (ALMA and PdBI) studies published for most of
+the known z (cid:38) 6 quasars (by Wang et al. 2013; Willott et al.
+2013, 2015; Venemans et al. 2016) – which could have de-
+tected companions with SFRs comparable to those we ﬁnd at
+separations of up to ∼100 kpc – report no such companions.
+Taken at face value, this may suggest a fast increase in the
+occurrence of mergers among luminous quasar hosts between
+z (cid:39) 6.2 and z (cid:39) 4.8 – that is, within ∼350 Myr. We note, how-
+ever, that this discrepancy may be driven by the limited sensi-
+tivity and/or limited spatial resolution of the available sub-mm
+(ALMA) data for some z (cid:39) 6.2 quasars (e.g., ∼4 kpc in Wang
+et al. 2013). Additional deep observations of these z (cid:39) 6.2
+sources at sub-kiloparsec resolution may indeed resolve this
+discrepancy.
+
+7 It is worth noting that many simulations are set up in a way that will lead
+to a merger within a relatively short time, due to computational limitations.
+The fraction of time spent at large separations, on the order of ∼ 40kpc, may
+therefore be even higher.
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+19
+
+range ∼ 14−45 kpc and within |∆v| <∼ 450kms−1. The
+companions themselves are forming stars at rates of a
+few hundred M(cid:12) yr−1, slightly lower than the quasar
+hosts with which they interact.
+
+3. The remaining quasar hosts – two FIR-bright and one
+FIR-faint – lack signiﬁcant companions. This, com-
+bined with the evidence for rotation, may suggest that
+processes other than major mergers are driving the sig-
+niﬁcant SF activity and fast SMBH growth in these sys-
+tems.
+
+4. The dynamical masses of the quasar hosts, estimated
+from the [C II] lines, are within a factor of ∼3 of the
+masses of the interacting companions, supporting our
+interpretation of these interactions as major mergers.
+
+5. The [C II]-based dynamical masses also show that the
+FIR-faint systems are consistent with the “main se-
+quence” of star-forming galaxies, while the FIR-bright
+systems are located above it.
+
+6. Compared with the BH masses, the [C II]-based dynam-
+ical host masses are generally lower than what is ex-
+pected from the locally observed BH-to-host mass ra-
+tio. In some of the systems, this discrepancy may grow
+further, given the high accretion rates of the SMBHs.
+
+7. The L[C II]/LFIR ratios in the quasar hosts are consistent
+with those found in other z (cid:38) 5 quasar hosts and SMGs
+and follow the observed trend of declining L[C II]/LFIR
+with increasing LFIR. Although our data suggest that the
+[C II] deﬁcit is most probably driven by mechanisms or
+properties that are intrinsic to the quasar hosts, we do
+not ﬁnd evidence for the compactness of the SF regions
+being the driver of the L[C II]/LFIR − LFIR trend.
+
+Our analysis clearly demonstrates the wide variety of host
+galaxy properties, particularly in terms of SFRs and of possi-
+ble SMBH fueling mechanisms, among a relatively uniform
+population of the fastest-growing SMBHs in the early gas-
+rich universe. It appears that vigorous SMBH growth is not
+necessarily accompanied by extreme SF activity (i.e., above
+what is found in inactive SF galaxies) and that galaxy–galaxy
+interactions are not a necessary condition for either of the two
+processes. This broadly supports a scenario where intense
+SMBH and stellar growth in the early universe is driven by
+secular processes, such as large-scale ﬂows of cold gas, that
+penetrate into the centers of massive dark matter halos and/or
+gas or stellar instabilities on smaller scales.
+
+Our results motivate several paths for follow-up studies to
+address and test the predictions of the different fueling mech-
+anisms. To robustly determine the role of mergers in the sys-
+tems that lack companions quasars would require the detec-
+tion of tidal features (e.g., using JWST imaging), or mapping
+the ISM kinematics at higher resolution and/or to larger scales
+(i.e., with deeper ALMA observations). Obviously, a critical
+test of the relevance of mergers to the general population of
+high-redshift quasars necessitates a signiﬁcantly larger sam-
+ple, with observations that cover a large ﬁeld of view while
+maintaining a high spatial resolution. This can be achieved by
+extending our analysis to additional z ∼ 5 and z ∼ 6 quasars.
+We have recently guaranteed cycle-4 ALMA band-7 time to
+observe 12 additional z (cid:39) 4.8 quasars from the T11 sample,
+which would allow us to study the host galaxies and close en-
+vironments of a total of 18 fast-growing, z (cid:39) 4.8 SMBHs.
+
+We thank the anonymous referee for the very construc-
+tive comments that helped us to improve our manuscript.
+We thank K. Schawinski, L. Mayer, R. Teyssier, P.
+Capelo, M. Dotti and D. Fiacconi
+for useful discus-
+This paper makes use of the following ALMA
+sions.
+data: ADS/JAO.ALMA#2013.1.01153.S. ALMA is a partner-
+ship of ESO (representing its member states), NSF (USA)
+and NINS (Japan), together with NRC (Canada), NSC and
+ASIAA (Taiwan), and KASI (Republic of Korea), in coop-
+eration with the Republic of Chile. The Joint ALMA Ob-
+servatory is operated by ESO, AUI/NRAO, and NAOJ. This
+work made use of the MATLAB package for astronomy
+and astrophysics (Ofek 2014). H.N. acknowledges support
+by the Israel Science Foundation grant 284/13. C.C. grate-
+fully acknowledges support from the Swiss National Science
+Foundation Professorship grant PP00P2 138979/1. C.C. also
+acknowledges funding from the European Union’s Horizon
+2020 research and innovation programme under the Marie
+Sklodowska-Curie grant agreement No 664931. R.M. ac-
+knowledges support by the Science and Technology Facili-
+ties Council (STFC) and the ERC Advanced Grant 695671
+“QUENCH”.
+Facility: ALMA (band-7)
+Software: CASA
+
+REFERENCES
+
+Alexander, D. M., & Hickox, R. C. 2012, New Astronomy Reviews, 56, 93
+
+ApJ, 742, 107 [1, 3.3.3]
+
+Adelman-McCarthy, J. K., Ag¨ueros, M. A., Allam, S. S., et al. 2008, ApJS,
+
+175, 297 [2.1]
+
+[1]
+
+833, 68 [3.1]
+
+642 [1]
+
+[3.3.1]
+
+Aravena, M., Decarli, R., Walter, F., et al. 2016a, The Astrophysical Journal,
+
+—. 2016b, ApJ, 833, 71 [3.1]
+Bahcall, J. N., Kirhakos, S., Saxe, D. H., & Schneider, D. P. 1997, ApJ, 479,
+
+Baldry, I. K., Driver, S. P., Loveday, J., et al. 2012, MNRAS, 421, 621
+
+Ba˜nados, E., Venemans, B. P., Walter, F., et al. 2013, ApJ, 773, 178 [1, 3.4]
+Banerji, M., Carilli, C. L., Jones, G., et al. 2016, MNRAS, 465, 4390 [3.3.2]
+Barnes, J. E. 2002, MNRAS, 333, 481 [3.4]
+Becker, G. D., Hewett, P. C., Worseck, G., & Xavier Prochaska, J. 2013,
+
+MNRAS, 430, 2067 [3.2]
+
+Beelen, A., Cox, P., Benford, D. J., et al. 2006, ApJ, 642, 694 [3.3.1, 3.3.2]
+Bennert, V. N., Auger, M. W., Treu, T., Woo, J.-H., & Malkan, M. A. 2011,
+
+Blecha, L., Cox, T. J., Loeb, A., & Hernquist, L. 2011, MNRAS, 412, 2154
+
+Bongiorno, A., Maiolino, R., Brusa, M., et al. 2014, MNRAS, 443, 2077
+
+Bouch´e, N., Dekel, A., Genzel, R., et al. 2010, ApJ, 718, 1001 [3.3.1]
+Bournaud, F., Dekel, A., Teyssier, R., et al. 2011, ApJL, 741, L33 [1, 3.4]
+Bournaud, F., Juneau, S., Le Floc’h, E., et al. 2012, ApJ, 757, 81 [1, 3.4]
+Bouwens, R. J., Illingworth, G. D., Oesch, P. a., et al. 2015, ApJ, 803, 34
+
+[1, 3.4]
+
+[3.3.3]
+
+[3.1]
+
+Capak, P. L., Carilli, C. L., Jones, G., et al. 2015, Nature, 522, 455 [3.1, 3.2]
+Capelo, P. R., Volonteri, M., Dotti, M., et al. 2015, MNRAS, 447, 2123 [1]
+Caplar, N., Lilly, S. J., & Trakhtenbrot, B. 2015, ApJ, 811, 148 [3.3.3]
+Carilli, C. L., & Walter, F. 2013, ARA&A, 51, 105 [1]
+
+20
+
+Trakhtenbrot et al.
+
+Carniani, S., Marconi, A., Biggs, A., et al. 2013, A&A, 559, A29 [3.2,
+
+Merloni, A., Bongiorno, A., Bolzonella, M., et al. 2010, ApJ, 708, 137
+
+Carniani, S., Maiolino, R., De Zotti, G., et al. 2015, A&A, 584, A78 [3.1]
+Casey, C. M., Narayanan, D., & Cooray, A. R. 2014, Phys. Rep., 541, 45
+
+Mor, R., & Netzer, H. 2012, MNRAS, 420, 526 [3.3.1]
+Mor, R., Netzer, H., Trakhtenbrot, B., Shemmer, O., & Lira, P. 2012, ApJ,
+
+3.3.2, 3.4]
+
+[3.3.1]
+
+7, 3.2, 3.3.2]
+
+2146 [1, 3.4]
+
+[3.2, 3.2]
+
+Chabrier, G. 2003, PASP, 115, 763 [1]
+Chary, R.-R., & Elbaz, D. 2001, ApJ, 556, 562 [8, 3.3.1, 4]
+Cicone, C., Maiolino, R., Gallerani, S., et al. 2015, A&A, 574, A14 [1, 3.2,
+
+Cisternas, M., Jahnke, K., Inskip, K. J., et al. 2011, ApJ, 726, 57 [1]
+Costa, T., Sijacki, D., Trenti, M., & Haehnelt, M. G. 2014, MNRAS, 439,
+
+Cox, P., Krips, M., Neri, R., et al. 2011, ApJ, 740, 63 [3.2]
+De Breuck, C., Williams, R. J., Swinbank, M., et al. 2014, A&A, 565, A59
+
+De Rosa, G., Venemans, B. P., Decarli, R., et al. 2014, ApJ, 790, 145 [1]
+DeBuhr, J., Quataert, E., & Ma, C.-P. 2011, MNRAS, 412, 1341 [1, 3.4]
+Decarli, R., Falomo, R., Treves, A., et al. 2010, MNRAS, 402, 2453 [3.3.3]
+Dekel, A., Birnboim, Y., Engel, G., et al. 2009, Nature, 457, 451 [1, 3.4]
+Di Matteo, T., Colberg, J., Springel, V., Hernquist, L., & Sijacki, D. 2008,
+
+ApJ, 676, 33 [1, 3.4]
+
+Di Matteo, T., Khandai, N., DeGraf, C., et al. 2012, ApJL, 745, L29 [1, 3.4]
+Di Matteo, T., Springel, V., & Hernquist, L. 2005, Nature, 433, 604 [1]
+D´ıaz-Santos, T., Armus, L., Charmandaris, V., et al. 2013, ApJ, 774, 68
+
+[3.3.3]
+
+749, L25 [1]
+
+Muzzin, A., Marchesini, D., Stefanon, M., et al. 2013, ApJ, 777, 18 [3.3.2]
+Neri, R., Downes, D., Cox, P., & Walter, F. 2014, A&A, 562, A35 [3.2]
+Netzer, H. 2003, ApJL, 583, L5 [3.3.3]
+—. 2009, MNRAS, 399, 1907 [1]
+Netzer, H., Lani, C., Nordon, R., et al. 2016, ApJ, 819, 123 [1, 2.1, 3.3.1,
+
+3.3.3]
+
+791, 34 [1, 3.3.1]
+
+Netzer, H., Mor, R., Trakhtenbrot, B., Shemmer, O., & Lira, P. 2014, ApJ,
+
+Netzer, H., Lutz, D., Schweitzer, M., et al. 2007, ApJ, 666, 806 [3.3.1]
+Ofek, E. O. 2014, MATLAB package for astronomy and astrophysics,
+
+Astrophysics Source Code Library, ascl:1407.005 [4]
+
+Overzier, R. A., Miley, G. K., Bouwens, R. J., et al. 2006, ApJ, 637, 58 [1,
+
+Page, M. J., Symeonidis, M., Vieira, J. D., et al. 2012, Nature, 485, 213 [1]
+Richards, G. T., Vanden Berk, D. E., Reichard, T. A., et al. 2002, AJ, 124, 1
+
+Richards, G. T., Strauss, M. A., Fan, X., et al. 2006, AJ, 131, 2766 [3.3.1]
+Richards, G. T., Kruczek, N. E., Gallagher, S. C., et al. 2011, AJ, 141, 167
+
+Riechers, D. a., Bradford, C. M., Clements, D. L., et al. 2013, Nature, 496,
+
+3.4]
+
+[3.2]
+
+[3.2]
+
+Riechers, D. A., Carilli, C. L., Capak, P. L., et al. 2014, ApJ, 796, 84 [3.2]
+Rosario, D. J., Santini, P., Lutz, D., et al. 2012, A&A, 545, A45 [3.3.1]
+Rosario, D. J., Trakhtenbrot, B., Lutz, D., et al. 2013, A&A, 560, A72 [1]
+Sanders, D. B., Soifer, B. T., Elias, J. H., et al. 1988, ApJ, 325, 74 [1]
+Sani, E., Marconi, A., Hunt, L. K., & Risaliti, G. 2011, MNRAS, 413, 1479
+
+Sargsyan, L., Samsonyan, A., Lebouteiller, V., et al. 2014, ApJ, 790, 15
+
+Schawinski, K., Simmons, B. D., Urry, C. M., Treister, E., & Glikman, E.
+
+2012, MNRAS, 425, L61 [1]
+
+Schawinski, K., Treister, E., Urry, C. M., et al. 2011, ApJL, 727, L31 [1]
+Schneider, R., Bianchi, S., Valiante, R., Risaliti, G., & Salvadori, S. 2015,
+
+A&A, 579, A60 [3.3.1]
+
+Schweitzer, M., Lutz, D., Sturm, E., et al. 2006, ApJ, 649, 79 [3.3.1]
+Shang, Z., Wills, B. J., Wills, D., & Brotherton, M. S. 2007, AJ, 134, 294
+
+Shao, L., Lutz, D., Nordon, R., et al. 2010, A&A, 518, L26 [1]
+Shen, Y., Richards, G. T., Strauss, M. a., et al. 2011, ApJS, 194, 45 [3.3.3]
+Shen, Y., Brandt, W. N., Denney, K. D., et al. 2016, ApJ, 831, 7 [3.2]
+Sijacki, D., Springel, V., & Haehnelt, M. G. 2009, MNRAS, 400, 100 [1,
+
+—. 2011, MNRAS, 414, 3656 [1, 3.4]
+Simpson, C., Mortlock, D. J., Warren, S., et al. 2014, MNRAS, 442, 3454
+
+Speagle, J. S., Steinhardt, C. L., Capak, P. L., & Silverman, J. D. 2014,
+
+ApJS, 214, 15 [3.3.1]
+
+[3.2]
+
+3.4]
+
+[1, 3.4]
+
+3.4]
+
+Springel, V., & Hernquist, L. 2005, ApJL, 622, L9 [3.4]
+Stacey, G. J., Geis, N., Genzel, R., et al. 1991, ApJ, 373, 423 [1]
+Stacey, G. J., Hailey-Dunsheath, S., Ferkinhoff, C., et al. 2010, ApJ, 724,
+
+957 [1, 3.2, 7]
+
+Stark, D. P., Ellis, R. S., Bunker, A., et al. 2009, ApJ, 697, 1493 [3.1]
+Stefanon, M., Marchesini, D., Muzzin, A., et al. 2015, ApJ, 803, 11 [3.3.1]
+Steinhardt, C. L., Speagle, J. S., Capak, P. L., et al. 2014, ApJL, 791, L25
+
+Swinbank, M., Karim, A., Smail, I., et al. 2012, MNRAS, 427, 1066 [3.2]
+Symeonidis, M., Giblin, B. M., Page, M. J., et al. 2016, MNRAS, 459, 257
+
+Symeonidis, M. 2017, MNRAS, 465, 1401 [3.3.1]
+Tacconi, L. J., Genzel, R., Tecza, M., et al. 1999, ApJ, 524, 732 [3.4]
+Trakhtenbrot, B., & Netzer, H. 2010, MNRAS, 406, L35 [3.3.3]
+—. 2012, MNRAS, 427, 3081 [1, 9, 3.3.3]
+Trakhtenbrot, B., Netzer, H., Lira, P., & Shemmer, O. 2011, ApJ, 730, 7 [1]
+Trakhtenbrot, B., Urry, C. M., Civano, F. M., et al. 2015, Science, 349, 168
+
+Treister, E., Schawinski, K., Urry, C. M., & Simmons, B. D. 2012, ApJL,
+
+Ueda, J., Iono, D., Yun, M. S., et al. 2014, ApJS, 214, 1 [3.4]
+Utsumi, Y., Goto, T., Kashikawa, N., et al. 2010, ApJ, 721, 1680 [1, 3.4]
+Valiante, R., Schneider, R., Salvadori, S., & Gallerani, S. 2014, MNRAS,
+
+Valtchanov, I., Virdee, J., Ivison, R. J., et al. 2011, MNRAS, 415, 3473 [3.2]
+Van Wassenhove, S., Volonteri, M., Mayer, L., et al. 2012, ApJL, 748, L7
+
+Veilleux, S., Kim, D.-C., Rupke, D. S. N., et al. 2009, ApJ, 701, 587 [1]
+Venemans, B. P., Walter, F., Zschaechner, L., et al. 2016, ApJ, 816, 37 [1,
+
+3.2, 3.2, 3.3.1, 3.3.2, 3.3.2, 3.3.3, 3.4]
+
+Venemans, B. P., McMahon, R. G., Walter, F., et al. 2012, ApJL, 751, L25
+
+[1, 3.2, 3.3.3]
+
+[3.3.3]
+
+758, L39 [1, 3.4]
+
+444, 2442 [3.3.2]
+
+[3.4]
+
+Karim, A., Swinbank, A. M., Hodge, J. A., et al. 2013, MNRAS, 432, 2
+
+Springel, V., Di Matteo, T., & Hernquist, L. 2005, MNRAS, 361, 776 [1,
+
+Downes, D., & Solomon, P. 1998, ApJ, 507, 615 [3.4]
+Dubois, Y., Pichon, C., Haehnelt, M., et al. 2012, MNRAS, 423, 3616 [1,
+
+329 [3.2]
+
+Dubois, Y., Volonteri, M., Silk, J., et al. 2015, MNRAS, 452, 1502 [1]
+Duncan, K., Conselice, C. J., Mortlock, A., et al. 2014, MNRAS, 444, 2960
+
+Dunne, L., Eales, S., Edmunds, M., et al. 2000, MNRAS, 315, 115 [3.3.2]
+Fujimoto, S., Ouchi, M., Ono, Y., et al. 2016, ApJS, 222, 1 [3.1]
+Gabor, J. M., Capelo, P. R., Volonteri, M., et al. 2015, A&A, 592, A62 [1,
+
+[3.3.3]
+
+[3.2]
+
+[3.2, 7, 3.2]
+
+3.4]
+
+[3.3.1]
+
+3.4]
+
+Gabor, J. M., Impey, C. D., Jahnke, K., et al. 2009, ApJ, 691, 705 [1]
+Gallerani, S., Neri, R., Maiolino, R., et al. 2012, A&A, 543, A114 [1, 3.3.2]
+Genel, S., Genzel, R., Bouch´e, N., Naab, T., & Sternberg, A. 2009, ApJ,
+
+701, 2002 [1]
+
+Gnerucci, A., Marconi, A., Cresci, G., et al. 2011, A&A, 528, A88 [3.2]
+Haring, N., & Rix, H. 2004, ApJL, 604, L89 [3.3.3]
+Hewett, P. C., & Wild, V. 2010, MNRAS, 405, 2302 [3.1, 3.2, 3]
+Hodge, J. A., Carilli, C. L., Walter, F., et al. 2012, ApJ, 760, 11 [3.4]
+Hopkins, P. F., Hernquist, L., Cox, T. J., et al. 2006, ApJS, 163, 1 [1]
+Hopkins, P. F., Croton, D., Bundy, K., et al. 2010, ApJ, 724, 915 [1]
+Husband, K., Bremer, M. N., Stanway, E. R., et al. 2013, MNRAS, 432,
+
+Ilbert, O., McCracken, H. J., Le F`evre, O., et al. 2013, A&A, 556, A55
+
+Iono, D., Yun, M. S., Elvis, M., et al. 2006, ApJL, 645, L97 [1, 3.4]
+Ivison, R. J., Swinbank, M., Swinyard, B., et al. 2010, A&A, 518, L35 [3.2,
+
+2869 [1, 3.4]
+
+[3.3.1, 3.3.2]
+
+3.3.2]
+
+[3.1]
+
+Kim, S., Stiavelli, M., Trenti, M., et al. 2009, ApJ, 695, 809 [1, 3.4]
+Knudsen, K. K., Richard, J., Kneib, J.-P., et al. 2016, MNRAS, 462, L6 [3.2]
+Kocevski, D. D., Faber, S. M., Mozena, M., et al. 2012, ApJ, 744, 148 [1]
+Kormendy, J., & Ho, L. C. 2013, ARA&A, 51, 511 [1, 9, 3.3.3]
+Koss, M., Mushotzky, R. F., Veilleux, S., et al. 2011, ApJ, 739, 57 [1]
+Lauer, T. R., Tremaine, S., Richstone, D. O., & Faber, S. M. 2007, ApJ, 670,
+
+249 [3.3.3]
+
+Lee, K.-S., Ferguson, H. C., Wiklind, T., et al. 2012, ApJ, 752, 66 [3.3.1]
+Lee, N., Sanders, D. B., Casey, C. M., et al. 2013, ApJ, 778, 131 [3.3.1]
+Leipski, C., Meisenheimer, K., Walter, F., et al. 2014, ApJ, 785, 154 [3.3.1]
+Lilly, S. J., Carollo, C. M., Pipino, A., Renzini, A., & Peng, Y.-j. 2013, ApJ,
+
+[3.3.1]
+
+[3.3.1]
+
+Lutz, D., Mainieri, V., Rafferty, D. A., et al. 2010, ApJ, 712, 1287 [1]
+Lutz, D., Berta, S., Contursi, A., et al. 2016, A&A Astrophysics, 591, A136
+
+Lyu, J., Rieke, G. H., & Alberts, S. 2016, ApJ, 816, 85 [3.3.3]
+Magnelli, B., Lutz, D., Santini, P., et al. 2012, A&A, 539, A155 [3.3.1]
+Magnelli, B., Lutz, D., Saintonge, A., et al. 2014, A&A Astrophysics, 561,
+
+772, 119 [3.3.1]
+
+[3.3.1]
+
+A86 [3.3.1]
+
+Mainieri, V., Bongiorno, A., Merloni, A., et al. 2011, A&A, 535, A80 [1]
+Maiolino, R., Caselli, P., Nagao, T., et al. 2009, A&A, 500, L1 [3.2]
+Maiolino, R., Cox, P., Caselli, P., et al. 2005, A&A, 440, L51 [1]
+Maiolino, R., Gallerani, S., Neri, R., et al. 2012, MNRAS, 425, L66 [3.3.2]
+Marconi, A., & Hunt, L. K. 2003, ApJL, 589, L21 [3.3.3]
+McGreer, I. D., Jiang, L., Fan, X., et al. 2013, ApJ, 768, 105 [3.3.1]
+McLure, R. J., & Dunlop, J. S. 2004, MNRAS, 352, 1390 [3.3.3]
+Mcmullin, J. P., Waters, B., Schiebel, D., Young, W., & Golap, K. 2007, in
+ASP Conf. Ser. 376, Astronomical Data Analysis Software and Systems
+XVI, ed. R. A. Shaw, F. Hill, & D. J. Bell (San Francisco, CA: ASP), 127
+[2.2.2]
+
+Mej´ıa-Restrepo, J. E., Trakhtenbrot, B., Lira, P., Netzer, H., & Capellupo,
+
+D. M. 2016, MNRAS, 460, 187 [3.3.3]
+
+Volonteri, M., Capelo, P. R., Netzer, H., et al. 2015, MNRAS, 449, 1470 [1,
+
+Willott, C. J., Bergeron, J., & Omont, A. 2015, ApJ, 801, 123 [1, 3.2, 3.3.1,
+
+Merger-Driven Growth of High-z SMBHs with ALMA
+
+21
+
+Wagg, J., Carilli, C. L., Wilner, D. J., et al. 2010, A&A, 519, L1 [3.2]
+Wagg, J., Wiklind, T., Carilli, C. L., et al. 2012, ApJ, 752, L30 [1, 3.4]
+Walter, F., Riechers, D., Cox, P., et al. 2009, Nature, 457, 699 [1, 3.3.3]
+Wang, R., Wagg, J., Carilli, C. L., et al. 2013, ApJ, 773, 24 [1, 3.2, 3.2,
+
+Williams, R. J., Maiolino, R., Santini, P., et al. 2014, MNRAS, 443, 3780
+
+3.4]
+
+3.3.2, 3.4]
+
+[3.2]
+
+Willott, C. J., Omont, A., & Bergeron, J. 2013, ApJ, 770, 13 [1, 3.2, 3.2, 3.4]
+Willott, C. J., Percival, W. J., McLure, R. J., et al. 2005, ApJ, 626, 657 [1,
+
+York, D. G., Adelman, J., Anderson, J. E., Jr., et al. 2000, AJ, 120, 1579
+
+3.3.2, 3.3.3, 3.4]
+
+3.3.3, 3.4]
+
+[2.1]
+
+

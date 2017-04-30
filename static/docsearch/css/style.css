@@ -1,0 +1,274 @@
+
+h4, h5, h6,
+h1, h2, h3 {margin: 0;}
+ul, ol {margin: 0;}
+p {margin: 0;}
+html, body{
+  font-family: 'Source Sans Pro', sans-serif;
+   font-size: 100%;
+   background:#fff;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+@font-face {
+    font-family: 'Hind-Regular';
+    src:url(../fonts/Hind-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'MontserratAlternates-Regular';
+    src:url(../fonts/MontserratAlternates-Regular.ttf) format('truetype');
+}
+
+.btn-file {
+		    position: relative;
+		    overflow: hidden;
+		}
+		.btn-file input[type=file] {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    min-width: 100%;
+		    min-height: 100%;
+		    font-size: 999px;
+		    text-align: right;
+		    filter: alpha(opacity=0);
+		    opacity: 0;
+		    background: red;
+		    cursor: inherit;
+		    display: block;
+		}
+		input[readonly] {
+			background-color: white !important;
+			cursor: text !important;
+		}
+
+.descr-btn {
+    margin: 1em 0em 0em 1em;
+}
+
+/*--header start here--*/
+nav a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	color: #000;
+	text-decoration: none;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 1em;
+}
+
+nav a:hover,
+nav a:focus {
+	outline: none;
+}
+/* Effect 1: Brackets */
+.cl-effect-1 a::before,
+.cl-effect-1 a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.cl-effect-1 a::before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.cl-effect-1 a::after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+.cl-effect-1 a:hover::before,
+.cl-effect-1 a:hover::after,
+.cl-effect-1 a:focus::before,
+.cl-effect-1 a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
+}
+.logo {
+  float: left;
+  width: 30%;
+}
+
+.search-line {
+    color: #000;
+    font-size: 1em;
+    margin: 5em 10em 1em 10em;
+}
+
+#box {
+	background: #6699FF;
+	height: 100px;
+	width: 100px;
+	position: relative;
+}
+
+.file-upload {
+    color: #000;
+    font-size: 1em;
+    margin: 1em 10em 1em 10em;
+}
+
+.doc-preview{
+    margin: 0em 10em 0em 10em;
+}
+
+.descr-btn{
+    margin: 1em 0em 1em 0em;
+}
+
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+.clickable{
+		  cursor: pointer;
+		}
+
+		.panel-heading div {
+			margin-top: -18px;
+			font-size: 15px;
+		}
+		.panel-heading div span{
+			margin-left:5px;
+		}
+		.panel-body{
+			display: none;
+		}
+
+.top-nav {
+  float: right;
+  width: 70%;
+  text-align: right;
+}
+.logo h1 {
+  font-size: 3em;
+  margin: 0em;
+  font-family: 'Squada One', cursive;
+}
+.logo h1 a{
+  color:#fff;
+  display: block;
+}
+.logo h1 a:hover{
+  text-decoration:none;
+}
+span.menu {
+  display: none;
+}
+.header-main {
+  padding: 1em 0em 1em 0em;
+}
+.top-nav ul {
+  list-style: none;
+  padding: 0.6em 0em 0em 0em;
+}
+.top-nav ul li {
+  display: inline-block;
+}
+.top-nav ul li a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.05em;
+	padding:0.5em 0.5em;
+	position:relative;
+	z-index: 999;
+}
+.top-nav ul li a:hover,.top-nav ul li a.active {
+	color:#000;
+
+}
+.banner {
+  background: url(../images/1.jpg)no-repeat;
+  min-height: 795px;
+  background-size: cover;
+}
+.banner-two {
+  background: url(../images/1.jpg)no-repeat;
+  min-height:160px;
+  background-size: cover;
+}
+.banner-bottom {
+  margin: 12em auto 0em;
+  text-align: center;
+  width: 32%;
+  background: rgba(0, 0, 0, 0.54);
+  padding: 3em 3em;
+}
+.banner-bottom p {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #FFf;
+  margin: 2em 0em 0.5em 0em;
+}
+.banner-bottom h2 {
+  font-size: 2.3em;
+  font-weight: 400;
+  color:#d3bda5;
+  font-family: 'Squada One', cursive;
+  border-top: 4px double #fff;
+  border-bottom: 4px double #fff;
+  padding: 0.3em 0em;
+}
+.banner-bottom a {
+  font-size: 1em;
+  color: #FFF;
+  padding: 0.5em 1em;
+  display: block;
+  border: 2px solid #FFF;
+  margin: 1.5em 0em 0em 0em;
+}
+.banner-bottom a:hover {
+	text-decoration:none;
+	color:#d3bda5;
+	border: 2px solid #d3bda5;
+}
+
+
+
+.map iframe {
+	width: 100%;
+	min-height: 377px;
+	border: none;
+
+
+    .top-nav ul.res{
+	 display:none;
+	 padding:0px;
+}
+
+.logo {
+  width: 50%;
+}
+.top-nav {
+  width: 50%;
+}
+
+.banner {
+  min-height: 580px;
+}
+
+
+
+
+
+
+

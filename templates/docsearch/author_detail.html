@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail author. {{ block.super }}
+{% endblock %}
+
+
+{% block javascript %}
+<script>
+        $(document).ready(function() {
+
+            $("#id_like").click(function(event) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/docsearch/author_detail/',
+                    dataType: "json",
+                    data: {'value': 10},
+                    success: function(data) {
+                        alert(1);
+                    });
+                }
+            });
+        });
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1 align="center"> Author detail </h1>
+</div>
+<div>
+    <h2> My name is {{ author.author_name }} </h2>
+    <h2> Review index: {{ author.review_index }}</h2>
+    <button class="btn btn-primary" type="button" id="id_like">
+        Likes <span class="badge" >{{ author.review_index }}</span>
+    </button>
+    <h2> Documents: </h2>
+    {% for document in documents %}
+    <div>
+        <h3> {{ document.title }}
+            {% url 'document_detail' document.id as doc_url %}
+            {% if doc_url %}
+            <a href="{{ doc_url }}">Link to detail</a>
+            {% endif %}
+        </h3>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

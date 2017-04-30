@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About. {{ block.super }}
+{% endblock %}
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="wrap">
+    <div class="top">
+        <div class="page-header">
+            <h1>About
+                <small>Some info</small>
+            </h1>
+        </div>
+        <div class="t-block">
+            <h2><span class="label label-info">Get more info</span></h2>
+        </div>
+    </div>
+    <div class="block">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Main algorithms</h3>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="w-block w-first">
+            <div class="w-image"><img src="{% static 'docsearch/images/wordle.jpg' %}" alt=""/></div>
+            <div class="text">
+                <h2>Information retrieval</h2>
+                Information retrieval (IR) is the activity of obtaining information resources relevant to an
+                information need from a collection of information resources.
+                Searches can be based on full-text or other content-based indexing.
+            </div>
+
+        </div>
+        <div class="w-block w-second">
+            <div class="w-image"><img src="{% static 'docsearch/images/em.png' %}" alt=""/></div>
+            <div class="text">
+                <h2>EM algorithm</h2>
+                In statistics, an expectation–maximization (EM) algorithm is an iterative method to find
+                maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models,
+                where the model depends on unobserved latent variables.
+            </div>
+
+        </div>
+        <div class="w-block w-third">
+            <div class="w-image"><img src="{% static 'docsearch/images/tm.png' %}" alt=""/></div>
+            <div class="text">
+                <h2>Topic modeling</h2>
+                In machine learning and natural language processing, a topic model is a type of statistical model
+                for discovering the abstract "topics" that occur in a collection of documents. Topic modeling is
+                a frequently used text-mining tool for discovery of hidden semantic structures in a text body.
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

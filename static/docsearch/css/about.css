@@ -1,0 +1,128 @@
+.wrap{
+	position: relative;
+	width: 80%;
+	max-width: 960px;
+	margin: 20px auto;
+}
+
+.big, .s-block,  .logo-about:before, .list, .m-top, .m-bottom, .w-image, .w-title, .m-image, .b-list, .ava, {
+	background: #222;
+}
+
+.top{
+	overflow: hidden;
+	padding: 10px 0px;
+	margin: 0 0 30px 0;
+}
+
+.logo-about{
+	position: relative;
+	display: inline-block;
+	width: 190px;
+	height: 50px;
+}
+
+
+.t-block{
+	position: absolute;
+	right: 0;
+	margin-top: -80px;
+	width: 40%;
+	height: 50px;
+	padding: 0px 10px 0px 200px;
+}
+
+
+.block{
+	min-height: 0px;
+	margin: 0 0 30px 0;
+}
+
+
+.wrapper{
+	overflow: hidden;
+}
+
+
+.w-block{
+	float: left;
+	width: 30%;
+	margin: 0 0 0 4%;
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
+.w-block:first-child{
+	margin: 0;
+}
+
+.w-block h1{
+	text-align: center;
+}
+
+.w-image{
+	width: 80%;
+	min-height: 160px;
+	margin: 0 auto;
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+		.wrap{
+			padding: 0 0 100px 0;
+		}
+
+		.t-block{
+			width: 70%;
+			bottom: 30px;
+		}
+
+		.w-block{
+			float: none;
+			overflow: hidden;
+			width: 100%;
+			margin: 0 0 50px 0;
+		}
+
+		.w-block:first-child{
+			margin: 0 0 50px 0;
+		}
+
+		.w-block h1{
+			text-align: left;
+		}
+
+		.w-first .w-image, .w-third .w-image{
+			float: left;
+			width: 160px;
+			margin: 0;
+		}
+
+		.w-second .w-image{
+			float: right;
+			width: 160px;
+			margin: 0 2% 0 0;
+		}
+
+		.w-first .text, .w-third .text{
+			margin: 0 0 0 180px
+		}
+
+		.w-second .text{
+			margin: 0 180px 0 0;
+		}
+
+    }
+
+@media screen and (max-width: 600px) {
+
+		.w-first .w-image, .w-second .w-image, .w-third .w-image{
+			display: none;
+		}
+
+		.w-first .text, .w-second .text, .w-third .text{
+			margin: 0;
+		}
+    }    

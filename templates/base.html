@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% block head %}
+    {% endblock %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% load static %}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'docsearch/css/bootstrap.min.css' %}" type="text/css"/>
+
+    <link href='//fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet'
+          type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'docsearch/css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{% static 'docsearch/css/about.css' %}" rel="stylesheet" type="text/css" media="all"/>
+
+
+    <script src="{% static 'docsearch/js/jquery-1.11.0.min.js' %}"></script>
+
+    <script src="{% static 'docsearch/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'docsearch/js/move-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'docsearch/js/table-search.js' %}"></script>
+    <script src="{%static 'docsearch/js/bootstrap-select.js' %}"></script>
+
+
+    <script type="text/javascript" src="{% static 'docsearch/js/easing.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'docsearch/css/flexslider.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'docsearch/css/topics.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'docsearch/css/bootstrap-select.css' %}">
+
+    <title>
+        {% block title %}
+        Docsearch
+        {% endblock %}
+    </title>
+</head>
+
+
+<body>
+
+
+<!--banner start here-->
+<div class="banner-two">
+    <div class="header">
+        <div class="container">
+            <div class="header-main">
+                <div class="logo">
+                    <h1><a href="/docsearch/main">Docsearch</a></h1>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> <img src="{% static 'docsearch/images/icon.png' %}" alt=""/></span>
+                    <nav class="cl-effect-1">
+                        <ul class="res">
+                            <li class="active"><a href="/docsearch/search/">Home</a></li>
+                            <li><a href="/docsearch/author/list/">Authors</a></li>
+                            <li><a href="/docsearch/document/list/">Documents</a></li>
+                            <li><a href="/docsearch/topics/">Topics</a></li>
+
+                            <li><a href="/docsearch/about/">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <!-- script-for-menu -->
+                    <script>
+						   $( "span.menu" ).click(function() {
+							 $( "ul.res" ).slideToggle( 300, function() {
+							 // Animation complete.
+							  });
+							 });
+                    </script>
+                    <!-- /script-for-menu -->
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--banner end here-->
+
+{% block mathjax %}
+{% endblock %}
+
+
+{% block javascript %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+
+
+</body>
+</html>

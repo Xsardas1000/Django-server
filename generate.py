@@ -131,7 +131,7 @@ def generate_requests(amount):
 def generate_document_comments(amount):
     existing_document_ids = list(map(lambda x: x.id, Document.objects.filter()))
     for i in range(1, amount + 1):
-        document_index = randint(0, len(existing_document_ids))
+        document_index = randint(0, len(existing_document_ids) - 1)
         document_id = existing_document_ids[document_index]
         try:
             document = Document.objects.get(id=document_id)
@@ -144,7 +144,7 @@ def generate_document_comments(amount):
                 comment = Comment(content_object=document, comment_text=comment_text)
                 comment.save()
 
-'''
+
 def generate_documents(amount):
     start = time.time()
 
@@ -172,8 +172,9 @@ def generate_documents(amount):
         citation_index = randint(0, 100)
         published_at = timezone.now()
         archive_url = "http://arxiv.org/abs/" + str(randint(1, 1000))
+        topic_ids = sample(existing_topic_ids, 1)
         document = Document(title=title, description=description, published_at=published_at,
-                            archive_url=archive_url, citation_index=citation_index)
+                            archive_url=archive_url, citation_index=citation_index, topic=topics_dict[topic_ids[0]])
         documents.append(document)
 
     Document.objects.bulk_create(documents)
@@ -184,13 +185,14 @@ def generate_documents(amount):
         num_authors = randint(1, 10)
         num_tags = randint(1, 10)
 
-        topic_ids = sample(existing_topic_ids, 1)
+        #topic_ids = sample(existing_topic_ids, 1)
         author_ids = sample(existing_author_ids, num_authors)
         tag_ids = sample(existing_tag_ids, num_tags)
 
-        document.topic = topics_dict[topic_ids[0]]
+        #document.topic = topics_dict[topic_ids[0]]
         document.authors.add(*author_ids)
         document.tags.add(*tag_ids)
+        document.save()
 
     print("Generated %d documents in %f time" % (amount, time.time() - start))
 '''
@@ -238,7 +240,7 @@ def generate_documents(amount):
 
     print("Generated %d documents in %f time" % (amount, time.time() - start))
 
-
+'''
 sections = ["Physics",
             "Mathematics",
             "Computer Science",
@@ -262,9 +264,9 @@ if __name__ == '__main__':
     #add_topics(section_topics)
     #add_countries()
     #add_authors(load_authors())
-    generate_documents(10000)
+    #generate_documents(20000)
     #generate_searchers(100000)
     #generate_requests(20000)
-    #generate_document_comments(1000)
+    generate_document_comments(10000)
     pass
 

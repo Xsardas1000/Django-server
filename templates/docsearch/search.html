@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search. {{ block.super }}
+{% endblock %}
+
+
+{% block mathjax %}
+{% load static %}
+
+
+<!-- Mathjax -->
+<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+{% endblock %}
+
+
+{% block javascript %}
+
+
+
+<script>
+$(window).scroll(function() {
+
+   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+       $.ajax({
+            type: 'GET',
+            url: '/docsearch/search/',
+            dataType: "json",
+            data: {'value': 10},
+            success: function(data) {
+                //alert(data.value[1][0]);
+
+                var curr = data.count;
+
+                data.value.forEach(function(s) {
+
+                    var title = s[0];
+                    var descr = s[1];
+                    curr += 1;
+                    //alert(curr);
+
+                    var par1 = "#" + curr.toString();
+                    var par2 = curr.toString();
+                    //alert(tmp);
+
+
+
+                    var html = [
+                    '<div class="container-fluid doc-preview">',
+                    '<div class="jumbotron">',
+                    '<h3>' + title + '</h3>',
+                    '<button class="btn btn-primary descr-btn" type="button" data-toggle="collapse" aria-expanded="false" data-target="#' + curr + '" aria-controls="' + curr + '"> Show document detail',
+                    '</button>',
+
+                    '<div class="collapse" id="' + curr + '">',
+                    '<div class="well">',
+                    '<p>' + descr + '</p>',
+                    '</div>',
+                    '</div>',
+
+
+                    '</div>',
+                    '</div>',
+                    ].join("\n");
+
+                    $("body").append(html);
+
+                } );
+            }
+        });
+  }
+});
+
+
+
+
+</script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="container-fluid search-line">
+        <div class="input-group">
+            <input id="text_request" value="{{ text_request }}" type="text" class="form-control" name="text_request"
+                   placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit" name="text_button">Search</button>
+      </span>
+        </div><!-- /input-group -->
+    </div>
+</form>
+
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+
+    <div class="container-fluid file-upload">
+				<span class="file-input btn btn-primary btn-file">
+					Browse <input type="file" accept=".pdf text/plain" name="file_request"
+                                  data-filename-placement="inside"
+                                  data-preview-file-type="text">
+				</span>
+        <button type="submit" class="btn btn-file btn-success" name="file_button">Use file</button>
+        {% if uploaded_file_name %}
+        <strong>File uploaded: </strong> Using file <strong>{{ uploaded_file_name }}</strong> for search
+        {% endif %}
+    </div>
+
+</form>
+
+
+{% for article in articles %}
+
+<div class="container-fluid doc-preview">
+    <div class="jumbotron">
+        <h3>{{ article.0 }}</h3>
+        <button class="btn btn-primary descr-btn" type="button" data-toggle="collapse"
+                data-target="#{{ forloop.counter }}"
+                aria-expanded="false" aria-controls="{{ forloop.counter }}">
+            Show document detail
+        </button>
+        <div class="collapse" id="{{ forloop.counter }}">
+            <div class="well">
+                <p>{{ article.1 }}</p>
+            </div>
+        </div>
+        <!-- <p><a class="btn btn-primary btn-lg" href="{{ article.2 }}" role="button">Learn more</a></p> -->
+    </div>
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detail document. {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 align="center"> Document detail </h1>
+    </div>
+    <div>
+        <h2> {{ document.title }} </h2>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+               {{field.label}} {{field}}
+            </div>
+        {% endfor %}
+        <input type="submit" value="отправить"/>
+    </form>
+
+    {% for comment in comments %}
+        <div>
+            <h3> Comment: </h3>
+            <p> {{ comment.comment_text }} </p>
+        </div>
+    {% endfor %}
+{% endblock %}

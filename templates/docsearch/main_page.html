@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% load static %}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'docsearch/css/bootstrap.min.css' %}" type="text/css"/>
+
+
+    <link href='//fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet'
+          type='text/css'>
+
+    <link href="{% static 'docsearch/css/fileinput.css' %}" media="all" rel="stylesheet" type="text/css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'docsearch/css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+
+    <script src="{% static 'docsearch/js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'docsearch/js/fileinput.js' %}"></script>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+    <script src="{% static 'docsearch/js/bootstrap.file-input.js' %}"></script>
+
+
+    <script src="{% static 'docsearch/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'docsearch/js/move-top.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'docsearch/js/easing.js' %}"></script>
+
+
+    {% block head-depend %}
+    {% endblock %}
+
+
+    <link rel="stylesheet" href="{% static 'docsearch/css/flexslider.css' %}" type="text/css" media="screen"/>
+
+    <script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+    </script>
+
+
+    <script type="text/javascript">
+        $('input[type=file]').bootstrapFileInput();
+        $('.file-inputs').bootstrapFileInput();
+
+
+    </script>
+
+    <title>
+        {% block title %}
+        Docsearch
+        {% endblock %}
+    </title>
+</head>
+
+
+<body>
+
+
+<!--banner start here-->
+<div class="banner">
+    <div class="header">
+        <div class="container">
+            <div class="header-main">
+                <div class="logo">
+                    <h1><a href="/docsearch/main">Docsearch</a></h1>
+                </div>
+                <div class="top-nav">
+                    <span class="menu"> <img src="{% static 'docsearch/images/icon.png' %}" alt=""/></span>
+                    <nav class="cl-effect-1">
+                        <ul class="res">
+                            <li class="active"><a href="/docsearch/search/">Home</a></li>
+                            <li><a href="/docsearch/author/list/">Authors</a></li>
+                            <li><a href="/docsearch/document/list/">Documents</a></li>
+                            <li><a href="/docsearch/topics/">Topics</a></li>
+
+                            <li><a href="/docsearch/about/">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <!-- script-for-menu -->
+                    <script>
+						   $( "span.menu" ).click(function() {
+							 $( "ul.res" ).slideToggle( 300, function() {
+							 // Animation complete.
+							  });
+							 });
+                    </script>
+                    <!-- /script-for-menu -->
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <section class="slider">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="banner-bottom">
+                            <h2>New exploratory search</h2>
+                            <p>Find any science articles you want.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-bottom">
+                            <h2>Core based on topic modeling</h2>
+                            <p>Choose different algorithms.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-bottom">
+                            <h2>All new articles available</h2>
+                            <p>Automatically follows the news.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </section>
+    </div>
+</div>
+<!--banner end here-->
+
+<!-- FlexSlider -->
+<script defer src="{% static 'docsearch/js/jquery.flexslider.js' %}"></script>
+<script type="text/javascript">
+					$(function(){
+
+					});
+					$(window).load(function(){
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						start: function(slider){
+						  $('body').removeClass('loading');
+						}
+					  });
+					});
+
+</script>
+<!-- FlexSlider -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+{% block content %}
+{% endblock %}
+</body>
+</html>
