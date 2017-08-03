@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Personal. {{ block.super }}
+{% endblock %}
+
+
+{% block head %}
+
+
+{% endblock %}
+
+{% block javascript %}
+
+<script>
+        $(document).ready(function() {
+            //var doc_url = '/docsearch/document/' + {{ document.id }}
+
+            $(".edit").click(function(event) {
+
+                 //alert(event.target.id);
+                 var contest = document.getElementById("hidden-place");
+                 var csrftoken = $('meta[name=_token]').attr('content');
+
+                 var html = [
+                        '<div class="well">',
+                        '<form class="ajaxform" id="form" enctype="multipart/form-data">',
+                        csrftoken,
+                        '<div class="form-group">',
+                        '<textarea id="comment-text" class="comment-textarea"> </textarea>',
+                        '</div>',
+                        '<button type="submit" class="btn btn-primary">Add</button>',
+                        '</form>',
+                        '</div>',
+                 ].join("\n");
+
+                 contest.innerHTML = html;
+
+
+            });
+        });
+
+
+
+
+</script>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="wrap-authors">
+    <div>
+        <div class="page-header">
+            <h1>{{searcher.user}}
+                <small>Personal information about searcher</small>
+            </h1>
+        </div>
+    </div>
+    <div>
+        <a href="#">Number of visits <span class="badge">{{searcher.num_of_visits}}</span></a>
+    </div>
+    <div>
+        <a href="#">Number of search requests <span class="badge">{{searcher.num_of_requests}}</span></a>
+    </div>
+
+    <div class="label-about-me">
+        <span class="label label-default">Comment</span>
+        <button type="button" id="{{comment.id}}" class="btn btn-xs btn-warning edit">Edit</button>
+    </div>
+
+    <div class="well">
+        {{searcher.about_searcher}}
+    </div>
+    <div id="hidden-place"></div>
+
+
+
+</div>
+
+
+{% endblock %}
