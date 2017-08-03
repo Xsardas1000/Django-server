@@ -7,15 +7,15 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/Users/maksim/Desktop/WebDevelopment/project/projectenv"
+setenv VIRTUAL_ENV "/Users/maksim/WebDevelopment/project/projectenv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"
 
 
 
-if ("" != "") then
-    set env_name = ""
+if ("(docsearch)" != "") then
+    set env_name = "(docsearch)"
 else
     set env_name = `basename "$VIRTUAL_ENV"`
 endif

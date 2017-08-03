@@ -7,21 +7,42 @@ Authors. {{ block.super }}
 
 {% block javascript %}
 <script>
-        $(document).ready( function() {
+        $(document).ready(function() {
 
-            $("#id_like").click(function(event) {
-                alert(1);
+            $(".like-button").click(function(event) {
                 $.ajax({
                     type: 'GET',
-                    url: '/docsearch/search/',
+                    url: '/docsearch/author/list/likes',
                     dataType: "json",
-                    data: {'value': 10},
+                    data: {'value': event.target.id},
                     success: function(data) {
-                        alert(1);
-                    });
-                }
+                        //alert(data.value);
+                        var tmp = event.target.id;
+                        $("#"+tmp).html("Like: " + data.value.toString());
+                    }
+                });
+
             });
         });
+</script>
+
+
+<script>
+    $(window).scroll(function() {
+
+   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+       $.ajax({
+            type: 'GET',
+            url: '/docsearch/author/list/',
+            dataType: "json",
+            data: {'value': 111},
+            success: function(data) {
+
+            }
+       });
+   }
+});
 </script>
 
 {% endblock %}
@@ -29,21 +50,23 @@ Authors. {{ block.super }}
 
 {% block content %}
 
-<div class="col-md-8 col-md-offset-2">
-    <div class="page-header">
-        <h1>Authors</h1>
-    </div>
-
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Here you can see the list of authors who participated in the writing of
-                scientific articles.</h3>
+<div class="wrap-authors">
+    <div>
+        <div class="page-header">
+            <h1>Authors
+                <small>Here you can find who participated in writing</small>
+            </h1>
         </div>
     </div>
-</div>
+    <div class="block">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Most popular authors</h3>
+            </div>
+        </div>
+    </div>
 
-<div class="container">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="container-table">
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h3 class="panel-title">Scientists</h3>
@@ -63,8 +86,7 @@ Authors. {{ block.super }}
                 <tr>
                     <th></th>
                     <th>Name</th>
-                    <th>Country</th>
-                    <th>Index</th>
+                    <th>Number of documents</th>
                     <th>Detail</th>
                     <th>Likes</th>
                 </tr>
@@ -75,12 +97,11 @@ Authors. {{ block.super }}
                 <tr>
                     <td>{{ forloop.counter }}</td>
                     <td>{{ author.author_name }}</td>
-                    <td>{{ author.country }}</td>
-                    <td>{{ author.review_index }}</td>
-                    <td><a href="{{ author_url }}"> Learn more</a></td>
+                    <td>{{ author.num_of_docs }}</td>
+                    <td><a href="#"> Learn more</a></td>
                     <td>
-                        <button class="btn btn-primary" type="button">
-                            Likes <span class="badge">4</span>
+                        <button class="btn btn-primary like-button" type="button" id="{{ author.id }}">
+                            Like: {{ author.review_index }}
                         </button>
                     </td>
                 </tr>
@@ -89,6 +110,10 @@ Authors. {{ block.super }}
             </table>
         </div>
     </div>
+</div>
+
+<div>
+
 </div>
 
 {% endblock %}

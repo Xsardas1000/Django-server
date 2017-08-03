@@ -3,17 +3,17 @@
 .grid {
 	width: 100%;
 	max-width: 960px;
-	min-width: 460px;
-	margin: 10px auto;
-	padding: 30px 30px;
+
 	display: -webkit-flex;
 	display: flex;
 	flex-wrap: wrap;
 	box-sizing: border-box;
 }
+
 .grid-itm {
 	background: #fff;
 	min-height: 200px;
+	max-width: calc(33.33% - 20px);
 	font-size: 1rem;
 	color: #000;
 	margin: 10px 10px 10px 10px;
@@ -21,8 +21,8 @@
 
 	display: -webkit-flex;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: left;
+	align-items: left;
 }
 
 .doc-info {

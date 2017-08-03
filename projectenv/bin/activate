@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/maksim/Desktop/WebDevelopment/project/projectenv"
+VIRTUAL_ENV="/Users/maksim/WebDevelopment/project/projectenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -55,8 +55,8 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT-}" ] ; then
     _OLD_VIRTUAL_PS1="$PS1"
-    if [ "x" != x ] ; then
-        PS1="$PS1"
+    if [ "x(docsearch)" != x ] ; then
+        PS1="(docsearch)$PS1"
     else
         PS1="(`basename \"$VIRTUAL_ENV\"`) $PS1"
     fi

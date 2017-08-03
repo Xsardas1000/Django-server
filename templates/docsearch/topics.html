@@ -4,56 +4,43 @@
 Topics. {{ block.super }}
 {% endblock %}
 
+{% load static %}
+{% block head_js %}
+    <script src="{% static 'docsearch/js/topics.js' %}"></script>
+{% endblock %}
 
-{% block head %}
+
+{% block javascript %}
+
+<script>
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+    var sections = "{{sections}}";
+    drawChart(sections);
+</script>
+
 
 
 {% endblock %}
 
+
 {% block content %}
-
-<div>
-    <div class="col-md-8 col-md-offset-2">
+<div class="wrap-authors">
+    <div>
         <div class="page-header">
-            <h1>Topics</h1>
+            <h1>Topics
+                <small>Find documents related to chosen topic</small>
+            </h1>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Here you can find documents related to chosen topic.</h3>
-            </div>
-        </div>
-        <form method="post">
-            {% csrf_token %}
-
-            <select class="selectpicker" data-live-search="true" data-style="btn-info">
-                {% for topic_name in topic_names %}
-                <option>{{ topic_name }}</option>
-                {% endfor %}
-            </select>
-            <input class="btn btn-default" type="submit" value="Submit" name="topic">
-        </form>
-
     </div>
 
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" class="sections-chart"></div>
+    <!--div id="barchart_div" class="sections-chart"></div-->
 
-    <div class="grid">
-        {% for document in documents %}
-        <div class="grid-itm">
-            <ul class="list-group">
-                <li class="list-group-item">{{ document.title }}</li>
-                {% url 'document_detail' document.id as doc_url %}
-                {% if doc_url %}
-                <li class="list-group-item"><a href="{{ doc_url }}">Here you can find the detail of the dicumment</a></li>
-                {% endif %}
-                <li class="list-group-item">Date of publish</li>
-                <li class="list-group-item">Tags</li>
-                <li class="list-group-item">Review index: {{ document.count }}</li>
-            </ul>
-        </div>
-
-        {% endfor %}
-    </div>
 </div>
-
 
 {% endblock %}

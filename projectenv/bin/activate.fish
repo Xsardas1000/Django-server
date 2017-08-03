@@ -36,7 +36,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/maksim/Desktop/WebDevelopment/project/projectenv"
+set -gx VIRTUAL_ENV "/Users/maksim/WebDevelopment/project/projectenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
@@ -61,8 +61,8 @@ if test -z "$VIRTUAL_ENV_DISABLE_PROMPT"
 
         # Prompt override provided?
         # If not, just prepend the environment name.
-        if test -n ""
-            printf '%s%s' "" (set_color normal)
+        if test -n "(docsearch)"
+            printf '%s%s' "(docsearch)" (set_color normal)
         else
             printf '%s(%s) ' (set_color normal) (basename "$VIRTUAL_ENV")
         end

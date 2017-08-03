@@ -36,7 +36,7 @@ $(function(){
     // attach table filter plugin to inputs
 	$('[data-action="filter"]').filterTable();
 
-	$('.container').on('click', '.panel-heading span.filter', function(e){
+	$('.container-table').on('click', '.panel-heading span.filter', function(e){
 		var $this = $(this),
 			$panel = $this.parents('.panel');
 

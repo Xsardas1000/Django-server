@@ -27,3 +27,7 @@ class SearchLineForm(forms.Form):
 
 class SearchFileForm(forms.Form):
     file_request = forms.FileField()
+
+
+class PersonInfoForm(forms.Form):
+    about = forms.CharField(required=False, widget=forms.Textarea(attrs={'rows': 5, 'cols': 100}))

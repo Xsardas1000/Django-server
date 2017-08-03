@@ -1,5 +1,7 @@
 import os
+import re
 import django
+from tqdm import tqdm
 from collections import defaultdict
 os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 django.setup()
@@ -11,6 +13,8 @@ from django.db import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.utils import timezone, dateformat
+from datetime import datetime
 from docsearch.models import Document, Tag, Topic, Section, Request, Searcher, Author, Country, Comment
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -40,22 +44,23 @@ def add_sections(sections):
         except IntegrityError:
             print('Section with name %s is already exist' % name)
 
+
 def add_topics(section_topics):
     for s_name, t_names in section_topics.items():
         try:
             section = Section.objects.get(section_name=s_name)
         except ObjectDoesNotExist:
             print('Section with name %s does not exist' % s_name)
+        else:
+            for t_name in t_names:
+                try:
+                    section.topic_set.create(topic_name=t_name)
+                except IntegrityError:
+                    print('Topic with name %s is already exist' % t_name)
 
-        for t_name in t_names:
-            try:
-                section.topic_set.create(topic_name=t_name)
-            except IntegrityError:
-                print('Topic with name %s is already exist' % t_name)
 
-
-def add_countries():
-    COUNTRIES_PATH = os.path.join(ROOT, 'search_models/countries.txt')
+def add_countries(countries_path):
+    COUNTRIES_PATH = os.path.join(ROOT, countries_path)
     with open(COUNTRIES_PATH, 'r') as file:
         for line in file:
             index = line.find('|')
@@ -67,7 +72,7 @@ def add_countries():
                 print('Country with name %s is already exist' % name)
 
 
-def add_authors(authors):
+def generate_authors(authors):
     start = time.time()
     country_objects_count = Country.objects.count()
     for name in authors:
@@ -81,11 +86,19 @@ def add_authors(authors):
             print("Author with name %s is already exist" % name)
     print("Added authors in %f time" %(time.time() - start))
 
-def load_authors():
-    AUTHORS_PATH = os.path.join(ROOT, 'search_models/authors.pickle')
+
+def load_authors(authors_path):
+    AUTHORS_PATH = os.path.join(ROOT, authors_path)
     with open(AUTHORS_PATH, 'rb') as f:
         authors = pickle.load(f)
-        return authors.keys()
+    return authors.keys()
+
+
+def load_meta(meta_path):
+    META_PATH = os.path.join(ROOT, meta_path)
+    with open(META_PATH, 'rb') as f:
+        meta = pickle.load(f)
+    return meta
 
 
 def generate_searchers(amount):
@@ -145,6 +158,49 @@ def generate_document_comments(amount):
                 comment.save()
 
 
+def add_documents(meta):
+    for archive_id, doc_meta in tqdm(meta.items()):
+        topic_name = doc_meta['topic']
+        title = doc_meta['title']
+        time = doc_meta['date'] + " 00:00:00 " + "+0000"
+        published_at = datetime.strptime(time, '%Y/%m/%d %H:%M:%S %z')
+        author_names = get_doc_authors(doc_meta['authors'][1:-1])
+        description = doc_meta['description']
+        authors = []
+
+        global_topic, local_topic = get_global_and_local_topics(topic_name)
+
+        try:
+            Topic.objects.get(topic_name=global_topic)
+        except ObjectDoesNotExist:
+            print("Topic with the name %s does not exist" % global_topic)
+
+        topic = Topic.objects.get(topic_name=global_topic)
+
+        document = Document(title=title, description=description, published_at=published_at,
+                            archive_id=archive_id, topic=topic)
+        document.save()
+
+        for name in author_names:
+            author, state = Author.objects.get_or_create(author_name=name)
+            authors.append(author.id)
+
+        document.authors.add(*authors)
+
+
+def get_global_and_local_topics(topic):
+    topic_abbr = re.search(r'<(\S*)>', topic.replace('(', '<').replace(')', '>')).group(0)[1:-1]
+    dot_index = topic_abbr.find('.')
+    global_topic = ""
+    local_topic = ""
+    if dot_index >= 0:
+        global_topic = topic_abbr[:dot_index]
+        local_topic = topic_abbr[dot_index + 1:]
+    else:
+        global_topic = topic_abbr
+    return global_topic, local_topic
+
+
 def generate_documents(amount):
     start = time.time()
 
@@ -195,52 +251,7 @@ def generate_documents(amount):
         document.save()
 
     print("Generated %d documents in %f time" % (amount, time.time() - start))
-'''
 
-def generate_documents(amount):
-    start = time.time()
-
-    topics_dict = defaultdict(Topic)
-    for topic in Topic.objects.filter():
-        topics_dict[topic.id] = topic
-
-    authors_dict = defaultdict(Author)
-    for author in Author.objects.filter():
-        authors_dict[author.id] = author
-
-    tags_dict = defaultdict(Tag)
-    for tag in Tag.objects.filter():
-        tags_dict[tag.id] = tag
-
-    existing_author_ids = list(authors_dict.keys())
-    existing_tag_ids = list(tags_dict.keys())
-    existing_topic_ids = list(topics_dict.keys())
-
-    for i in range(1, amount + 1):
-        title = "title" + str(i)
-        description = "description" + str(i)
-        citation_index = randint(0, 100)
-        published_at = timezone.now()
-        archive_url = "http://arxiv.org/abs/" + str(randint(1, 1000))
-        document = Document(title=title, description=description, published_at=published_at,
-                            archive_url=archive_url, citation_index=citation_index)
-        document.save()
-
-        num_authors = randint(1, 10)
-        num_tags = randint(1, 10)
-
-        topic_ids = sample(existing_topic_ids, 1)
-        author_ids = sample(existing_author_ids, num_authors)
-        tag_ids = sample(existing_tag_ids, num_tags)
-
-        document.topic = topics_dict[topic_ids[0]]
-        document.authors.add(*author_ids)
-        document.tags.add(*tag_ids)
-
-
-    print("Generated %d documents in %f time" % (amount, time.time() - start))
-
-'''
 sections = ["Physics",
             "Mathematics",
             "Computer Science",
@@ -258,15 +269,25 @@ section_topics = {"Physics": ["nucl-th", "hep-lat", "nucl-ex", "hep-ph", "quant-
                   "Computer Science": ["cs"]
                   }
 
+
+def get_doc_authors(doc_meta_authors):
+    names = re.sub(r"(')", '!', doc_meta_authors)
+    names = re.sub(r"(,)", '', names)
+    names = re.split(r"!", names)
+    return [x for x in names if len(x) > 1]
+
 if __name__ == '__main__':
-    #add_sections(sections)
+    add_sections(sections)
+    add_topics(section_topics)
+    add_countries('docsearch/models/countries.txt')
+    add_documents(load_meta('docsearch/meta_archive_info/meta.pickle'))
+
+
+    #generate_authors(load_authors('docsearch/models/authors.pickle'))
     #generate_tags(100000)
-    #add_topics(section_topics)
-    #add_countries()
-    #add_authors(load_authors())
     #generate_documents(20000)
     #generate_searchers(100000)
     #generate_requests(20000)
-    generate_document_comments(10000)
+    #generate_document_comments(10000)
     pass
 

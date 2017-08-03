@@ -1,31 +1,147 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Detail document. {{ block.super }}
+Detail document. {{ block.super }}
+{% endblock %}
+
+{% load static %}
+{% block head_js %}
+    <script src="{% static 'docsearch/js/document_detail.js' %}"></script>
+{% endblock %}
+
+{% block javascript %}
+{% csrf_token %}
+
+<script>
+$(document).ready(function() {
+    var doc_url = '/docsearch/document/' + {{ document.id }};
+    make_comment(doc_url);
+
+});
+</script>
+
+<script>
+
+</script>
+
+<script>
+        $(document).ready(function() {
+            var doc_url = '/docsearch/document/' + {{ document.id }}
+
+            $(".edit").click(function(event) {
+
+                 //alert(event.target.id);
+                 //edit_comment.innerHTML =
+
+                 $.ajax({
+                    type: 'GET',
+                    url: doc_url,
+                    dataType: "json",
+                    data: {
+                             'value': event.target.id,
+                             'type': 'check'
+                           },
+                    success: function(data) {
+                        if (data.permission == "Yes") {
+                             //alert(data.permission);
+
+                             var edit_comment = document.getElementById("well"+event.target.id);
+
+                             var csrftoken = $('meta[name=_token]').attr('content');
+
+                             var edit_html  = [
+                                '<form class="ajaxform" id="form' + event.target.id + '" enctype="multipart/form-data">',
+                                csrftoken,
+                                '<div class="form-group">',
+                                '<textarea id="comment-text' + event.target.id + '" class="comment-textarea" onkeyup="textCounter(this, ' + event.target.id + ');"></textarea>',
+                                '</div>',
+                                '<div id="hidden-place' + event.target.id + '"></div>',
+                                '<button type="submit" class="btn btn-primary">Save</button>',
+                                '</form>',
+
+                             ].join("\n");
+                             //alert(edit_html);
+                             edit_comment.innerHTML = edit_html;
+                        }
+                    }
+                });
+            });
+        });
+
+</script>
+
+
+
+
 {% endblock %}
 
 {% block content %}
-    <div>
-        <h1 align="center"> Document detail </h1>
-    </div>
-    <div>
-        <h2> {{ document.title }} </h2>
-    </div>
 
-    <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            <div>
-               {{field.label}} {{field}}
-            </div>
-        {% endfor %}
-        <input type="submit" value="отправить"/>
-    </form>
-
-    {% for comment in comments %}
-        <div>
-            <h3> Comment: </h3>
-            <p> {{ comment.comment_text }} </p>
+<div class="wrap-authors">
+    <div>
+        <div class="page-header">
+            <h1>Document
+                <small>Detail</small>
+            </h1>
         </div>
-    {% endfor %}
+    </div>
+    <div class="document-title">
+        <h2> Title: {{ document.title }} </h2>
+    </div>
+
+    <a class="btn btn-primary descr-btn" role="button" data-toggle="collapse" href="#collapseExample"
+       aria-expanded="false"
+       aria-controls="collapseExample">
+        Show terms from major topics
+    </a>
+    <div class="collapse" id="collapseExample">
+        <div class="well descr-text">
+            Term1 Term2
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <h3> Description for <b>{{ document.archive_id }}</b></h3>
+
+        <div class="well">
+            <p> {{ document.description }} </p>
+        </div>
+
+        <!-- Comments Form -->
+        <div class="well warning-panel">
+            <h3><span class="label label-success">Leave a comment:</span></h3>
+
+            <form class="ajaxform" id="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <textarea id="comment-text" class="comment-textarea"
+                              onkeyup="textCounter(this, '');"></textarea>
+                </div>
+                <div id="hidden-place"></div>
+
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+        <div id="comment-div">
+            {% for comment in comments %}
+            <div class="well">
+                <span class="label label-default">Comment</span>
+                <button type="button" id="{{comment.id}}" class="btn btn-xs btn-warning edit">Edit</button>
+                <p><b>Published at: </b>{{ comment.published_at }} by <b>{{ searcher_name }} </b></p>
+                <p><b>Text:</b></p>
+
+                <div id="well{{comment.id}}">
+                    <div class="well">
+                        {{ comment.comment_text }}
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</div>
+
 {% endblock %}

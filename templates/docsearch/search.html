@@ -4,84 +4,24 @@
 Search. {{ block.super }}
 {% endblock %}
 
-
-{% block mathjax %}
 {% load static %}
 
-
-<!-- Mathjax -->
-<script type="text/x-mathjax-config">
-        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-
+{% block head_js %}
+    <script src="{% static 'docsearch/js/search.js' %}"></script>
 {% endblock %}
 
 
 {% block javascript %}
 
-
-
 <script>
-$(window).scroll(function() {
-
-   if($(window).scrollTop() + $(window).height() == $(document).height()) {
-       $.ajax({
-            type: 'GET',
-            url: '/docsearch/search/',
-            dataType: "json",
-            data: {'value': 10},
-            success: function(data) {
-                //alert(data.value[1][0]);
-
-                var curr = data.count;
-
-                data.value.forEach(function(s) {
-
-                    var title = s[0];
-                    var descr = s[1];
-                    curr += 1;
-                    //alert(curr);
-
-                    var par1 = "#" + curr.toString();
-                    var par2 = curr.toString();
-                    //alert(tmp);
-
-
-
-                    var html = [
-                    '<div class="container-fluid doc-preview">',
-                    '<div class="jumbotron">',
-                    '<h3>' + title + '</h3>',
-                    '<button class="btn btn-primary descr-btn" type="button" data-toggle="collapse" aria-expanded="false" data-target="#' + curr + '" aria-controls="' + curr + '"> Show document detail',
-                    '</button>',
-
-                    '<div class="collapse" id="' + curr + '">',
-                    '<div class="well">',
-                    '<p>' + descr + '</p>',
-                    '</div>',
-                    '</div>',
-
-
-                    '</div>',
-                    '</div>',
-                    ].join("\n");
-
-                    $("body").append(html);
-
-                } );
-            }
-        });
-  }
-});
-
-
-
-
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+            func_scroll({{ request_id }});
+        }
+    });
 </script>
+
+
 
 {% endblock %}
 
@@ -97,13 +37,12 @@ $(window).scroll(function() {
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit" name="text_button">Search</button>
       </span>
-        </div><!-- /input-group -->
+        </div>
     </div>
 </form>
 
 <form enctype="multipart/form-data" method="post">
     {% csrf_token %}
-
     <div class="container-fluid file-upload">
 				<span class="file-input btn btn-primary btn-file">
 					Browse <input type="file" accept=".pdf text/plain" name="file_request"
@@ -120,21 +59,30 @@ $(window).scroll(function() {
 
 
 {% for article in articles %}
-
 <div class="container-fluid doc-preview">
-    <div class="jumbotron">
-        <h3>{{ article.0 }}</h3>
-        <button class="btn btn-primary descr-btn" type="button" data-toggle="collapse"
-                data-target="#{{ forloop.counter }}"
-                aria-expanded="false" aria-controls="{{ forloop.counter }}">
-            Show document detail
-        </button>
-        <div class="collapse" id="{{ forloop.counter }}">
-            <div class="well">
-                <p>{{ article.1 }}</p>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3>{{ article.title }}</h3></div>
+        <div class="panel-body"></div>
+        <div>
+            <button class="btn btn-primary descr-btn" type="button" data-toggle="collapse"
+                    data-target="#{{ forloop.counter }}"
+                    aria-expanded="false" aria-controls="{{ forloop.counter }}">
+                Show document detail
+            </button>
+            <div class="collapse" id="{{ forloop.counter }}">
+                <div class="well descr-text">
+                    <p>{{ article.description }}</p>
+                </div>
             </div>
         </div>
-        <!-- <p><a class="btn btn-primary btn-lg" href="{{ article.2 }}" role="button">Learn more</a></p> -->
+        <ul class="list-group">
+            <li class="list-group-item"><b>Weight: </b> {{ article.weight }}</li>
+            <li class="list-group-item"><b>Archive id: </b> {{ article.archive_id }}</li>
+            <li class="list-group-item"><b>Published_at: </b> {{ article.published_at }}</li>
+            {% url 'document_detail' article.id as doc_url %}
+            <li class="list-group-item"><a href="{{ doc_url }}"><b>Detail</b></a></li>
+        </ul>
     </div>
 </div>
 

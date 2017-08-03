@@ -1,4 +1,4 @@
-#!/Users/maksim/Desktop/WebDevelopment/project/projectenv/bin/python
+#!/Users/maksim/WebDevelopment/project/projectenv/bin/python
 
 import sys
 import getopt

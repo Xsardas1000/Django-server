@@ -20,10 +20,12 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    #url('^', include('django.contrib.auth.urls'), {'template_name': 'docsearch/registration.html'}),
     url(r'^docsearch/', include('docsearch.urls')),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
+
     url(r'^admin/', admin.site.urls),
-    url(r'^registration/', include('registration.urls')),
 ]
 
 if settings.DEBUG:

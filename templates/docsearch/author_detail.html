@@ -4,26 +4,9 @@
 Detail author. {{ block.super }}
 {% endblock %}
 
-
-{% block javascript %}
-<script>
-        $(document).ready(function() {
-
-            $("#id_like").click(function(event) {
-                $.ajax({
-                    type: 'GET',
-                    url: '/docsearch/author_detail/',
-                    dataType: "json",
-                    data: {'value': 10},
-                    success: function(data) {
-                        alert(1);
-                    });
-                }
-            });
-        });
-
-</script>
-
+{% load static %}
+{% block head_js %}
+    <script src="{% static 'docsearch/js/author_detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
